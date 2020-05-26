@@ -25,6 +25,9 @@ class Header extends Component {
       <nav className="trouvaille-nav">
         <Link to='/login'>Login</Link>
         <Link to='/register'>Sign up</Link>
+        <div>        
+          <Link to='/'>Continue without logging in</Link>
+        </div>
       </nav>
     )
   }
