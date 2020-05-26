@@ -5,6 +5,7 @@ import Register from './Components/Register';
 import Header from './Components/Header';
 import Dashboard from './Components/Dashboard';
 import NotFound from './Components/NotFound';
+import PlanTrip from './Components/Nav/PlanTrip';
 
 class App extends React.Component {
   render(){
