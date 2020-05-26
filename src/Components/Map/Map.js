@@ -1,6 +1,7 @@
 /*global google*/
 
 import React from 'react';
+import {Link} from "react-router-dom";
 
 const { compose, withProps, lifecycle } = require("recompose");
 const {
@@ -12,6 +13,10 @@ const {
 
 const MapWithADirectionsRenderer = compose(
   withProps({
+    originLat: 40.689495,
+    originLng: -73.90796,
+    destLat: 34.038125,
+    destLng: -118.473072,
     googleMapURL:
       "https://maps.googleapis.com/maps/api/js?key=AIzaSyACWIZRgcXsFJv3UbH8MQw_-hqqiao2MS8&v=3.exp&libraries=geometry,drawing,places",
     loadingElement: <div style={{ height: `100%` }} />,
@@ -26,8 +31,14 @@ const MapWithADirectionsRenderer = compose(
 
       DirectionsService.route(
         {
-          origin: new google.maps.LatLng(40.689495, -73.90796),
-          destination: new google.maps.LatLng(34.038125, -118.473072),
+          origin: new google.maps.LatLng(
+            this.props.originLat,
+            this.props.originLng
+          ),
+          destination: new google.maps.LatLng(
+            this.props.destLat,
+            this.props.destLng
+          ),
           waypoints: [
             {
               location: "Grand Canyon",
@@ -50,12 +61,17 @@ const MapWithADirectionsRenderer = compose(
     },
   })
 )((props) => (
-  <GoogleMap
-    defaultZoom={7}
-    defaultCenter={new google.maps.LatLng(41.85073, -87.65126)}
-  >
-    {props.directions && <DirectionsRenderer directions={props.directions} />}
-  </GoogleMap>
+<>
+    <GoogleMap
+      defaultZoom={7}
+      defaultCenter={new google.maps.LatLng(41.85073, -87.65126)}
+    >
+      {props.directions && <DirectionsRenderer directions={props.directions} />}
+    </GoogleMap>
+      <a href={`https://www.google.com/maps/dir/?api=1&origin=${props.originLat},${props.originLng}&destination=${props.destLat},${props.destLng}&travelmode=driving&waypoints=Grand+Canyon`} target = {"_blank"}>
+        see on google maps
+  </a>
+  </>
 ));
 
 export default MapWithADirectionsRenderer
