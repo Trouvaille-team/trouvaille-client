@@ -5,7 +5,10 @@ class NotFound extends Component {
     return (
       <section>
         <h2>404 - Page not found</h2>
-        <p>Try going back to your previous page.</p>
+        <p>
+          I know we said that spontaneity and unplanned wandering are the best things in life, 
+          but nothing is here! Maybe you should head back to the previous page and try again.
+        </p>
       </section>
     );
   }
