@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Login from './Components/Login';
-import Register from './Components/Register';
-import Header from './Components/Header';
-import Dashboard from './Components/Dashboard';
-import NotFound from './Components/NotFound';
+import Login from '../Components/Login/Login';
+import Register from '../Components/Register/Register';
+import Header from '../Components/Header/Header';
+import Dashboard from '../Components/Dashboard/Dashboard';
+import NotFound from '../Components/NotFound/NotFound';
 
 class App extends React.Component {
   render(){
