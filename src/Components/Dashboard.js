@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import PlanTrip from '../Nav/PlanTrip/PlanTrip';
+import PlanTrip from './Nav/PlanTrip';
 
 class Dashboard extends React.Component{
   render() {
