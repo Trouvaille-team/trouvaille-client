@@ -5,7 +5,6 @@ import Register from '../Register';
 import Header from '../Header';
 import Dashboard from '../Dashboard';
 import NotFound from '../NotFound';
-//import Menu from '../Menu/Menu';
 //import PlanTrip from '../Nav/PlanTrip';
 
 class App extends React.Component {
@@ -37,12 +36,6 @@ class App extends React.Component {
               path='/'
               component={() => <Dashboard showMenu={this.state.showMenu}/>}>
             </Route>
-
-            {/* <Route 
-              path='/menu'
-              component={() => <Menu showMenu={this.state.showMenu}/>}>
-            </Route> */}
-
             <Route
             component={NotFound}>
             </Route>
