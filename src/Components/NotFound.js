@@ -10,7 +10,7 @@ class NotFound extends Component {
           but nothing is here! Maybe you should head back to the previous page and try again.
         </p>
       </section>
-    )
+    );
   }
 }
 
