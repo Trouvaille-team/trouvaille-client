@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Login from './Components/Login';
-import Register from './Components/Register';
-import Header from './Components/Header';
-import Dashboard from './Components/Dashboard';
-import NotFound from './Components/NotFound';
-import PlanTrip from './Components/Nav/PlanTrip';
+import Login from '../Login';
+import Register from '../Register';
+import Header from '../Header';
+import Dashboard from '../Dashboard';
+import NotFound from '../NotFound';
+import PlanTrip from '../Nav/PlanTrip';
 
 class App extends React.Component {
   render(){
