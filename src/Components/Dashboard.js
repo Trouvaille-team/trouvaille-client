@@ -4,21 +4,12 @@ import Menu from './Menu/Menu'
 //import PlanTrip from './Nav/PlanTrip';
 
 class Dashboard extends React.Component{
-  constructor(props) {
-    super(props);
-      this.state = { showMenu: true };
-      this.toggleMenu = this.toggleMenu.bind(this);
-  }
-
-  toggleMenu = function() {
-    this.setState({ showMenu: !this.state.showMenu })
-  }
 
   render() {
     return (
       <div>
 
-     <Menu showMenu={this.state.showMenu}/>
+     <Menu showMenu={this.props.showMenu}/>
 
 
         {/* <ul id="nav-ul">

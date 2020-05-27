@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 //import PlanTrip from './Nav/PlanTrip';
 
 class Header extends Component {
-
   
   renderLogoutLink() {
     return (

@@ -9,6 +9,15 @@ import NotFound from '../NotFound';
 //import PlanTrip from '../Nav/PlanTrip';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+      this.state = { showMenu: false };
+      this.toggleMenu = this.toggleMenu.bind(this);
+  }
+
+  toggleMenu = function() {
+    this.setState({ showMenu: !this.state.showMenu })
+  }
   
   render(){
     return (
@@ -26,10 +35,9 @@ class App extends React.Component {
             </Route>
             <Route
               path='/'
-              component={Dashboard}>
+              component={() => <Dashboard showMenu={this.state.showMenu}/>}>
             </Route>
 
-{/* ***************************************** */}
             {/* <Route 
               path='/menu'
               component={() => <Menu showMenu={this.state.showMenu}/>}>
