@@ -9,6 +9,10 @@ a {
   color: black;
 }
 
+a:hover {
+  cursor: pointer;
+}
+
 p {
   text-indent: 40px;
   max-width: 75vw;
