@@ -1,17 +1,32 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import PlanTrip from './Nav/PlanTrip';
+import Menu from './Menu/Menu'
+//import {Link} from 'react-router-dom';
+//import PlanTrip from './Nav/PlanTrip';
 
 class Dashboard extends React.Component{
+  constructor(props) {
+    super(props);
+      this.state = { showMenu: true };
+      this.toggleMenu = this.toggleMenu.bind(this);
+  }
+
+  toggleMenu = function() {
+    this.setState({ showMenu: !this.state.showMenu })
+  }
+
   render() {
     return (
       <div>
-        <ul id="nav-ul">
+
+     <Menu showMenu={this.state.showMenu}/>
+
+
+        {/* <ul id="nav-ul">
             <li><Link to="/new-trip" component={PlanTrip}>Plan a new trip</Link></li>
             <li><Link to="">See where I've been</Link></li>
             <li><Link to="">Discover new places</Link></li>
             <li><Link to="">Change my preferences</Link></li>
-        </ul>
+        </ul> */}
 
         <div className='dashboard-container'>
           <h1>Welcome, User</h1>

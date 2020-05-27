@@ -5,14 +5,16 @@ import Register from '../Register';
 import Header from '../Header';
 import Dashboard from '../Dashboard';
 import NotFound from '../NotFound';
-import PlanTrip from '../Nav/PlanTrip';
+//import Menu from '../Menu/Menu';
+//import PlanTrip from '../Nav/PlanTrip';
 
 class App extends React.Component {
+  
   render(){
     return (
       <main className='App'>
         <Router>
-          <Header />
+          <Header toggleMenu={this.toggleMenu}/> 
           <Switch>
             <Route
               path={'/register'}
@@ -26,6 +28,13 @@ class App extends React.Component {
               path='/'
               component={Dashboard}>
             </Route>
+
+{/* ***************************************** */}
+            {/* <Route 
+              path='/menu'
+              component={() => <Menu showMenu={this.state.showMenu}/>}>
+            </Route> */}
+
             <Route
             component={NotFound}>
             </Route>

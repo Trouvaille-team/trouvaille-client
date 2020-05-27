@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import PlanTrip from './Nav/PlanTrip';
+//import PlanTrip from './Nav/PlanTrip';
 
 class Header extends Component {
 
@@ -36,6 +36,7 @@ class Header extends Component {
   render() {
     return (
       <header>
+        <button onClick={this.props.toggleMenu}>Toggle Menu</button>
         <h1 className="trouvaille-header">
           <Link to='/'>
             Trouvaille
