@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PlanTrip from './Nav/PlanTrip';
 
 class Header extends Component {
 
-
+  
   renderLogoutLink() {
     return (
       <div className="dashboard-logout">
@@ -40,6 +41,9 @@ class Header extends Component {
             Trouvaille
           </Link>
         </h1>
+        <Link to='/new-trip'>
+          <button>Plan a new Trip</button>
+        </Link>
         {this.renderLoginLink()}
       </header>
     );
