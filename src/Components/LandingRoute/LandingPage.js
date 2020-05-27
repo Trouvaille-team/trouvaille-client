@@ -32,7 +32,7 @@ class LandingPage extends Component {
         We hope you enjoy your road trip!
       </span>
       
-      <Link to='/register'>Let's Get Started!</Link>
+      <Link to='/interests'>Let's Get Started!</Link>
       </div>
       </>
     )
