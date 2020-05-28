@@ -3,7 +3,7 @@ import Menu from './Menu/Menu'
 import ContextProvider from '../Context'
 //import {Link} from 'react-router-dom';
 //import PlanTrip from './Nav/PlanTrip';
-class Dashboard extends React.Component{
+class Dashboard extends React.Component {
   static contextType = ContextProvider
 
   render() {
@@ -17,7 +17,7 @@ class Dashboard extends React.Component{
             <li><Link to="">Discover new places</Link></li>
             <li><Link to="">Change my preferences</Link></li>
         </ul> */}
-        
+
         <div className='dashboard-container'>
           <h1>Welcome, User</h1>
           <h2>Nearby Locations</h2>

@@ -21,47 +21,51 @@ class App extends React.Component {
   // toggleMenu = function() {
   //   this.setState({ showMenu: !this.state.showMenu })
   // }
-  
-  render(){
+
+  render() {
     return (
       <ContextProvider>
         <main className='App'>
 
-        <Router>
-          <Header /> 
-          <Switch>
-            <Route exact path={'/'} component={LandingPage} />
-            <Route
-              path={'/register'}
-              component={Register}>
-            </Route>
-            <Route
-              path={'/login'}
-              component={Login}>
-            </Route>
-            <Route
-              path={'/dashboard'}
-              component={() => <Dashboard />}>
-            </Route>
-            <Route 
-              path={'/new-trip'} 
-              component={PlanTrip}>
-            </Route>
-            <Route 
-              path={'/map'} 
-              component={MapContainer}>
-            </Route>
-            <Route 
-              path={'/interests'} 
-              component={Interests}>
-            </Route>
-            <Route
-              component={NotFound}>
-            </Route>
-        </Switch>
-        </Router>
-      </main>
-    </ContextProvider>      
+          <Router>
+            <Header />
+            <Switch>
+              <Route exact path={'/'} component={LandingPage} />
+              <Route
+                path={'/register'}
+                component={Register}>
+              </Route>
+              <Route
+                path={'/login'}
+                component={Login}>
+              </Route>
+              <Route
+                path={'/dashboard'}
+                component={() => <Dashboard />}>
+              </Route>
+              <Route
+                path={'/new-trip'}
+                component={PlanTrip}>
+              </Route>
+              <Route
+                path={'/map'}
+                component={MapContainer}>
+              </Route>
+              <Route
+                path={"/waypoints"}
+                conponent={WaypointsSelect}>
+              </Route>
+              <Route
+                path={'/interests'}
+                component={Interests}>
+              </Route>
+              <Route
+                component={NotFound}>
+              </Route>
+            </Switch>
+          </Router>
+        </main>
+      </ContextProvider>
     );
   }
 }
