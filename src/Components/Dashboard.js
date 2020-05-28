@@ -3,7 +3,6 @@ import Menu from './Menu/Menu'
 import ContextProvider from '../Context'
 //import {Link} from 'react-router-dom';
 //import PlanTrip from './Nav/PlanTrip';
-
 class Dashboard extends React.Component{
   static contextType = ContextProvider
 
