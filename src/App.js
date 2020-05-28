@@ -6,9 +6,10 @@ import Header from './Components/Header';
 import Dashboard from './Components/Dashboard';
 import NotFound from './Components/NotFound';
 import PlanTrip from './Components/Nav/PlanTrip';
+import WaypointsSelect from './Components/waypointsSelect/WaypointsSelect';
 
 class App extends React.Component {
-  render(){
+  render() {
     return (
       <main className='App'>
         <Router>
@@ -19,6 +20,9 @@ class App extends React.Component {
               component={Register}>
             </Route>
             <Route
+              path={"/waypoints"}
+              conponent={WaypointsSelect}></Route>
+            <Route
               path={'/login'}
               component={Login}>
             </Route>
@@ -27,9 +31,9 @@ class App extends React.Component {
               component={Dashboard}>
             </Route>
             <Route
-            component={NotFound}>
+              component={NotFound}>
             </Route>
-        </Switch>
+          </Switch>
         </Router>
       </main>
     );
