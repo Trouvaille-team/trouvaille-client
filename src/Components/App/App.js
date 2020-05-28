@@ -5,7 +5,7 @@ import Register from '../Register';
 import Header from '../Header';
 import Dashboard from '../Dashboard';
 import NotFound from '../NotFound';
-//import PlanTrip from '../Nav/PlanTrip';
+import PlanTrip from '../Nav/PlanTrip';
 import LandingPage from '../LandingRoute/LandingPage'
 import MapContainer from '../MapContainer/MapContainer'
 import Interests from '../../Interests/Interests'
@@ -38,23 +38,23 @@ class App extends React.Component {
               component={Login}>
             </Route>
             <Route
-              path='/'
+              path={'/dashboard'}
               component={() => <Dashboard showMenu={this.state.showMenu}/>}>
             </Route>
             <Route 
-            path={'/new-trip'} 
-            component={PlanTrip}>
+              path={'/new-trip'} 
+              component={PlanTrip}>
             </Route>
             <Route 
-            path={'/map'} 
-            component={MapContainer}>
+              path={'/map'} 
+              component={MapContainer}>
             </Route>
             <Route 
-            path={'/interests'} 
-            component={Interests}>
+              path={'/interests'} 
+              component={Interests}>
             </Route>
             <Route
-            component={NotFound}>
+              component={NotFound}>
             </Route>
         </Switch>
         </Router>
