@@ -1,21 +1,25 @@
 import React from 'react';
 import Menu from '../Menu/Menu'
 
+import './PlanTrip.css'
+
 class PlanTrip extends React.Component{
+
   handleSubmit = e => {
     e.preventDefault();
     console.log('form submitted')
     //api post request in here...
     //to what endpoint?
+    this.props.history.push('/map');
   }
 
   render() {
     return (
       <>
         <Menu />
-        <form onSubmit={ e => this.handleSubmit(e)}>
+        <form className='plan-trip' onSubmit={ e => this.handleSubmit(e)}>
           <label htmlFor='destination'>Where are you going?</label>
-          <input type='text' placeholder='city, state, or zip' required/>
+          <input id='destination' type='text' placeholder='city, state, or zip' required/>
 
           <label htmlFor='num-detours'>How many detours will you make en route?</label>
           <input type='number' id='num-detours' min='1' max='25?'/>

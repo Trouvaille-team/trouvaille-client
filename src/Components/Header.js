@@ -28,7 +28,7 @@ class Header extends Component {
         <Link to='/login'>Login</Link>
         <Link to='/register'>Sign up</Link>
         <div>        
-          <Link to='/'>Continue without logging in</Link>
+          <Link to='/interests'>Continue without logging in</Link>
         </div>
       </nav>
     )
