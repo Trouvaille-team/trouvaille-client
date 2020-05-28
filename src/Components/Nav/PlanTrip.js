@@ -19,7 +19,7 @@ class PlanTrip extends React.Component{
     //Did it work????
     console.log('form submitted')
     //Need to submit twice to see values in console
-    //But looks like they're set after first submit!!
+    //But looks like they're set after first submit!! -- see Components tab in devTools
     console.log(this.context.userTrip) 
   }                                   
 
