@@ -1,14 +1,15 @@
 import React from 'react';
 import Menu from './Menu/Menu'
+import ContextProvider from '../Context'
 //import {Link} from 'react-router-dom';
 //import PlanTrip from './Nav/PlanTrip';
-
 class Dashboard extends React.Component{
+  static contextType = ContextProvider
 
   render() {
     return (
       <div>
-        <Menu showMenu={this.props.showMenu}/>
+        <Menu />
 
         {/* <ul id="nav-ul">
             <li><Link to="/new-trip" component={PlanTrip}>Plan a new trip</Link></li>
