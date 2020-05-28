@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import ContextProvider from '../../Context'
 import './Menu.css'
 
@@ -11,9 +12,9 @@ export default class Menu extends Component {
           {this.context.showMenu && 
         <nav id='menu'>
           <ul className='menu-links'>
-            <li>See where I've been</li>
-            <li>Change Preferences</li>
-            <li>Discover New Places</li>           
+            <li><Link to="">See where I've been</Link></li>
+            <li><Link to="">Discover new places</Link></li>
+            <li><Link to="">Change my preferences</Link></li>           
           </ul>
         </nav>  
           }      
