@@ -6,6 +6,9 @@ import Header from '../Header';
 import Dashboard from '../Dashboard';
 import NotFound from '../NotFound';
 //import PlanTrip from '../Nav/PlanTrip';
+import LandingPage from '../LandingRoute/LandingPage'
+import MapContainer from '../MapContainer/MapContainer'
+import Interests from '../../Interests/Interests'
 
 class App extends React.Component {
   constructor(props) {
@@ -21,9 +24,11 @@ class App extends React.Component {
   render(){
     return (
       <main className='App'>
+
         <Router>
           <Header toggleMenu={this.toggleMenu}/> 
           <Switch>
+            <Route exact path={'/'} component={LandingPage} />
             <Route
               path={'/register'}
               component={Register}>
@@ -35,6 +40,18 @@ class App extends React.Component {
             <Route
               path='/'
               component={() => <Dashboard showMenu={this.state.showMenu}/>}>
+            </Route>
+            <Route 
+            path={'/new-trip'} 
+            component={PlanTrip}>
+            </Route>
+            <Route 
+            path={'/map'} 
+            component={MapContainer}>
+            </Route>
+            <Route 
+            path={'/interests'} 
+            component={Interests}>
             </Route>
             <Route
             component={NotFound}>

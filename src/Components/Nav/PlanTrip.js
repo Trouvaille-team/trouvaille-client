@@ -5,21 +5,10 @@ class PlanTrip extends React.Component{
     return (
       <form>
         <label for='destination'>Where are you going?</label>
-        <input type='text' placeholder='city, state, or zip' required></input>
+        <input type='text' placeholder='city, state, or zip' required/>
 
         <label for='num-detours'>How many detours will you make en route?</label>
-        <select name='stops' id='stops'>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6</option>
-          <option>7</option>
-          <option>8</option>
-          <option>9</option>
-          <option>10</option>
-        </select>
+        <input type='number' id='num-detours' min='1' max='25?'/>
 
         <label for='radius'>Choose your max detour radius</label>
         <select name='radius' id='radius'>
@@ -29,12 +18,9 @@ class PlanTrip extends React.Component{
           <option>45</option>
         </select>
 
-        <label>Choose your max trip time </label>
-        <select>
-          <option>1-5 hrs</option>
-          <option>5-10</option>
-          <option>10+</option> 
-        </select>
+        {/* assuming max time includes entire trip start to finish */}
+        <label for='time'>Choose your max trip time(hrs)</label> 
+        <input type='number' id='time' min='1' max='100'/>  
         
       </form>
     )

@@ -21,14 +21,24 @@ export default class Interests extends Component {
                         <input id="hiking" type="checkbox" ></input>
                         <label htmlFor="beaches">Beaches</label>
                         <input id="beaches" type="checkbox"></input>
-                        <label htmlFor="camping">Camping</label>
-                        <input id="camping" type="checkbox"></input>
+                        <label htmlFor="breweries">Breweries/Wineries</label>
+                        <input id="breweries" type="checkbox"></input>
                         <label htmlFor="museums">Museums</label>
                         <input id="museums" type="checkbox"></input>
                         <label htmlFor="novelty">Novelty</label>
                         <input id="novelty" type="checkbox"></input>
-                        <label htmlFor="historic">Historic</label>
-                        <input id="historic" type="checkbox"></input>
+                        <label htmlFor="military">Military/Memorials/Battlefields</label>
+                        <input id="military" type="checkbox"></input>
+                        <label htmlFor="monuments">Monuments/Landmarks</label>
+                        <input id="monuments" type="checkbox"></input>
+                        <label htmlFor="parks">Parks</label>
+                        <input id="parks" type="checkbox"></input>
+                        <label htmlFor="zoos">Zoos</label>
+                        <input id="zoo" type="checkbox"></input>
+                        <label htmlFor="amusement">Amusement Parks</label>
+                        <input id="amusement" type="checkbox"></input>                        
+                        <label htmlFor="haunted">Haunted</label>
+                        <input id="haunted" type="checkbox"></input>
                     </form>
                 </div>
             </div>
