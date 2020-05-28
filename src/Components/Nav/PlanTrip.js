@@ -1,11 +1,25 @@
 import React from 'react';
 
+import './PlanTrip.css'
+
 class PlanTrip extends React.Component{
+  
+  onFormSubmit(e){
+    // prevent page reload
+    e.preventDefault()
+    
+    // We are going to need a fetch() here that sends the info to our api.
+    
+
+    // send the user to the /map route
+    this.props.history.push('/map');
+  }
+
   render() {
     return (
-      <form>
-        <label for='destination'>Where are you going?</label>
-        <input type='text' placeholder='city, state, or zip' required/>
+      <form className='plan-trip' onSubmit={e => this.onFormSubmit(e)}>
+        <label htmlFor='destination'>Where are you going?</label>
+        <input id='destination' type='text' placeholder='city, state, or zip' required/>
 
         <label for='num-detours'>How many detours will you make en route?</label>
         <input type='number' id='num-detours' min='1' max='25?'/>
@@ -22,6 +36,7 @@ class PlanTrip extends React.Component{
         <label for='time'>Choose your max trip time(hrs)</label> 
         <input type='number' id='time' min='1' max='100'/>  
         
+        <button>Start your trip!</button>
       </form>
     )
   }
