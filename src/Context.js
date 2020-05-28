@@ -18,7 +18,7 @@ export class ContextProvider extends Component {
 
   render() {
     const value = {
-      showMenu: this.showMenu,
+      showMenu: this.state.showMenu,
       toggleMenu: this.toggleMenu
     }
     return (

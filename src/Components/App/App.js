@@ -9,24 +9,26 @@ import PlanTrip from '../Nav/PlanTrip';
 import LandingPage from '../LandingRoute/LandingPage'
 import MapContainer from '../MapContainer/MapContainer'
 import Interests from '../../Interests/Interests'
+import { ContextProvider } from '../../Context';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-      this.state = { showMenu: false };
-      this.toggleMenu = this.toggleMenu.bind(this);
-  }
+  // constructor(props) {
+  //   super(props);
+  //     this.state = { showMenu: false };
+  //     this.toggleMenu = this.toggleMenu.bind(this);
+  // }
 
-  toggleMenu = function() {
-    this.setState({ showMenu: !this.state.showMenu })
-  }
+  // toggleMenu = function() {
+  //   this.setState({ showMenu: !this.state.showMenu })
+  // }
   
   render(){
     return (
-      <main className='App'>
+      <ContextProvider>
+        <main className='App'>
 
         <Router>
-          <Header toggleMenu={this.toggleMenu}/> 
+          <Header /> 
           <Switch>
             <Route exact path={'/'} component={LandingPage} />
             <Route
@@ -39,7 +41,7 @@ class App extends React.Component {
             </Route>
             <Route
               path={'/dashboard'}
-              component={() => <Dashboard showMenu={this.state.showMenu}/>}>
+              component={() => <Dashboard />}>
             </Route>
             <Route 
               path={'/new-trip'} 
@@ -59,6 +61,7 @@ class App extends React.Component {
         </Switch>
         </Router>
       </main>
+    </ContextProvider>      
     );
   }
 }
