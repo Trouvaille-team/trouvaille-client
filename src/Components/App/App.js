@@ -6,9 +6,10 @@ import Header from '../Header';
 import Dashboard from '../Dashboard';
 import NotFound from '../NotFound';
 import PlanTrip from '../Nav/PlanTrip';
-import LandingPage from '../LandingRoute/LandingPage'
-import MapContainer from '../MapContainer/MapContainer'
-import Interests from '../../Interests/Interests'
+import LandingPage from '../LandingRoute/LandingPage';
+import MapContainer from '../MapContainer/MapContainer';
+import Interests from '../../Interests/Interests';
+import NewPlaces from '../Nav/NewPlaces';
 import { ContextProvider } from '../../Context';
 
 class App extends React.Component {
@@ -54,6 +55,10 @@ class App extends React.Component {
             <Route 
               path={'/interests'} 
               component={Interests}>
+            </Route>
+            <Route
+              path={'/discover'}
+              component={NewPlaces}>
             </Route>
             <Route
               component={NotFound}>

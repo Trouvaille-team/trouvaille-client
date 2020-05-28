@@ -13,7 +13,7 @@ export default class Menu extends Component {
         <nav id='menu'>
           <ul className='menu-links'>
             <li><Link to="">See where I've been</Link></li>
-            <li><Link to="">Discover new places</Link></li>
+            <li><Link to="/discover">Discover new places</Link></li>
             <li><Link to="">Change my preferences</Link></li>           
           </ul>
         </nav>  
