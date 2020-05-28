@@ -9,7 +9,7 @@ import PlanTrip from '../Nav/PlanTrip';
 import LandingPage from '../LandingRoute/LandingPage'
 import MapContainer from '../MapContainer/MapContainer'
 import Interests from '../../Interests/Interests'
-import WaypointsSelect from "../waypointsSelect/WaypointsSelect";
+import WaypointsSelect from '../waypointsSelect/';
 
 class App extends React.Component {
   constructor(props) {
@@ -52,7 +52,8 @@ class App extends React.Component {
             </Route>
             <Route
               path={"/waypoints"}
-              conponent={WaypointsSelect}></Route>
+              conponent={WaypointsSelect}>
+            </Route>
             <Route
               path={'/interests'}
               component={Interests}>

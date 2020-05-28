@@ -3,12 +3,12 @@ import Menu from './Menu/Menu'
 //import {Link} from 'react-router-dom';
 //import PlanTrip from './Nav/PlanTrip';
 
-class Dashboard extends React.Component{
+class Dashboard extends React.Component {
 
   render() {
     return (
       <div>
-        <Menu showMenu={this.props.showMenu}/>
+        <Menu showMenu={this.props.showMenu} />
 
         {/* <ul id="nav-ul">
             <li><Link to="/new-trip" component={PlanTrip}>Plan a new trip</Link></li>
@@ -16,7 +16,7 @@ class Dashboard extends React.Component{
             <li><Link to="">Discover new places</Link></li>
             <li><Link to="">Change my preferences</Link></li>
         </ul> */}
-        
+
         <div className='dashboard-container'>
           <h1>Welcome, User</h1>
           <h2>Nearby Locations</h2>

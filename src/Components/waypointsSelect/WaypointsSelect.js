@@ -1,35 +1,42 @@
 import React from 'react';
 
-class WaypointSelect extends React.Component {
+export default class WaypointSelect extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    }
-
-    componentDidMount() {
-      fetch("http://localhost:8000/api/waypoints/", {
-        method: "POST",
-        body: JSON.stringify({
-          "origin": "Houston",
-          "dest": "Austin"
-        }),
-        headers: {
-          "Content-Length": 61,
-          "Content-Type": "application/json; charset=utf-8"
-        },
-        credentials: "same-origin"
-      }).then(function (response) {
-        response.status
-        response.statusText
-        response.headers
-        response.url
-
-        this.setState(response.text)
-      }).catch(function (error) {
-        error.message
-      })
-    }
   }
 
+  state = {
+    data: []
+  }
+  componentDidMount() {
+    fetch("http://localhost:8000/api/waypoints/", {
+      method: "POST",
+      body: JSON.stringify({
+        "origin": "Milwaukee",
+        "dest": "Madison"
+      }),
+      headers: {
+        "Content-Length": 61,
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      credentials: "same-origin"
+    }).then((res) => {
+      return res.json()
+    }).then((data) => {
+      this.setState({ data })
+    }).catch(function (error) {
+      return error.message
+    })
+  }
+  render() {
+    console.log(this.state)
+    return (
+      <>
+        <ul>{this.state.data.map((place) => {
+          return <li>{place.name}</li>
+        })}</ul>
+      </>
+    )
+  }
 }
+
