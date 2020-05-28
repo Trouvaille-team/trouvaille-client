@@ -24,9 +24,26 @@ class Dashboard extends React.Component{
       let longitude = position.coords.longitude;
       myVar.setState({lat: latitude, lng: longitude})
     })
+    fetch("http://localhost:8000/api/waypoints/nearby", {
+      method: "POST",
+      body: JSON.stringify({
+        "lat": "this.state.lat",
+        "lng": "this.state.lng"
+      }),
+      headers: {
+        "Content-Length": 61,
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      credentials: "same-origin"
+    }).then((res) => {
+      return res.json()
+    }).then((data) => {
+      this.setState({ data })
+    }).catch(function (error) {
+      return error.message
+    })
   }
 
-  // ^^^^ refactor to use async await ???
 
   // getUserLocation = () => {
     
