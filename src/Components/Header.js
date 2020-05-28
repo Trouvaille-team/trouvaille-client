@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import ContextProvider from '../Context'
 //import PlanTrip from './Nav/PlanTrip';
 
 class Header extends Component {
+  static contextType = ContextProvider
   
   renderLogoutLink() {
     return (
@@ -26,7 +28,7 @@ class Header extends Component {
         <Link to='/login'>Login</Link>
         <Link to='/register'>Sign up</Link>
         <div>        
-          <Link to='/'>Continue without logging in</Link>
+          <Link to='/interests'>Continue without logging in</Link>
         </div>
       </nav>
     )
@@ -35,7 +37,7 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <button onClick={this.props.toggleMenu}>Toggle Menu</button>
+        <button onClick={this.context.toggleMenu}>Toggle Menu</button>
         <h1 className="trouvaille-header">
           <Link to='/'>
             Trouvaille
