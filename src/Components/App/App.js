@@ -10,14 +10,23 @@ import LandingPage from '../LandingRoute/LandingPage'
 import MapContainer from '../MapContainer/MapContainer'
 import Interests from '../../Interests/Interests'
 
-
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+      this.state = { showMenu: false };
+      this.toggleMenu = this.toggleMenu.bind(this);
+  }
+
+  toggleMenu = function() {
+    this.setState({ showMenu: !this.state.showMenu })
+  }
+  
   render(){
     return (
       <main className='App'>
 
         <Router>
-          <Header />
+          <Header toggleMenu={this.toggleMenu}/> 
           <Switch>
             <Route exact path={'/'} component={LandingPage} />
             <Route
@@ -30,22 +39,22 @@ class App extends React.Component {
             </Route>
             <Route
               path={'/dashboard'}
-              component={Dashboard}>
+              component={() => <Dashboard showMenu={this.state.showMenu}/>}>
             </Route>
             <Route 
-            path={'/new-trip'} 
-            component={PlanTrip}>
+              path={'/new-trip'} 
+              component={PlanTrip}>
             </Route>
             <Route 
-            path={'/map'} 
-            component={MapContainer}>
+              path={'/map'} 
+              component={MapContainer}>
             </Route>
             <Route 
-            path={'/interests'} 
-            component={Interests}>
+              path={'/interests'} 
+              component={Interests}>
             </Route>
             <Route
-            component={NotFound}>
+              component={NotFound}>
             </Route>
         </Switch>
         </Router>
