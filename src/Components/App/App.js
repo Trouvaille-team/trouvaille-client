@@ -31,6 +31,10 @@ class App extends React.Component {
           <Router>
             <Header />
             <Switch>
+              <Route
+                path={"/waypoints"}
+                component={WaypointsSelect}>
+              </Route>
               <Route exact path={'/'} component={LandingPage} />
               <Route
                 path={'/register'}
@@ -52,10 +56,7 @@ class App extends React.Component {
                 path={'/map'}
                 component={MapContainer}>
               </Route>
-              <Route
-                path={"/waypoints"}
-                conponent={WaypointsSelect}>
-              </Route>
+
               <Route
                 path={'/interests'}
                 component={Interests}>
