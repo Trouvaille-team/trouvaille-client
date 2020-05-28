@@ -9,19 +9,16 @@ import PlanTrip from '../Nav/PlanTrip';
 import LandingPage from '../LandingRoute/LandingPage';
 import MapContainer from '../MapContainer/MapContainer';
 import Interests from '../../Interests/Interests';
-import NewPlaces from '../Nav/NewPlaces';
 import { ContextProvider } from '../../Context';
 
 class App extends React.Component {
   // constructor(props) {
   //   super(props);
-  //     this.state = { showMenu: false };
-  //     this.toggleMenu = this.toggleMenu.bind(this);
+
   // }
 
-  // toggleMenu = function() {
-  //   this.setState({ showMenu: !this.state.showMenu })
-  // }
+  
+
   
   render(){
     return (
@@ -55,10 +52,6 @@ class App extends React.Component {
             <Route 
               path={'/interests'} 
               component={Interests}>
-            </Route>
-            <Route
-              path={'/discover'}
-              component={NewPlaces}>
             </Route>
             <Route
               component={NotFound}>
