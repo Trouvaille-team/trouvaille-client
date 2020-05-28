@@ -1,13 +1,27 @@
 import React from 'react';
-import Menu from '../Menu/Menu'
+import Menu from '../Menu/Menu';
+import ContextProvider from '../../Context'
 
 class PlanTrip extends React.Component{
+  static contextType = ContextProvider 
+
   handleSubmit = e => {
     e.preventDefault();
+    //Get all input values from the form!
+    const destination = e.target.destination.value
+    const detours = e.target.detours.value
+    const radius = e.target.radius.value
+    const time = e.target.time.value
+
+    //Set the state witin context (userTrip obj)
+    this.context.setTrip(destination, detours, radius, time)
+
+    //Did it work????
     console.log('form submitted')
-    //api post request in here...
-    //to what endpoint?
-  }
+    //Need to submit twice to see values in console
+    //But looks like they're set after first submit!!
+    console.log(this.context.userTrip) 
+  }                                   
 
   render() {
     return (
@@ -15,10 +29,10 @@ class PlanTrip extends React.Component{
         <Menu />
         <form onSubmit={ e => this.handleSubmit(e)}>
           <label htmlFor='destination'>Where are you going?</label>
-          <input type='text' placeholder='city, state, or zip' required/>
+          <input type='text' id='destination' placeholder='city, state, or zip' required/>
 
-          <label htmlFor='num-detours'>How many detours will you make en route?</label>
-          <input type='number' id='num-detours' min='1' max='25?'/>
+          <label htmlFor='detours'>How many detours will you make en route?</label>
+          <input type='number' id='detours' min='1' max='25?'/>
 
           <label htmlFor='radius'>Choose your max detour radius</label>
           <select name='radius' id='radius'>
