@@ -11,19 +11,22 @@ class Dashboard extends React.Component{
   constructor(props){
     super(props)
       this.state = {
-        latitude: 0,
-        longitude: 0
+        lat: 0,
+        lng: 0
     };
   }
 
 
   componentDidMount(){
+    let myVar = this;
     navigator.geolocation.getCurrentPosition(function(position){
       let latitude = position.coords.latitude;
       let longitude = position.coords.longitude;
-      console.log(latitude,longitude)
-    });
+      myVar.setState({lat: latitude, lng: longitude})
+    })
   }
+
+  // ^^^^ refactor to use async await ???
 
   // getUserLocation = () => {
     
