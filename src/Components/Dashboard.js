@@ -17,7 +17,8 @@ class Dashboard extends React.Component {
     };
   }
 
-
+  static contextType = ContextProvider
+  
   componentDidMount() {
     let myVar = this;
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -53,10 +54,8 @@ class Dashboard extends React.Component {
 
 
   // getUserLocation = () => {
-
   // }
-
-  static contextType = ContextProvider
+  
 
 
 

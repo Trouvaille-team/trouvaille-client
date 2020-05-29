@@ -39,6 +39,12 @@ export default class Interests extends Component {
                         <input id="amusement" type="checkbox"></input>                        
                         <label htmlFor="haunted">Haunted</label>
                         <input id="haunted" type="checkbox"></input>
+                        <div>
+                            <button 
+                            type='submit'
+                            onClick={() => this.props.history.push('/dashboard')}
+                            >Submit</button>
+                        </div>
                     </form>
                 </div>
             </div>
