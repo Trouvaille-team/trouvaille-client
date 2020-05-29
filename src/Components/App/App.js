@@ -6,24 +6,20 @@ import Header from '../Header';
 import Dashboard from '../Dashboard';
 import NotFound from '../NotFound';
 import PlanTrip from '../Nav/PlanTrip';
-import LandingPage from '../LandingRoute/LandingPage'
-import MapContainer from '../MapContainer/MapContainer'
-import Interests from '../../Interests/Interests'
+import LandingPage from '../LandingRoute/LandingPage';
+import MapContainer from '../MapContainer/MapContainer';
+import Interests from '../../Interests/Interests';
 import { ContextProvider } from '../../Context';
 import WaypointsSelect from '../waypointsSelect/WaypointsSelect'
 
 class App extends React.Component {
   // constructor(props) {
   //   super(props);
-  //     this.state = { showMenu: false };
-  //     this.toggleMenu = this.toggleMenu.bind(this);
-  // }
 
-  // toggleMenu = function() {
-  //   this.setState({ showMenu: !this.state.showMenu })
   // }
 
   render() {
+
     return (
       <ContextProvider>
         <main className='App'>
@@ -56,7 +52,6 @@ class App extends React.Component {
                 path={'/map'}
                 component={MapContainer}>
               </Route>
-
               <Route
                 path={'/interests'}
                 component={Interests}>
