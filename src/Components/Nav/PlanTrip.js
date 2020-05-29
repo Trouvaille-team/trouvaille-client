@@ -2,6 +2,8 @@ import React from 'react';
 import Menu from '../Menu/Menu';
 import ContextProvider from '../../Context'
 
+import './PlanTrip.css'
+
 class PlanTrip extends React.Component{
   static contextType = ContextProvider 
 
@@ -12,22 +14,25 @@ class PlanTrip extends React.Component{
     const detours = e.target.detours.value
     const radius = e.target.radius.value
     const time = e.target.time.value
-
     //Set the state witin context (userTrip obj)
     this.context.setTrip(destination, detours, radius, time)
-
     //Did it work????
     console.log('form submitted')
     //Need to submit twice to see values in console
     //But looks like they're set after first submit!! -- see Components tab in devTools
     console.log(this.context.userTrip) 
+    //api post request in here...
+    //to what endpoint?
+    this.props.history.push('/map');
   }                                   
+  
+
 
   render() {
     return (
       <>
         <Menu />
-        <form onSubmit={ e => this.handleSubmit(e)}>
+        <form className='plan-trip' onSubmit={ e => this.handleSubmit(e)}>
           <label htmlFor='destination'>Where are you going?</label>
           <input type='text' id='destination' placeholder='city, state, or zip' required/>
 
@@ -47,6 +52,7 @@ class PlanTrip extends React.Component{
           <input type='number' id='time' min='1' max='100'/>  
           <button type='submit'>Submit</button>
         </form>
+        <button onClick={() => this.props.history.push('/dashboard')}>Back</button>
       </>
     )
   }

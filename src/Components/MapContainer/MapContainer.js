@@ -36,6 +36,7 @@ class MapContainer extends Component {
             return <li>{waypoint.location}</li>;
           })}
         </ul>
+        <button onClick={() => this.props.history.push('/dashboard')}>Back to dashboard</button>
       </>
     );
   }
