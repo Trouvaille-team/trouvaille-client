@@ -28,6 +28,8 @@ export class ContextProvider extends Component {
     },
     waypoints: [],
     endCoords: {},
+    originCoords: {},
+    setOriginCoords: () => { },
     setEndCoords: () => { },
     setTrip: () => { },
     setWaypoints: () => { }
@@ -39,6 +41,10 @@ export class ContextProvider extends Component {
 
   setEndCoords = (endCoords) => {
     this.setState({ endCoords })
+  }
+
+  setOriginCoords = (originCoords) => {
+    this.setState({ originCoords })
   }
 
   //Store all all the values passed into the PlanTrip form!
@@ -68,7 +74,9 @@ export class ContextProvider extends Component {
       waypoints: this.state.waypoints,
       setWaypoints: this.setWaypoints,
       setEndCoords: this.setEndCoords,
-      endCoords: this.state.endCoords
+      endCoords: this.state.endCoords,
+      setOriginCoords: this.setOriginCoords,
+      originCoords: this.state.originCoords
     }
     return (
       <Context.Provider value={value}>

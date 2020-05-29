@@ -19,7 +19,7 @@ export default class WaypointSelect extends React.Component {
     fetch(`${process.env.REACT_APP_URL}/waypoints/`, {
       method: "POST",
       body: JSON.stringify({
-        "origin": "43.037348,-87.912116",
+        "origin": `${this.context.originCoords.lat},${this.context.originCoords.lng}`,
         "dest": this.context.userTrip.destination
       }),
       headers: {
@@ -66,7 +66,6 @@ export default class WaypointSelect extends React.Component {
   }
 
   handleAddButton = (e) => {
-    console.log("button")
     this.setState({
       waypoints: [...this.state.waypoints, this.state.points[0]],
       points: this.state.points.slice(1)
@@ -85,7 +84,6 @@ export default class WaypointSelect extends React.Component {
   }
 
   render() {
-    console.log()
     return (
       <>
         {this.displayOption()}

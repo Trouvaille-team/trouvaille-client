@@ -20,14 +20,6 @@ const MapWithADirectionsRenderer = compose(
   withGoogleMap,
   lifecycle({
     componentDidMount() {
-      console.log(this.props.waypoints.map((waypoint) => {
-
-        return {
-          lat: waypoint.coords.lat,
-          lng: waypoint.coords.lng
-        }
-      }
-      ))
 
       fetch(
         `https://maps.googleapis.com/maps/api/directions/json?

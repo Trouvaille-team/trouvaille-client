@@ -23,8 +23,8 @@ class MapContainer extends Component {
       <>
         <Map
           isMarkerShown
-          originLat={40.689495}
-          originLng={-73.90796}
+          originLat={this.context.originCoords.lat}
+          originLng={this.context.originCoords.lng}
           destLat={this.context.endCoords.lat}
           destLng={this.context.endCoords.lng}
           waypoints={this.context.waypoints}
@@ -35,7 +35,7 @@ class MapContainer extends Component {
         />
         <h3>your stops</h3>
         <ul>
-          {this.state.waypoints.map((waypoint) => {
+          {this.context.waypoints.map((waypoint) => {
             return <li>{waypoint.name}</li>;
           })}
         </ul>
