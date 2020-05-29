@@ -61,7 +61,8 @@ class Dashboard extends React.Component {
         method: "POST",
         body: JSON.stringify({
           lat: this.state.lat,
-          lng: this.state.lng
+          lng: this.state.lng,
+          query: ["military"]
         }),
         headers: {
           "Content-Length": 61,
