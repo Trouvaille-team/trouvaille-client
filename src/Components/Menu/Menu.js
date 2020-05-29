@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
+import ContextProvider from '../../Context'
 import './Menu.css'
 
 export default class Menu extends Component {
+  static contextType = ContextProvider
 
   render() {
     return (
       <div>
-          {this.props.showMenu && 
+          {this.context.showMenu && 
         <nav id='menu'>
           <ul className='menu-links'>
-            <li>See where I've been</li>
-            <li>Change Preferences</li>
-            <li>Discover New Places</li>           
+            <li><Link to="">See where I've been</Link></li>
+            <li><Link to="/discover">Discover new places</Link></li>
+            <li><Link to="/interests">Change my preferences</Link></li>           
+
           </ul>
         </nav>  
           }      
