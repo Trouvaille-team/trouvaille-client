@@ -20,7 +20,8 @@ export default class WaypointSelect extends React.Component {
       method: "POST",
       body: JSON.stringify({
         "origin": `${this.context.originCoords.lat},${this.context.originCoords.lng}`,
-        "dest": this.context.userTrip.destination
+        "dest": this.context.userTrip.destination,
+        query: ["military"]
       }),
       headers: {
         "Content-Length": 61,
