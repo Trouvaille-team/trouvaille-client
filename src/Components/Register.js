@@ -11,7 +11,7 @@ class Register extends React.Component{
         <p>
          - Douglas Adams
         </p>
-        <div>
+        <div className='register'>
           <p>
             Ready to discover new places? Sign up today!
           </p>

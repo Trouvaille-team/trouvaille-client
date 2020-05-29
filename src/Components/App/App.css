@@ -1,0 +1,77 @@
+/* Login View */
+.login{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.login p{
+  display: flex;
+  align-items: center;
+}
+
+.login form{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+/* Register View */
+.interests-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.register{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.register form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Interests View */
+.interests-header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.interests-form{
+  display: inline-block;
+}
+
+.column-one{
+  display: flex;
+  flex-direction: column;
+  float: left;
+  justify-content: center;
+  align-items: center;
+}
+
+.column-two{
+  display: flex;
+  flex-direction: column;
+  float: right;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit-button{
+  text-align: center;
+}
