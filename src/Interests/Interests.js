@@ -1,6 +1,29 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import ContextProvider from '../Context'
 
 export default class Interests extends Component {
+
+    static contextType = ContextProvider
+
+    handleCheck = (e) => {
+        let value = e.target.id;
+        let checked = e.target.checked;
+        console.log('value:', value)
+        console.log('checked:', checked)
+        if (checked) {
+            //add checked values to context.userInterests
+            this.context.addUserInterests(value);
+        } else {
+            //remove them if they're unchecked
+            this.context.removeUserInterests(value)
+        }
+    }
+
+    handleSubmit = e => {
+        e.preventDefault();
+        console.log('submitted')
+        //what to we do here?
+    }
     
 
     render() {
@@ -45,7 +68,7 @@ export default class Interests extends Component {
                         </div>
                         <div className='submit-button'>
                             <button 
-                            type='submit'
+                            //submit handler is called in form tag
                             onClick={() => this.props.history.push('/dashboard')}
                             >Submit</button>
                         </div>
