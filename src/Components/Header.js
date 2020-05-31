@@ -36,8 +36,13 @@ class Header extends Component {
 
   render() {
     return (
-      <header>
-        <button onClick={this.context.toggleMenu}>Toggle Menu</button>
+      <header className='trouvaille_header'>
+          <div className='menu-toggler'
+               onClick={this.context.toggleMenu}>
+            <div className="bar"></div>
+            <div className="bar"></div>
+            <div className="bar"></div>
+          </div>
         <h1 className="trouvaille-header">
           <Link to='/'>
             Trouvaille

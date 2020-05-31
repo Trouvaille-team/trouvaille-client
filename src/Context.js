@@ -4,41 +4,74 @@ import React, { Component } from 'react';
 //all the data in context clears whenever browser is refreshed!!
 
 const Context = React.createContext({
+<<<<<<< HEAD
   showMenu: false, 
   userInterests: [],
+=======
+  showMenu: false,
+  toggleMenu: () => { },
+>>>>>>> master
   userTrip: {
     destination: '',
     numDetours: 0,
     maxRadius: 0,
-    maxTime: 0
+    maxTime: 0,
+    origin: {}
   },
+<<<<<<< HEAD
   toggleMenu: ()=>{},
   addUserInterests: ()=>{},
   removeUserInterests: ()=>{},
   setTrip: ()=>{}
+=======
+  setTrip: () => { }
+>>>>>>> master
 })
 export default Context
 
 //-----------------------------------//
 
 export class ContextProvider extends Component {
-  state ={
+  state = {
     showMenu: false,
+<<<<<<< HEAD
     userInterests: [],
+=======
+    toggleMenu: () => { },
+>>>>>>> master
     userTrip: {
       destination: '',
       numDetours: null,
       maxRadius: null,
       maxTime: null
+<<<<<<< HEAD
     }, 
     toggleMenu: ()=>{}, 
     addUserInterests: ()=>{},
     removeUserInterests: ()=>{},
     setTrip: ()=>{}
+=======
+    },
+    waypoints: [],
+    endCoords: {},
+    originCoords: {},
+    setOriginCoords: () => { },
+    setEndCoords: () => { },
+    setTrip: () => { },
+    setWaypoints: () => { }
+>>>>>>> master
   }
 
   toggleMenu = () => {
-    this.setState({ showMenu: !this.state.showMenu})
+    this.setState({ showMenu: !this.state.showMenu })
+  }
+
+  setEndCoords = (endCoords) => {
+    this.setState({ endCoords })
+  }
+
+  setOriginCoords = (originCoords) => {
+    this.setState({ originCoords })
   }
 
   //Add items to interests array
@@ -63,12 +96,20 @@ export class ContextProvider extends Component {
 
   //Store all all the values passed into the PlanTrip form!
   setTrip = (destination, detours, radius, time) => {
-    this.setState({ userTrip: {
-      destination: destination,
-      numDetours: detours,
-      maxRadius: radius,
-      maxTime: time
-    }})
+    this.setState({
+      userTrip: {
+        destination: destination,
+        numDetours: detours,
+        maxRadius: radius,
+        maxTime: time
+      }
+    })
+  }
+
+  setWaypoints = (waypoints) => {
+    this.setState({
+      waypoints: waypoints
+    })
   }
 
   render() {
@@ -76,10 +117,20 @@ export class ContextProvider extends Component {
       showMenu: this.state.showMenu,
       userInterests: [],
       userTrip: this.state.userTrip,
+<<<<<<< HEAD
       toggleMenu: this.toggleMenu,
       addUserInterests: this.addUserInterests,
       removeUserInterests: this.removeUserInterests,
       setTrip: this.setTrip
+=======
+      setTrip: this.setTrip,
+      waypoints: this.state.waypoints,
+      setWaypoints: this.setWaypoints,
+      setEndCoords: this.setEndCoords,
+      endCoords: this.state.endCoords,
+      setOriginCoords: this.setOriginCoords,
+      originCoords: this.state.originCoords
+>>>>>>> master
     }
     return (
       <Context.Provider value={value}>

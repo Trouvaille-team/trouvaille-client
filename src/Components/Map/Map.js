@@ -21,13 +21,13 @@ const MapWithADirectionsRenderer = compose(
   lifecycle({
     componentDidMount() {
 
-        fetch(
-          `https://maps.googleapis.com/maps/api/directions/json?
+      fetch(
+        `https://maps.googleapis.com/maps/api/directions/json?
 origin=Toronto&destination=Montreal
 &key=AIzaSyACWIZRgcXsFJv3UbH8MQw_-hqqiao2MS8`
-        ).then((res) => {
+      ).then((res) => {
         res.json()
-        }).then(data => console.log(data))
+      }).then(data => console.log(data))
       const DirectionsService = new google.maps.DirectionsService();
 
       DirectionsService.route(
@@ -40,7 +40,15 @@ origin=Toronto&destination=Montreal
             this.props.destLat,
             this.props.destLng
           ),
-          waypoints: this.props.waypoints,
+          waypoints: this.props.waypoints.map((waypoint) => {
+            return {
+              location: new google.maps.LatLng(
+                waypoint.coords.lat,
+                waypoint.coords.lng
+              ), stopover: false
+            }
+          }
+          ),
           optimizeWaypoints: true,
           travelMode: google.maps.TravelMode.DRIVING,
         },

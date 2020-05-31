@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 class Login extends Component {
 
 onLoginSubmit(e) {
@@ -19,12 +20,12 @@ render() {
   return (
     <div className='login'>
       <h1>Log In</h1>
-        <p>Welcome back!</p>
-        <form type='submit' for='account-login'>
-          <input type="text" placeholder="Username" />
-          <input type="text" placeholder="Password" />
-          <button onClick={() => this.props.history.push('/dashboard')}>Log In</button>
-        </form>
+      <p>Welcome back!</p>
+      <form type='submit' htmlFor='account-login'>
+        <input type="text" placeholder="Username" />
+        <input type="text" placeholder="Password" />
+        <button onClick={() => this.props.history.push('/dashboard')}>Log In</button>
+      </form>
     </div>
   )
 }
