@@ -19,23 +19,46 @@ export default class Interests extends Component {
         }
     }
 
+    interests = ["camping", "hiking", "museums", "beaches", "novelty", "breweries", "museums", "military", "monuments", "parks", "zoos", "ammusment", "haunted"]
+
     handleSubmit = e => {
         e.preventDefault();
-        
+
         console.log('submitted')
         //what to we do here?
     }
 
-    checkSavedInterests = (e) => {
-        const interests = this.context.addUserInterests
-        interests.map(interest => {
-            if (interest === e.target.id) {
-                return checked
+
+    handleAlreadyChecked = (val) => {
+        console.log('val:', val)
+        console.log(this.context.userInterests)
+        this.context.userInterests.map((interest) => {
+            if (interest === val) {
+                return true
             }
         })
+        return false
+    }
+
+    handleRenderInterests = (interest, checked) => {
+        console.log('checked:', checked)
+        if (!checked) {
+            return (
+                <>
+                    <label htmlFor={interest}>{interest}</label>
+                    <input id={interest} type="checkbox" onChange={e=>this.handleCheck(e)}></input>
+                </>
+            )
+        } else if (checked) {
+            return (
+                <>
+                    <label htmlFor={interest}>{interest}</label>
+                    <input id={interest} type="checkbox" onChange={e=>this.handleCheck(e)} checked ></input>
+                </>
+            )
+        }
     }
     
-
     render() {
         return (
             <div className='interests-container'>
@@ -47,39 +70,15 @@ export default class Interests extends Component {
                     </section>
                 </header>
                 <div>
-                    <form className="interests-form" onSubmit={e=>this.handleSubmit(e)}>
-                        <div className='column-one'>
-                            <label htmlFor="camping">Camping</label>
-                            <input id="camping" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
-                            <label htmlFor="hiking">Hiking</label>
-                            <input id="hiking" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
-                            <label htmlFor="beaches">Beaches</label>
-                            <input id="beaches" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
-                            <label htmlFor="breweries">Breweries/Wineries</label>
-                            <input id="breweries" type="checkbox"onChange={e=>this.handleCheck(e)}></input>
-                            <label htmlFor="museums">Museums</label>
-                            <input id="museums" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
-                            <label htmlFor="novelty">Novelty</label>
-                            <input id="novelty" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
-                        </div>
-                        <div className='column-two'>
-                            <label htmlFor="military">Military/Memorials/Battlefields</label>
-                            <input id="military" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
-                            <label htmlFor="monuments">Monuments/Landmarks</label>
-                            <input id="monuments" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
-                            <label htmlFor="parks">Parks</label>
-                            <input id="parks" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
-                            <label htmlFor="zoos">Zoos</label>
-                            <input id="zoo" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
-                            <label htmlFor="amusement">Amusement Parks</label>
-                            <input id="amusement" type="checkbox" onChange={e=>this.handleCheck(e)}></input>                        
-                            <label htmlFor="haunted">Haunted</label>
-                            <input id="haunted" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
-                        </div>
+                    <form className="interests-form">
+                        {this.interests.map((interest) => {
+                            return (
+                                this.handleRenderInterests(interest, this.handleAlreadyChecked(interest)))
+                        })}
                         <div className='submit-button'>
-                            <button 
-                            //submit handler is called in form tag
-                            onClick={() => this.props.history.push('/dashboard')}
+                            <button
+                                //submit handler is called in form tag
+                                onClick={() => this.props.history.push('/dashboard')}
                             >Submit</button>
                         </div>
                     </form>
