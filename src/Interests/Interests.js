@@ -21,6 +21,7 @@ export default class Interests extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
+        
         console.log('submitted')
         //what to we do here?
     }
