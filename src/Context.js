@@ -4,8 +4,9 @@ import React, { Component } from 'react';
 //all the data in context clears whenever browser is refreshed!!
 
 const Context = React.createContext({
-  showMenu: false, 
   userInterests: [],
+  showMenu: false,
+  toggleMenu: () => { },
   userTrip: {
     destination: '',
     numDetours: 0,
@@ -13,7 +14,6 @@ const Context = React.createContext({
     maxTime: 0,
     origin: {}
   },
-  toggleMenu: ()=>{},
   addUserInterests: ()=>{},
   removeUserInterests: ()=>{},
   setTrip: ()=>{}
@@ -25,17 +25,26 @@ export default Context
 export class ContextProvider extends Component {
   state = {
     showMenu: false,
+
     userInterests: [],
+
+    toggleMenu: () => {},
+
     userTrip: {
       destination: '',
       numDetours: null,
       maxRadius: null,
       maxTime: null
     }, 
-    toggleMenu: ()=>{}, 
     addUserInterests: ()=>{},
     removeUserInterests: ()=>{},
-    setTrip: ()=>{}
+    setTrip: ()=>{},
+    waypoints: [],
+    endCoords: {},
+    originCoords: {},
+    setOriginCoords: () => { },
+    setEndCoords: () => { },
+    setWaypoints: () => { }
   }
 
   toggleMenu = () => {
@@ -96,7 +105,13 @@ export class ContextProvider extends Component {
       toggleMenu: this.toggleMenu,
       addUserInterests: this.addUserInterests,
       removeUserInterests: this.removeUserInterests,
-      setTrip: this.setTrip
+      setTrip: this.setTrip,
+      waypoints: this.state.waypoints,
+      setWaypoints: this.setWaypoints,
+      setEndCoords: this.setEndCoords,
+      endCoords: this.state.endCoords,
+      setOriginCoords: this.setOriginCoords,
+      originCoords: this.state.originCoords
     }
     return (
       <Context.Provider value={value}>

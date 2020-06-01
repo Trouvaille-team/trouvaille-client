@@ -21,8 +21,18 @@ export default class Interests extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
+        
         console.log('submitted')
         //what to we do here?
+    }
+
+    checkSavedInterests = (e) => {
+        const interests = this.context.addUserInterests
+        interests.map(interest => {
+            if (interest === e.target.id) {
+                return checked
+            }
+        })
     }
     
 
@@ -37,34 +47,34 @@ export default class Interests extends Component {
                     </section>
                 </header>
                 <div>
-                    <form className="interests-form">
+                    <form className="interests-form" onSubmit={e=>this.handleSubmit(e)}>
                         <div className='column-one'>
                             <label htmlFor="camping">Camping</label>
-                            <input id="camping" type="checkbox" ></input>
+                            <input id="camping" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
                             <label htmlFor="hiking">Hiking</label>
-                            <input id="hiking" type="checkbox" ></input>
+                            <input id="hiking" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
                             <label htmlFor="beaches">Beaches</label>
-                            <input id="beaches" type="checkbox"></input>
+                            <input id="beaches" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
                             <label htmlFor="breweries">Breweries/Wineries</label>
-                            <input id="breweries" type="checkbox"></input>
+                            <input id="breweries" type="checkbox"onChange={e=>this.handleCheck(e)}></input>
                             <label htmlFor="museums">Museums</label>
-                            <input id="museums" type="checkbox"></input>
+                            <input id="museums" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
                             <label htmlFor="novelty">Novelty</label>
-                            <input id="novelty" type="checkbox"></input>
+                            <input id="novelty" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
                         </div>
                         <div className='column-two'>
                             <label htmlFor="military">Military/Memorials/Battlefields</label>
-                            <input id="military" type="checkbox"></input>
+                            <input id="military" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
                             <label htmlFor="monuments">Monuments/Landmarks</label>
-                            <input id="monuments" type="checkbox"></input>
+                            <input id="monuments" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
                             <label htmlFor="parks">Parks</label>
-                            <input id="parks" type="checkbox"></input>
+                            <input id="parks" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
                             <label htmlFor="zoos">Zoos</label>
-                            <input id="zoo" type="checkbox"></input>
+                            <input id="zoo" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
                             <label htmlFor="amusement">Amusement Parks</label>
-                            <input id="amusement" type="checkbox"></input>                        
+                            <input id="amusement" type="checkbox" onChange={e=>this.handleCheck(e)}></input>                        
                             <label htmlFor="haunted">Haunted</label>
-                            <input id="haunted" type="checkbox"></input>
+                            <input id="haunted" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
                         </div>
                         <div className='submit-button'>
                             <button 
