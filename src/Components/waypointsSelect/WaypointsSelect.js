@@ -21,7 +21,7 @@ export default class WaypointSelect extends React.Component {
       body: JSON.stringify({
         "origin": `${this.context.originCoords.lat},${this.context.originCoords.lng}`,
         "dest": this.context.userTrip.destination,
-        query: ["military"]
+        "query": this.context.userInterests
       }),
       headers: {
         "Content-Length": 61,

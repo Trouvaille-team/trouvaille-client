@@ -8,8 +8,6 @@ export default class Interests extends Component {
     handleCheck = (e) => {
         let value = e.target.id;
         let checked = e.target.checked;
-        console.log('value:', value)
-        console.log('checked:', checked)
         if (checked) {
             //add checked values to context.userInterests
             this.context.addUserInterests(value);
@@ -24,14 +22,11 @@ export default class Interests extends Component {
     handleSubmit = e => {
         e.preventDefault();
 
-        console.log('submitted')
         //what to we do here?
     }
 
 
     handleAlreadyChecked = (val) => {
-        console.log('val:', val)
-        console.log(this.context.userInterests)
         this.context.userInterests.map((interest) => {
             if (interest === val) {
                 return true
@@ -41,24 +36,23 @@ export default class Interests extends Component {
     }
 
     handleRenderInterests = (interest, checked) => {
-        console.log('checked:', checked)
         if (!checked) {
             return (
                 <>
                     <label htmlFor={interest}>{interest}</label>
-                    <input id={interest} type="checkbox" onChange={e=>this.handleCheck(e)}></input>
+                    <input id={interest} type="checkbox" onChange={e => this.handleCheck(e)}></input>
                 </>
             )
         } else if (checked) {
             return (
                 <>
                     <label htmlFor={interest}>{interest}</label>
-                    <input id={interest} type="checkbox" onChange={e=>this.handleCheck(e)} checked ></input>
+                    <input id={interest} type="checkbox" onChange={e => this.handleCheck(e)} checked ></input>
                 </>
             )
         }
     }
-    
+
     render() {
         return (
             <div className='interests-container'>

@@ -14,9 +14,9 @@ const Context = React.createContext({
     maxTime: 0,
     origin: {}
   },
-  addUserInterests: ()=>{},
-  removeUserInterests: ()=>{},
-  setTrip: ()=>{}
+  addUserInterests: () => { },
+  removeUserInterests: () => { },
+  setTrip: () => { }
 })
 export default Context
 
@@ -28,17 +28,17 @@ export class ContextProvider extends Component {
 
     userInterests: [],
 
-    toggleMenu: () => {},
+    toggleMenu: () => { },
 
     userTrip: {
       destination: '',
       numDetours: null,
       maxRadius: null,
       maxTime: null
-    }, 
-    addUserInterests: ()=>{},
-    removeUserInterests: ()=>{},
-    setTrip: ()=>{},
+    },
+    addUserInterests: () => { },
+    removeUserInterests: () => { },
+    setTrip: () => { },
     waypoints: [],
     endCoords: {},
     originCoords: {},
@@ -62,17 +62,22 @@ export class ContextProvider extends Component {
   //Add items to interests array
   addUserInterests = (checkedItem) => {
     //first make sure newInterest isn't already in the array!
-    for (let item in this.userInterests) {
-      if (checkedItem === item) {
-        return 'item is already in list'
+    if (this.state.userInterests.length < 1) {
+      this.setState({ userInterests: [checkedItem] })
+      return
+    }
+    this.state.userInterests.map((i) => {
+      console.log(i, checkedItem)
+      if (i != checkedItem) {
+        this.setState({ userInterests: [...this.state.userInterests, checkedItem] })
+        console.log(this.state.userInterests)
       }
-    } 
-    this.setState({ userInterests: [...this.state.userInterests, checkedItem]})
+    })
   }
 
   //remove items when they're unchecked
   removeUserInterests = (unchekedItem) => {
-    for(let i=0; i<this.state.userInterests.length; i++) {
+    for (let i = 0; i < this.state.userInterests.length; i++) {
       if (unchekedItem === this.state.userInterests[i]) {
         return this.state.userInterests.splice(i, 1)
       }
@@ -100,7 +105,7 @@ export class ContextProvider extends Component {
   render() {
     const value = {
       showMenu: this.state.showMenu,
-      userInterests: [],
+      userInterests: this.state.userInterests,
       userTrip: this.state.userTrip,
       toggleMenu: this.toggleMenu,
       addUserInterests: this.addUserInterests,
