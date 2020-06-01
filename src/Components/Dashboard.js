@@ -13,29 +13,56 @@ class Dashboard extends React.Component {
     this.state = {
       lat: 0,
       lng: 0,
-      data: []
+      data: { points: [] }
     };
   }
 
   static contextType = ContextProvider
-  
+
   componentDidMount() {
     let myVar = this;
     navigator.geolocation.getCurrentPosition(function (position) {
       let latitude = position.coords.latitude;
       let longitude = position.coords.longitude;
       myVar.setState({ lat: latitude, lng: longitude })
-    })
+      myVar.context.setOriginCoords({ lat: myVar.state.lat, lng: myVar.state.lng })
 
+    })
+    {
+      this.state.data.points.map((location) => {
+        return (
+          <div className='option'>
+            <img alt={location.name}></img>
+            <div className='title-button-container'>
+              <button
+                className='add-button'
+              >
+                <FontAwesomeIcon
+                  icon={faTimes}
+                />
+              </button>
+              <h2>{location.name}</h2>
+              <button
+                className='add-button'
+              >
+                <FontAwesomeIcon
+                  icon={faPlus}
+                />
+              </button>
+            </div>
+          </div>)
+      })
+    }
   }
   //This is a stupid solution change if possible
   componentDidUpdate() {
-    if (this.state.data.length === 0) {
+    if (this.state.data.points.length === 0) {
       fetch("http://localhost:8000/api/waypoints/nearby", {
         method: "POST",
         body: JSON.stringify({
           lat: this.state.lat,
-          lng: this.state.lng
+          lng: this.state.lng,
+          query: ["military"]
         }),
         headers: {
           "Content-Length": 61,
@@ -55,7 +82,7 @@ class Dashboard extends React.Component {
 
   // getUserLocation = () => {
   // }
-  
+
 
 
 
@@ -63,21 +90,13 @@ class Dashboard extends React.Component {
     return (
       <div>
         <Menu />
-
-        {/* <ul id="nav-ul">
-            <li><Link to="/new-trip" component={PlanTrip}>Plan a new trip</Link></li>
-            <li><Link to="">See where I've been</Link></li>
-            <li><Link to="">Discover new places</Link></li>
-            <li><Link to="">Change my preferences</Link></li>
-        </ul> */}
-
         <div className='dashboard-container'>
           <h1>Welcome, User</h1>
           <h2>Nearby Locations</h2>
           <div className='new-places-container'>
             <h1>What do you think of these places?</h1>
             <div className='top-options'>
-              {this.state.data.map((location) => {
+              {this.state.data.points.map((location) => {
                 return (
                   <div className='option'>
                     <img alt={location.name}></img>

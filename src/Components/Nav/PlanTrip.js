@@ -4,8 +4,8 @@ import ContextProvider from '../../Context'
 
 import './PlanTrip.css'
 
-class PlanTrip extends React.Component{
-  static contextType = ContextProvider 
+class PlanTrip extends React.Component {
+  static contextType = ContextProvider
 
   handleSubmit = e => {
     e.preventDefault();
@@ -20,24 +20,24 @@ class PlanTrip extends React.Component{
     console.log('form submitted')
     //Need to submit twice to see values in console
     //But looks like they're set after first submit!! -- see Components tab in devTools
-    console.log(this.context.userTrip) 
+    console.log(this.context.userTrip)
     //api post request in here...
     //to what endpoint?
-    this.props.history.push('/map');
-  }                                   
-  
+    this.props.history.push('/waypoints');
+  }
+
 
 
   render() {
     return (
       <>
         <Menu />
-        <form className='plan-trip' onSubmit={ e => this.handleSubmit(e)}>
+        <form className='plan-trip' onSubmit={e => this.handleSubmit(e)}>
           <label htmlFor='destination'>Where are you going?</label>
-          <input type='text' id='destination' placeholder='city, state, or zip' required/>
+          <input type='text' id='destination' placeholder='city, state, or zip' required />
 
           <label htmlFor='detours'>How many detours will you make en route?</label>
-          <input type='number' id='detours' min='1' max='25?'/>
+          <input type='number' id='detours' min='1' max='25?' />
 
           <label htmlFor='radius'>Choose your max detour radius</label>
           <select name='radius' id='radius'>
@@ -48,8 +48,8 @@ class PlanTrip extends React.Component{
           </select>
 
           {/* assuming max time includes entire trip start to finish */}
-          <label htmlFor='time'>Choose your max trip time(hrs)</label> 
-          <input type='number' id='time' min='1' max='100'/>  
+          <label htmlFor='time'>Choose your max trip time(hrs)</label>
+          <input type='number' id='time' min='1' max='100' />
           <button type='submit'>Submit</button>
         </form>
         <button onClick={() => this.props.history.push('/dashboard')}>Back</button>
