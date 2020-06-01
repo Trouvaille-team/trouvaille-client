@@ -4,13 +4,9 @@ import React, { Component } from 'react';
 //all the data in context clears whenever browser is refreshed!!
 
 const Context = React.createContext({
-<<<<<<< HEAD
-  showMenu: false, 
   userInterests: [],
-=======
   showMenu: false,
   toggleMenu: () => { },
->>>>>>> master
   userTrip: {
     destination: '',
     numDetours: 0,
@@ -18,14 +14,9 @@ const Context = React.createContext({
     maxTime: 0,
     origin: {}
   },
-<<<<<<< HEAD
-  toggleMenu: ()=>{},
   addUserInterests: ()=>{},
   removeUserInterests: ()=>{},
   setTrip: ()=>{}
-=======
-  setTrip: () => { }
->>>>>>> master
 })
 export default Context
 
@@ -34,32 +25,26 @@ export default Context
 export class ContextProvider extends Component {
   state = {
     showMenu: false,
-<<<<<<< HEAD
+
     userInterests: [],
-=======
-    toggleMenu: () => { },
->>>>>>> master
+
+    toggleMenu: () => {},
+
     userTrip: {
       destination: '',
       numDetours: null,
       maxRadius: null,
       maxTime: null
-<<<<<<< HEAD
     }, 
-    toggleMenu: ()=>{}, 
     addUserInterests: ()=>{},
     removeUserInterests: ()=>{},
-    setTrip: ()=>{}
-=======
-    },
+    setTrip: ()=>{},
     waypoints: [],
     endCoords: {},
     originCoords: {},
     setOriginCoords: () => { },
     setEndCoords: () => { },
-    setTrip: () => { },
     setWaypoints: () => { }
->>>>>>> master
   }
 
   toggleMenu = () => {
@@ -117,12 +102,9 @@ export class ContextProvider extends Component {
       showMenu: this.state.showMenu,
       userInterests: [],
       userTrip: this.state.userTrip,
-<<<<<<< HEAD
       toggleMenu: this.toggleMenu,
       addUserInterests: this.addUserInterests,
       removeUserInterests: this.removeUserInterests,
-      setTrip: this.setTrip
-=======
       setTrip: this.setTrip,
       waypoints: this.state.waypoints,
       setWaypoints: this.setWaypoints,
@@ -130,7 +112,6 @@ export class ContextProvider extends Component {
       endCoords: this.state.endCoords,
       setOriginCoords: this.setOriginCoords,
       originCoords: this.state.originCoords
->>>>>>> master
     }
     return (
       <Context.Provider value={value}>
