@@ -39,29 +39,29 @@ export default class Interests extends Component {
                 <div>
                     <form className="interests-form" onSubmit={e=>this.handleSubmit(e)}>
                         <label htmlFor="camping">Camping</label>
-                        <input id="camping" type="checkbox" onClick={e=>this.handleCheck(e)}></input>
+                        <input id="camping" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
                         <label htmlFor="hiking">Hiking</label>
-                        <input id="hiking" type="checkbox" onClick={e=>this.handleCheck(e)}></input>
+                        <input id="hiking" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
                         <label htmlFor="beaches">Beaches</label>
-                        <input id="beaches" type="checkbox" onClick={e=>this.handleCheck(e)}></input>
+                        <input id="beaches" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
                         <label htmlFor="breweries">Breweries/Wineries</label>
-                        <input id="breweries" type="checkbox" onClick={e=>this.handleCheck(e)}></input>
+                        <input id="breweries" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
                         <label htmlFor="museums">Museums</label>
-                        <input id="museums" type="checkbox" onClick={e=>this.handleCheck(e)}></input>
+                        <input id="museums" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
                         <label htmlFor="novelty">Novelty</label>
-                        <input id="novelty" type="checkbox" onClick={e=>this.handleCheck(e)}></input>
+                        <input id="novelty" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
                         <label htmlFor="military">Military/Memorials/Battlefields</label>
-                        <input id="military" type="checkbox" onClick={e=>this.handleCheck(e)}></input>
+                        <input id="military" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
                         <label htmlFor="monuments">Monuments/Landmarks</label>
-                        <input id="monuments" type="checkbox" onClick={e=>this.handleCheck(e)}></input>
+                        <input id="monuments" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
                         <label htmlFor="parks">Parks</label>
-                        <input id="parks" type="checkbox" onClick={e=>this.handleCheck(e)}></input>
+                        <input id="parks" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
                         <label htmlFor="zoos">Zoos</label>
-                        <input id="zoo" type="checkbox" onClick={e=>this.handleCheck(e)}></input>
+                        <input id="zoo" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
                         <label htmlFor="amusement">Amusement Parks</label>
-                        <input id="amusement" type="checkbox" onClick={e=>this.handleCheck(e)}></input>                        
+                        <input id="amusement" type="checkbox" onChange={e=>this.handleCheck(e)}></input>                        
                         <label htmlFor="haunted">Haunted</label>
-                        <input id="haunted" type="checkbox" onClick={e=>this.handleCheck(e)}></input>
+                        <input id="haunted" type="checkbox" onChange={e=>this.handleCheck(e)}></input>
                         <div>
                             <button 
                             //submit handler is called in form tag
