@@ -47,6 +47,23 @@ export class ContextProvider extends Component {
     setWaypoints: () => { }
   }
 
+  componentDidMount() {
+    this.checkStorage()
+  }
+
+  checkStorage = () => {
+    console.log(localStorage.getItem("trouvailleData"))
+    if (localStorage.getItem("trouvailleData")) {
+      console.log("mark")
+      this.setState({ ...JSON.parse(localStorage.getItem("trouvailleData")) })
+    }
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem("trouvailleData", JSON.stringify(this.state))
+    console.log(JSON.parse(localStorage.getItem("trouvailleData")))
+  }
+
   toggleMenu = () => {
     this.setState({ showMenu: !this.state.showMenu })
   }
