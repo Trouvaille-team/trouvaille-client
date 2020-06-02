@@ -4,7 +4,9 @@ import { EmailShareButton,
          FacebookShareButton,
          EmailIcon,
          TwitterIcon,
-         FacebookIcon } from 'react-share';
+         FacebookIcon,
+         RedditShareButton,
+         RedditIcon } from 'react-share';
 
 class PastTrips extends React.Component{
   render() {
@@ -33,6 +35,13 @@ class PastTrips extends React.Component{
             size={40}
             round/>
         </FacebookShareButton>
+        <RedditShareButton
+          url='www.example.com'
+          title='example title'>
+           <RedditIcon
+            size={40}
+            round/>
+        </RedditShareButton>
       </div>
     )
   }
