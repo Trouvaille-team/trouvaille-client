@@ -12,6 +12,7 @@ import Interests from '../../Interests/Interests';
 import { ContextProvider } from '../../Context';
 import WaypointsSelect from '../waypointsSelect/WaypointsSelect'
 import './App.css';
+import PastTrips from '../Nav/PastTrips';
 
 class App extends React.Component {
   // constructor(props) {
@@ -56,6 +57,10 @@ class App extends React.Component {
               <Route
                 path={'/interests'}
                 component={Interests}>
+              </Route>
+              <Route
+                path={'/past-trips'}
+                component={PastTrips}>
               </Route>
               <Route
                 component={NotFound}>
