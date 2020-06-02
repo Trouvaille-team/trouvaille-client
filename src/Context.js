@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TokenService from './services/token-service';
 
 //user data (userInterests, and userTrip) has to get stored in the database
 //all the data in context clears whenever browser is refreshed!!
@@ -16,7 +17,10 @@ const Context = React.createContext({
   },
   addUserInterests: () => { },
   removeUserInterests: () => { },
-  setTrip: () => { }
+  setTrip: () => { },
+  setUser: () => {},
+  processLogin: () => {},
+  processLogout: () => {},
 })
 export default Context
 
@@ -25,11 +29,8 @@ export default Context
 export class ContextProvider extends Component {
   state = {
     showMenu: false,
-
     userInterests: [],
-
     toggleMenu: () => { },
-
     userTrip: {
       destination: '',
       numDetours: null,
@@ -44,7 +45,9 @@ export class ContextProvider extends Component {
     originCoords: {},
     setOriginCoords: () => { },
     setEndCoords: () => { },
-    setWaypoints: () => { }
+    setWaypoints: () => { },
+    setUser: () => {},
+    processLogin: () => {},
   }
 
   toggleMenu = () => {
@@ -68,7 +71,7 @@ export class ContextProvider extends Component {
     }
     this.state.userInterests.map((i) => {
       console.log(i, checkedItem)
-      if (i != checkedItem) {
+      if (i !== checkedItem) {
         this.setState({ userInterests: [...this.state.userInterests, checkedItem] })
         console.log(this.state.userInterests)
       }
@@ -101,6 +104,21 @@ export class ContextProvider extends Component {
       waypoints: waypoints
     })
   }
+  // set user object in state
+  setUser = user => {
+    this.setState({ user })
+  }
+  //save the auth token to the window local storage
+  processLogin = authToken => {
+    console.log(authToken)
+    TokenService.saveAuthToken(authToken)
+    const jwtPayload = TokenService.parseAuthToken()
+    console.log(jwtPayload)
+    this.setUser({
+      id: jwtPayload.user_id,
+      username: jwtPayload.username,
+    })
+  }
 
   render() {
     const value = {
@@ -116,7 +134,9 @@ export class ContextProvider extends Component {
       setEndCoords: this.setEndCoords,
       endCoords: this.state.endCoords,
       setOriginCoords: this.setOriginCoords,
-      originCoords: this.state.originCoords
+      originCoords: this.state.originCoords,
+      processLogin: this.processLogin,
+      setUser: this.setUser,
     }
     return (
       <Context.Provider value={value}>
