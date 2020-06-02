@@ -75,13 +75,7 @@ const MapWithADirectionsRenderer = compose(
     >
       {props.directions && <DirectionsRenderer directions={props.directions} />}
     </GoogleMap>
-    <a
-      href={`https://www.google.com/maps/dir/?api=1&origin=${props.originLat},${props.originLng}&destination=${props.destLat},${props.destLng}&travelmode=driving&waypoints=Grand+Canyon`}
-      target={"_blank"}
-      rel={"noopener noreferrer"}
-    >
-      see on google maps
-    </a>
+
   </>
 ));
 

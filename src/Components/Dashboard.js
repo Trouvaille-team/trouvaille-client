@@ -13,7 +13,8 @@ class Dashboard extends React.Component {
     this.state = {
       lat: 0,
       lng: 0,
-      data: { points: [] }
+      data: { points: [] },
+      loading: true
     };
   }
 
@@ -24,35 +25,10 @@ class Dashboard extends React.Component {
     navigator.geolocation.getCurrentPosition(function (position) {
       let latitude = position.coords.latitude;
       let longitude = position.coords.longitude;
-      myVar.setState({ lat: latitude, lng: longitude })
+      myVar.setState({ lat: latitude, lng: longitude, loading:false })
       myVar.context.setOriginCoords({ lat: myVar.state.lat, lng: myVar.state.lng })
 
     })
-    {
-      this.state.data.points.map((location) => {
-        return (
-          <div className='option'>
-            <img alt={location.name}></img>
-            <div className='title-button-container'>
-              <button
-                className='add-button'
-              >
-                <FontAwesomeIcon
-                  icon={faTimes}
-                />
-              </button>
-              <h2>{location.name}</h2>
-              <button
-                className='add-button'
-              >
-                <FontAwesomeIcon
-                  icon={faPlus}
-                />
-              </button>
-            </div>
-          </div>)
-      })
-    }
   }
   //This is a stupid solution change if possible
   componentDidUpdate() {
@@ -87,7 +63,10 @@ class Dashboard extends React.Component {
 
 
   render() {
-    return (
+      if (this.state.loading === true) {
+        return(<h3>wait up bitch I'm loading</h3>)
+      } else {
+        return(
       <div>
         <Menu />
         <div className='dashboard-container'>
@@ -96,34 +75,35 @@ class Dashboard extends React.Component {
           <div className='new-places-container'>
             <h1>What do you think of these places?</h1>
             <div className='top-options'>
-              {this.state.data.points.map((location) => {
-                return (
-                  <div className='option'>
-                    <img alt={location.name}></img>
-                    <div className='title-button-container'>
-                      <button
-                        className='add-button'
-                      >
-                        <FontAwesomeIcon
-                          icon={faTimes}
-                        />
-                      </button>
-                      <h2>{location.name}</h2>
-                      <button
-                        className='add-button'
-                      >
-                        <FontAwesomeIcon
-                          icon={faPlus}
-                        />
-                      </button>
-                    </div>
-                  </div>)
-              })}
+              {
+                this.state.data.points.map((location) => {
+                  return (
+                    <div className='option'>
+                      <img alt={location.name}></img>
+                      <div className='title-button-container'>
+                        <button
+                          className='add-button'
+                        >
+                          <FontAwesomeIcon
+                            icon={faTimes}
+                          />
+                        </button>
+                        <h2>{location.name}</h2>
+                        <button
+                          className='add-button'
+                        >
+                          <FontAwesomeIcon
+                            icon={faPlus}
+                          />
+                        </button>
+                      </div>
+                    </div>)
+                })}
             </div>
           </div>
         </div>
-      </div>
-    )
+      </div>)}
+    
   }
 }
 
