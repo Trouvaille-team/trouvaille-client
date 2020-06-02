@@ -48,6 +48,7 @@ export class ContextProvider extends Component {
   }
 
   componentDidMount() {
+    console.log(JSON.parse(localStorage.getItem("trouvailleData")))
     this.checkStorage()
   }
 
@@ -96,7 +97,8 @@ export class ContextProvider extends Component {
   removeUserInterests = (unchekedItem) => {
     for (let i = 0; i < this.state.userInterests.length; i++) {
       if (unchekedItem === this.state.userInterests[i]) {
-        return this.state.userInterests.splice(i, 1)
+        this.state.userInterests.splice(i, 1)
+        this.setState({ userInterests: this.state.userInterests })
       }
     }
   }
