@@ -13,7 +13,8 @@ class Dashboard extends React.Component {
     this.state = {
       lat: 0,
       lng: 0,
-      data: { points: [] }
+      data: { points: [] },
+      loading: true
     };
   }
 
@@ -24,7 +25,7 @@ class Dashboard extends React.Component {
     navigator.geolocation.getCurrentPosition(function (position) {
       let latitude = position.coords.latitude;
       let longitude = position.coords.longitude;
-      myVar.setState({ lat: latitude, lng: longitude })
+      myVar.setState({ lat: latitude, lng: longitude, loading:false })
       myVar.context.setOriginCoords({ lat: myVar.state.lat, lng: myVar.state.lng })
 
     })
@@ -62,7 +63,10 @@ class Dashboard extends React.Component {
 
 
   render() {
-    return (
+      if (this.state.loading === true) {
+        return(<h3>wait up bitch I'm loading</h3>)
+      } else {
+        return(
       <div>
         <Menu />
         <div className='dashboard-container'>
@@ -98,8 +102,8 @@ class Dashboard extends React.Component {
             </div>
           </div>
         </div>
-      </div>
-    )
+      </div>)}
+    
   }
 }
 
