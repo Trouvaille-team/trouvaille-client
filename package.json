@@ -45,8 +45,6 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "^7.10.2",
-    "@babel/preset-env": "^7.10.2",
     "react-test-renderer": "^16.13.1"
   }
 }
