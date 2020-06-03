@@ -20,7 +20,9 @@ class MapContainer extends Component {
 
     const token = TokenService.getAuthToken();
 
-    const req = {
+    console.log(this.context)
+
+    const res = await fetch('http://localhost:8000/api/trips', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -31,12 +33,9 @@ class MapContainer extends Component {
         destination: this.context.endCoords,
         waypoints: this.context.waypoints,
         user_id: 1,
-      }),
-    };
-    const res = await fetch(
-      'http://localhost:8000/api/trips/trips', //trip_id
-      req
-    ).catch(() => {
+      })
+    }
+      ).catch(() => {
       res.status(400).send();
     });
     await res.json();

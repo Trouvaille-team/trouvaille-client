@@ -33,7 +33,7 @@ class Dashboard extends React.Component {
   //This is a stupid solution change if possible
   componentDidUpdate() {
     if (this.state.data.points.length === 0) {
-      fetch("http://localhost:8000/api/waypoints/nearby", {
+      fetch(`${process.env.REACT_APP_URL}api/waypoints/nearby`, {
         method: "POST",
         body: JSON.stringify({
           lat: this.state.lat,
