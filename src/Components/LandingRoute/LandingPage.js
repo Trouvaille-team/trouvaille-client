@@ -30,7 +30,7 @@ class LandingPage extends Component {
             the beaten path), and, of course, your interests so that we show you locations that are relevant to you! Once that is done,
             we will map out a route for you to follow that lets you make those unforgettable memories, without all the worry of
             making it to your destination on time.
-      </p>
+          </p>
           <p>
             When you get started, we will ask you to tell us some of your preferences, then, if you want to save your information you can
             sign up for an account or login if you already have one. If you choose to continue without signing up, you will be taken to a
@@ -40,10 +40,10 @@ class LandingPage extends Component {
             be saved for you so you can see it again. It will also streamline the process so that next time, you can jump straight into
             building a new route.  Didn't like our options for detours? Going with a new person who has different tastes? No worries! When
             you have an accout, we offer you the option to change your preferences so you can tailor each trip to suit your needs.
-      </p>
+          </p>
           <span>
             We hope you enjoy your road trip!
-      </span>
+          </span>
 
           <Link to='/interests'>Let's Get Started!</Link>
         </div>
