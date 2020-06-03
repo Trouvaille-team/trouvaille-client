@@ -1,7 +1,31 @@
 import React from 'react'
+import AuthApiService from '../services/auth-api-service';
 
 class Register extends React.Component{
+
+  state = { error: null }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const { username, password, email } = e.target
+    AuthApiService.postUser({
+      username: username.value,
+      password: password.value,
+      email: email.value
+    })
+    .then(user => {
+      username.value = ''
+      password.value = ''
+      email.value = ''
+      this.props.history.push('/interests')
+    })
+    .catch(res => {
+      this.setState({ error: res.error})
+    })
+  }
+
   render() {
+    const { error } = this.state
     return (
       <div className='register'>
         <h1>Register</h1>
@@ -16,11 +40,17 @@ class Register extends React.Component{
             Ready to discover new places? Sign up today!
           </p>
         </div>
-        <form type='submit' for='account-sign-up'>
-          <input type="text" placeholder='Username' />
-          <input type="email" placeholder='Email' />
-          <input type="password" placeholder="Password" />
-          <button onClick={() => this.props.history.push('/dashboard')} type='submit'>Sign Up</button>
+        <form onSubmit={e => this.handleSubmit(e)}>
+          <div>
+            {error && <p>{error}</p>}
+          </div>
+          <label htmlFor="registration-username">Username: </label>
+          <input type="text" id="registration-username" name="username" placeholder='Username' required/>
+          <label htmlFor="registration-email">Email: </label>
+          <input type="email" id="registration-email" name="email" placeholder='Email' />
+          <label htmlFor="registration-password">Password:</label>
+          <input type="password" id="registration-password" name="password" placeholder="Password" required/>
+          <button type='submit'>Sign Up</button>
         </form>
       </div>
     )

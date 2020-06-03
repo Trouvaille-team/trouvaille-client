@@ -1,4 +1,5 @@
 export default {
   API_ENDPOINT: 'https://trouvaille.herokuapp.com/api',
-  RANDOM: 'http://localhost:3000/api'
+  TOKEN_KEY: 'some-token-key',
+  RANDOM: 'http://localhost:8000/api'
 }

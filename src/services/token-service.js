@@ -25,3 +25,5 @@ const TokenService = {
       return undefined
   },
 }
+
+export default TokenService;
