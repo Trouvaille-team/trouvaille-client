@@ -20,7 +20,7 @@ export default class WaypointSelect extends React.Component {
 
   static contextType = ContextProvider
   componentDidMount() {
-    fetch(`${process.env.REACT_APP_URL}/waypoints/`, {
+    fetch(`${process.env.REACT_APP_URL}waypoints/`, {
       method: "POST",
       body: JSON.stringify({
         "origin": `${this.context.originCoords.lat},${this.context.originCoords.lng}`,
