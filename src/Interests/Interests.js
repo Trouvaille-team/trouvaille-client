@@ -32,17 +32,17 @@ export default class Interests extends Component {
       interestArr.forEach(interest => {
           if (interestArr.length === 0 || interest !== option) {
               return (
-                <div>
+                <>
                   <label htmlFor={option}>{option}</label>
                   <input id={option} type="checkbox" onChange={e => this.handleCheck(e)}/>
-                </div>
+                </>
               )
           } else {
               return (
-                <div>
+                <>
                   <label htmlFor={option}>{option}</label>
                   <input id={option} type="checkbox" onChange={e => this.handleCheck(e)} checked/>
-                </div>
+                </>
               )
           }
       })
@@ -92,6 +92,7 @@ export default class Interests extends Component {
                         {this.options.map((option, i) => {
                             return (
                                 <li key={i}>
+                                  {/* {this.renderCheckBoxes(option)} */}
                                   <label htmlFor={option}>{option}</label>
                                   <input id={option} type="checkbox" onChange={e => this.handleCheck(e)}/>
                                 </li>
