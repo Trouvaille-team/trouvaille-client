@@ -24,6 +24,10 @@ export default class Interests extends Component {
         //what do we do here?
     }
 
+    handleClear = () => {
+      this.context.clearUserInterests()
+    }
+
     //map through options array and render a checkbox for each
     //map through userInterests array (in context), if a value matches value in options, render the checkbox if checked
     renderCheckBoxes = (option) => {
@@ -92,17 +96,16 @@ export default class Interests extends Component {
                         {this.options.map((option, i) => {
                             return (
                                 <li key={i}>
-                                  {this.renderCheckBoxes(option)}
-                                  {/* <label htmlFor={option}>{option}</label>
-                                  <input id={option} type="checkbox" onChange={e => this.handleCheck(e)}/> */}
+                                  {/* {this.renderCheckBoxes(option)} */}
+                                  <label htmlFor={option}>{option}</label>
+                                  <input id={option} type="checkbox" onChange={e => this.handleCheck(e)}/>
                                 </li>
                             )
                         })}
                         <div className='submit-button'>
-                            <button
-                                //submit handler is called in form tag
-                                onClick={() => this.props.history.push('/dashboard')}
-                            >Submit</button>
+                            <button onClick={() => this.props.history.push('/dashboard')}>
+                              Submit
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -116,6 +119,11 @@ export default class Interests extends Component {
                         )
                       })}
                 </ul>
+                <div className='clear-button'>
+                  <button onClick={this.handleClear}>
+                    Clear Selections
+                  </button>
+                </div>
             </div>
         )
     }

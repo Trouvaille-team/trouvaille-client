@@ -17,6 +17,7 @@ const Context = React.createContext({
   },
   addUserInterests: () => { },
   removeUserInterests: () => { },
+  clearUserInterests: () => { },
   setTrip: () => { },
   setUser: () => {},
   processLogin: () => {},
@@ -39,6 +40,7 @@ export class ContextProvider extends Component {
     },
     addUserInterests: () => { },
     removeUserInterests: () => { },
+    clearUserInterests: () => { },
     setTrip: () => { },
     waypoints: [],
     endCoords: {},
@@ -106,6 +108,10 @@ export class ContextProvider extends Component {
     }
   }
 
+  clearUserInterests = () => {
+    this.setState({ userInterests: [] })
+  }
+
   //Store all all the values passed into the PlanTrip form!
   setTrip = (destination, detours, radius, time) => {
     this.setState({
@@ -147,6 +153,7 @@ export class ContextProvider extends Component {
       toggleMenu: this.toggleMenu,
       addUserInterests: this.addUserInterests,
       removeUserInterests: this.removeUserInterests,
+      clearUserInterests: this.clearUserInterests,
       setTrip: this.setTrip,
       waypoints: this.state.waypoints,
       setWaypoints: this.setWaypoints,
