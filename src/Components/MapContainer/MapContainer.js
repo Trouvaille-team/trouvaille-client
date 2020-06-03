@@ -1,7 +1,7 @@
 import { Component } from "react";
 import React from 'react';
 import ContextProvider from '../../Context'
-
+import TokenService from "../../services/token-service"
 import Map from "../Map/Map";
 
 class MapContainer extends Component {
@@ -13,11 +13,36 @@ class MapContainer extends Component {
   }
   static contextType = ContextProvider
 
-  componentDidMount() {
+  async componentDidMount() {
     this.setState({
       waypoints: this.context.waypoints
     })
+
+    const token = TokenService.getAuthToken();
+
+    const req = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        origin: this.context.originCoords,
+        destination: this.context.endCoords,
+        waypoints: this.context.waypoints,
+        user_id: 1,
+      }),
+    };
+    const res = await fetch(
+      'http://localhost:8000/api/trips/trips', //trip_id
+      req
+    ).catch(() => {
+      res.status(400).send();
+    });
+    await res.json();
   }
+
+
   composeWaypointsString = () => {
     let waypointString = ""
     if (this.context.waypoints && this.context.waypoints.length > 0) {
