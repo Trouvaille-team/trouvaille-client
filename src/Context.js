@@ -68,7 +68,7 @@ export class ContextProvider extends Component {
     }
     this.state.userInterests.map((i) => {
       console.log(i, checkedItem)
-      if (i != checkedItem) {
+      if (i !== checkedItem) {
         this.setState({ userInterests: [...this.state.userInterests, checkedItem] })
         console.log(this.state.userInterests)
       }

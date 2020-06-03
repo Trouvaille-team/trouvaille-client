@@ -17,41 +17,65 @@ export default class Interests extends Component {
         }
     }
 
-    interests = ["camping", "hiking", "museums", "beaches", "novelty", "breweries", "museums", "military", "monuments", "parks", "zoos", "ammusment", "haunted"]
+    options = ["Camping", "Hiking", "Beaches", "Parks", "Zoos", "Museums", "Breweries/Wineries", "Amusement", "Haunted", "Novelty", "Military/Memorial", "Monuments"]
 
     handleSubmit = e => {
         e.preventDefault();
+        //what do we do here?
+    }
 
-        //what to we do here?
+    //map through options array and render a checkbox for each
+    //map through userInterests array (in context), if a value matches value in options, render the checkbox if checked
+    renderCheckBoxes = (option) => {
+      const interestArr = this.context.userInterests
+      console.log('interestArr:', interestArr )
+      interestArr.forEach(interest => {
+          if (interestArr.length === 0 || interest !== option) {
+              return (
+                <div>
+                  <label htmlFor={option}>{option}</label>
+                  <input id={option} type="checkbox" onChange={e => this.handleCheck(e)}/>
+                </div>
+              )
+          } else {
+              return (
+                <div>
+                  <label htmlFor={option}>{option}</label>
+                  <input id={option} type="checkbox" onChange={e => this.handleCheck(e)} checked/>
+                </div>
+              )
+          }
+      })
     }
 
 
-    handleAlreadyChecked = (val) => {
-        this.context.userInterests.map((interest) => {
-            if (interest === val) {
-                return true
-            }
-        })
-        return false
-    }
+    //----------------------------------------------------------------------------------------------------------------------
+    // handleAlreadyChecked = (val) => {
+    //     this.context.userInterests.map((interest) => {
+    //         if (interest === val) {
+    //             return true
+    //         }
+    //     })
+    //     return false
+    // }
 
-    handleRenderInterests = (interest, checked) => {
-        if (!checked) {
-            return (
-                <>
-                    <label htmlFor={interest}>{interest}</label>
-                    <input id={interest} type="checkbox" onChange={e => this.handleCheck(e)}></input>
-                </>
-            )
-        } else if (checked) {
-            return (
-                <>
-                    <label htmlFor={interest}>{interest}</label>
-                    <input id={interest} type="checkbox" onChange={e => this.handleCheck(e)} checked ></input>
-                </>
-            )
-        }
-    }
+    // handleRenderInterests = (interest, checked) => {
+    //     if (!checked) {
+    //         return (
+    //             <>
+    //                 <label htmlFor={interest}>{interest}</label>
+    //                 <input id={interest} type="checkbox" onChange={e => this.handleCheck(e)}></input>
+    //             </>
+    //         )
+    //     } else if (checked) {
+    //         return (
+    //             <>
+    //                 <label htmlFor={interest}>{interest}</label>
+    //                 <input id={interest} type="checkbox" onChange={e => this.handleCheck(e)} checked ></input>
+    //             </>
+    //         )
+    //     }
+    // }
 
     render() {
         return (
@@ -65,9 +89,13 @@ export default class Interests extends Component {
                 </header>
                 <div>
                     <form className="interests-form">
-                        {this.interests.map((interest) => {
+                        {this.options.map((option, i) => {
                             return (
-                                this.handleRenderInterests(interest, this.handleAlreadyChecked(interest)))
+                                <li key={i}>
+                                  <label htmlFor={option}>{option}</label>
+                                  <input id={option} type="checkbox" onChange={e => this.handleCheck(e)}/>
+                                </li>
+                            )
                         })}
                         <div className='submit-button'>
                             <button
@@ -77,6 +105,16 @@ export default class Interests extends Component {
                         </div>
                     </form>
                 </div>
+                <h3>Current Selections:</h3>
+                <ul>
+                      {this.context.userInterests.map((interest, i) => {
+                        return (
+                          <li key={i}>
+                            {interest}
+                          </li>
+                        )
+                      })}
+                </ul>
             </div>
         )
     }
