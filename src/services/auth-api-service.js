@@ -3,7 +3,7 @@ import TokenService from './token-service'
 
 const AuthApiService = {
   postUser(user) {
-    return fetch(`${config.RANDOM}/users/new`, {
+    return fetch(`${config.API_ENDPOINT}/users/new`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -16,9 +16,9 @@ const AuthApiService = {
           : res.json()
       )
   },
-  
+
   postLogin({ username, password }) {
-    return fetch(`${config.RANDOM}/auth/login`, {
+    return fetch(`${config.API_ENDPOINT}/auth/login`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
