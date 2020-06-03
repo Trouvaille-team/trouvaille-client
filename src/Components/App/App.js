@@ -12,6 +12,7 @@ import Interests from '../../Interests/Interests';
 import { ContextProvider } from '../../Context';
 import WaypointsSelect from '../waypointsSelect/WaypointsSelect'
 import './App.css';
+import MyTrips from "../myTrips/MyTrips"
 
 class App extends React.Component {
   // constructor(props) {
@@ -24,7 +25,7 @@ class App extends React.Component {
     return (
       <ContextProvider>
         <main className='App'>
-          
+
           <Router>
             <Header />
             <Switch>
@@ -52,6 +53,10 @@ class App extends React.Component {
               <Route
                 path={'/map'}
                 component={MapContainer}>
+              </Route>
+              <Route
+                path={'/MyTrips'}
+                component={MyTrips}>
               </Route>
               <Route
                 path={'/interests'}
