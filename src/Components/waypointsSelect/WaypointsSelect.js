@@ -1,8 +1,8 @@
 import React from 'react';
-import ContextProvider from '../../Context'
+import ContextProvider from '../../Context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
-import LoadingScreen from "../loading/loading"
+import LoadingScreen from "../loading/loading";
 import FadeIn from "react-fade-in";
 
 
