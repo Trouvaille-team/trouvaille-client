@@ -20,9 +20,9 @@ const Context = React.createContext({
   removeUserInterests: () => { },
   clearUserInterests: () => { },
   setTrip: () => { },
-  setUser: () => {},
-  processLogin: () => {},
-  processLogout: () => {},
+  setUser: () => { },
+  processLogin: () => { },
+  processLogout: () => { },
 })
 export default Context
 
@@ -49,26 +49,22 @@ export class ContextProvider extends Component {
     setOriginCoords: () => { },
     setEndCoords: () => { },
     setWaypoints: () => { },
-    setUser: () => {},
-    processLogin: () => {},
+    setUser: () => { },
+    processLogin: () => { },
   }
 
   componentDidMount() {
-    console.log(JSON.parse(localStorage.getItem("trouvailleData")))
     this.checkStorage()
   }
 
   checkStorage = () => {
-    console.log(localStorage.getItem("trouvailleData"))
     if (localStorage.getItem("trouvailleData")) {
-      console.log("mark")
       this.setState({ ...JSON.parse(localStorage.getItem("trouvailleData")) })
     }
   }
 
   componentDidUpdate() {
     localStorage.setItem("trouvailleData", JSON.stringify(this.state))
-    console.log(JSON.parse(localStorage.getItem("trouvailleData")))
   }
 
   toggleMenu = () => {
@@ -139,10 +135,8 @@ export class ContextProvider extends Component {
   }
   //save the auth token to the window local storage
   processLogin = authToken => {
-    console.log(authToken)
     TokenService.saveAuthToken(authToken)
     const jwtPayload = TokenService.parseAuthToken()
-    console.log(jwtPayload)
     this.setUser({
       id: jwtPayload.user_id,
       username: jwtPayload.username,
