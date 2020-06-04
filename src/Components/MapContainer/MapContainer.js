@@ -24,11 +24,15 @@ class MapContainer extends Component {
     console.log(context.waypoints)
     fetch(`${process.env.REACT_APP_URL}/trips`, {
       method: "POST",
+      headers: {
+        "content-type": "application/json",
+
+      },
       body: JSON.stringify({
         origin: context.originCoords,
         destination: context.endCoords,
         waypoints: context.waypoints,
-        user_id: 1,
+        user_id: 2,
       }),
       credentials: "same-origin"
     }).then((res) => {
