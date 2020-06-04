@@ -2,6 +2,10 @@ import React from 'react';
 import ContextProvider from '../../Context'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
+import LoadingScreen from "../loading/loading"
+import FadeIn from "react-fade-in";
+import HamburgerIcon from '../HamburberIcon/HamburgerIcon';
+
 
 export default class WaypointSelect extends React.Component {
   constructor(props) {
@@ -11,7 +15,8 @@ export default class WaypointSelect extends React.Component {
   state = {
     points: [],
     endCoords: {},
-    waypoints: []
+    waypoints: [],
+    loading:true
   }
 
   static contextType = ContextProvider
@@ -21,7 +26,7 @@ export default class WaypointSelect extends React.Component {
       body: JSON.stringify({
         "origin": `${this.context.originCoords.lat},${this.context.originCoords.lng}`,
         "dest": this.context.userTrip.destination,
-        query: ["military"]
+        "query": this.context.userInterests
       }),
       headers: {
         "Content-Length": 61,
@@ -31,7 +36,7 @@ export default class WaypointSelect extends React.Component {
     }).then((res) => {
       return res.json()
     }).then((data) => {
-      this.setState({ endCoords: data.endCoords, points: data.points })
+      this.setState({ endCoords: data.endCoords, points: data.points, loading: false })
     }).catch(function (error) {
       return error.message
     })
@@ -39,7 +44,9 @@ export default class WaypointSelect extends React.Component {
 
   displayOption = () => {
     if (this.state.points.length > 0) {
-      return (<div className='option'>
+      return (
+      <FadeIn>
+      <div className='option'>
         <img alt={this.state.points[0].name}></img>
         <div className='title-button-container'>
           <button
@@ -60,7 +67,8 @@ export default class WaypointSelect extends React.Component {
             />
           </button>
         </div>
-      </div>)
+      </div>
+        </FadeIn>)
     } else {
       return (<h4>Sorry we couldn't find anywhere interesting along that route</h4>)
     }
@@ -85,8 +93,12 @@ export default class WaypointSelect extends React.Component {
   }
 
   render() {
+    if(this.state.loading === true) {
+      return(<><HamburgerIcon/><LoadingScreen /></>)
+    } else {
     return (
       <>
+        <HamburgerIcon />
         {this.displayOption()}
         <h4>Your Waypoints</h4>
         <button
@@ -102,7 +114,7 @@ export default class WaypointSelect extends React.Component {
             </div>)
         })}
       </>
-    )
+    )}
   }
 }
 

@@ -2,6 +2,9 @@
 
 import React from 'react';
 const { compose, withProps, lifecycle } = require("recompose");
+
+/**Look at docs for react-google-maps !**/
+
 const {
   withScriptjs,
   withGoogleMap,
@@ -23,8 +26,8 @@ const MapWithADirectionsRenderer = compose(
 
       fetch(
         `https://maps.googleapis.com/maps/api/directions/json?
-origin=Toronto&destination=Montreal
-&key=AIzaSyACWIZRgcXsFJv3UbH8MQw_-hqqiao2MS8`
+        origin=Toronto&destination=Montreal
+        &key=AIzaSyACWIZRgcXsFJv3UbH8MQw_-hqqiao2MS8`
       ).then((res) => {
         res.json()
       }).then(data => console.log(data))
@@ -72,13 +75,7 @@ origin=Toronto&destination=Montreal
     >
       {props.directions && <DirectionsRenderer directions={props.directions} />}
     </GoogleMap>
-    <a
-      href={`https://www.google.com/maps/dir/?api=1&origin=${props.originLat},${props.originLng}&destination=${props.destLat},${props.destLng}&travelmode=driving&waypoints=Grand+Canyon`}
-      target={"_blank"}
-      rel={"noopener noreferrer"}
-    >
-      see on google maps
-    </a>
+
   </>
 ));
 

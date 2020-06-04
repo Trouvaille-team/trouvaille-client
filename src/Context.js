@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TokenService from './services/token-service';
 
 //user data (userInterests, and userTrip) has to get stored in the database
 //all the data in context clears whenever browser is refreshed!!
@@ -14,9 +15,12 @@ const Context = React.createContext({
     maxTime: 0,
     origin: {}
   },
-  addUserInterests: ()=>{},
-  removeUserInterests: ()=>{},
-  setTrip: ()=>{}
+  addUserInterests: () => { },
+  removeUserInterests: () => { },
+  setTrip: () => { },
+  setUser: () => {},
+  processLogin: () => {},
+  processLogout: () => {},
 })
 export default Context
 
@@ -25,30 +29,48 @@ export default Context
 export class ContextProvider extends Component {
   state = {
     showMenu: false,
-
     userInterests: [],
-
-    toggleMenu: () => {},
-
+    toggleMenu: () => { },
     userTrip: {
       destination: '',
       numDetours: null,
       maxRadius: null,
       maxTime: null
-    }, 
-    addUserInterests: ()=>{},
-    removeUserInterests: ()=>{},
-    setTrip: ()=>{},
+    },
+    addUserInterests: () => { },
+    removeUserInterests: () => { },
+    setTrip: () => { },
     waypoints: [],
     endCoords: {},
     originCoords: {},
     setOriginCoords: () => { },
     setEndCoords: () => { },
-    setWaypoints: () => { }
+    setWaypoints: () => { },
+    setUser: () => {},
+    processLogin: () => {},
+  }
+
+  componentDidMount() {
+    console.log(JSON.parse(localStorage.getItem("trouvailleData")))
+    this.checkStorage()
+  }
+
+  checkStorage = () => {
+    console.log(localStorage.getItem("trouvailleData"))
+    if (localStorage.getItem("trouvailleData")) {
+      console.log("mark")
+      this.setState({ ...JSON.parse(localStorage.getItem("trouvailleData")) })
+    }
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem("trouvailleData", JSON.stringify(this.state))
+    console.log(JSON.parse(localStorage.getItem("trouvailleData")))
   }
 
   toggleMenu = () => {
     this.setState({ showMenu: !this.state.showMenu })
+    console.log('toggled')
   }
 
   setEndCoords = (endCoords) => {
@@ -62,19 +84,25 @@ export class ContextProvider extends Component {
   //Add items to interests array
   addUserInterests = (checkedItem) => {
     //first make sure newInterest isn't already in the array!
-    for (let item in this.userInterests) {
-      if (checkedItem === item) {
-        return 'item is already in list'
+    if (this.state.userInterests.length < 1) {
+      this.setState({ userInterests: [checkedItem] })
+      return
+    }
+    this.state.userInterests.map((i) => {
+      console.log(i, checkedItem)
+      if (i !== checkedItem) {
+        this.setState({ userInterests: [...this.state.userInterests, checkedItem] })
+        console.log(this.state.userInterests)
       }
-    } 
-    this.setState({ userInterests: [...this.state.userInterests, checkedItem]})
+    })
   }
 
   //remove items when they're unchecked
   removeUserInterests = (unchekedItem) => {
-    for(let i=0; i<this.state.userInterests.length; i++) {
+    for (let i = 0; i < this.state.userInterests.length; i++) {
       if (unchekedItem === this.state.userInterests[i]) {
-        return this.state.userInterests.splice(i, 1)
+        this.state.userInterests.splice(i, 1)
+        this.setState({ userInterests: this.state.userInterests })
       }
     }
   }
@@ -96,11 +124,26 @@ export class ContextProvider extends Component {
       waypoints: waypoints
     })
   }
+  // set user object in state
+  setUser = user => {
+    this.setState({ user })
+  }
+  //save the auth token to the window local storage
+  processLogin = authToken => {
+    console.log(authToken)
+    TokenService.saveAuthToken(authToken)
+    const jwtPayload = TokenService.parseAuthToken()
+    console.log(jwtPayload)
+    this.setUser({
+      id: jwtPayload.user_id,
+      username: jwtPayload.username,
+    })
+  }
 
   render() {
     const value = {
       showMenu: this.state.showMenu,
-      userInterests: [],
+      userInterests: this.state.userInterests,
       userTrip: this.state.userTrip,
       toggleMenu: this.toggleMenu,
       addUserInterests: this.addUserInterests,
@@ -111,7 +154,9 @@ export class ContextProvider extends Component {
       setEndCoords: this.setEndCoords,
       endCoords: this.state.endCoords,
       setOriginCoords: this.setOriginCoords,
-      originCoords: this.state.originCoords
+      originCoords: this.state.originCoords,
+      processLogin: this.processLogin,
+      setUser: this.setUser,
     }
     return (
       <Context.Provider value={value}>

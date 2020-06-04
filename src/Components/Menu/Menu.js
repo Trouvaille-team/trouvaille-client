@@ -15,7 +15,6 @@ export default class Menu extends Component {
             <li><Link to="">See where I've been</Link></li>
             <li><Link to="/discover">Discover new places</Link></li>
             <li><Link to="/interests">Change my preferences</Link></li>           
-
           </ul>
         </nav>  
           }      
