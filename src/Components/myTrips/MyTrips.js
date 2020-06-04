@@ -2,7 +2,6 @@ import React from 'react';
 import ContextProvider from '../../Context';
 import config from "../../config"
 
-let user_id = 1
 export default class MyTrips extends React.Component {
   constructor(props) {
     super(props)
@@ -13,12 +12,13 @@ export default class MyTrips extends React.Component {
   static contextType = ContextProvider
 
   componentDidMount() {
-    console.log(process.env.REACT_APP_URL)
-    fetch(`${config.API_ENDPOINT}/trips/${user_id}`).then((res) => {
-      return res.json()
-    }).then((data) => {
-      this.setState({ trips: data })
-    })
+    if (sessionStorage.getItem("user_id")) {
+      fetch(`${config.API_ENDPOINT}/trips/${sessionStorage.getItem("user_id")}`).then((res) => {
+        return res.json()
+      }).then((data) => {
+        this.setState({ trips: data })
+      })
+    }
   }
 
   updateContext = (trip) => {

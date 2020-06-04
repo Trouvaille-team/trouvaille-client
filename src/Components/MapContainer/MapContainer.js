@@ -21,7 +21,6 @@ class MapContainer extends Component {
   async handlePostTrips() {
     const token = TokenService.getAuthToken();
     const context = this.context
-    console.log(context.waypoints)
     fetch(`${process.env.REACT_APP_URL}/trips`, {
       method: "POST",
       headers: {
@@ -32,7 +31,7 @@ class MapContainer extends Component {
         origin: context.originCoords,
         destination: context.endCoords,
         waypoints: context.waypoints,
-        user_id: 2,
+        user_id: sessionStorage.getItem("user_id"),
       }),
       credentials: "same-origin"
     }).then((res) => {
