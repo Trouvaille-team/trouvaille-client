@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-//import Menu from '../Menu/Menu'
+import Menu from '../Menu/Menu'
 import './HamburgerIcon.css'
-import { ContextProvider } from '../../Context'
+import ContextProvider from '../../Context'
 
 export default class HamburgerIcon extends Component {
 
@@ -9,7 +9,7 @@ export default class HamburgerIcon extends Component {
   render() {
     return (
       <>
-      {/* <Menu /> */}
+      <Menu />
       <div className='menu-toggler'
         onClick={this.context.toggleMenu}>
         <div className="bar"></div>

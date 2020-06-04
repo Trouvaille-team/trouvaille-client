@@ -1,5 +1,4 @@
 import React from 'react';
-import Menu from './Menu/Menu'
 import ContextProvider from '../Context'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -61,13 +60,10 @@ class Dashboard extends React.Component {
   // }
 
 
-
-
   render() {
       if (this.state.loading === true) {
         return(
         <>
-          <Menu />
           <HamburgerIcon />
           <h3>wait up bitch I'm loading</h3>
         </>

@@ -70,7 +70,6 @@ export class ContextProvider extends Component {
 
   toggleMenu = () => {
     this.setState({ showMenu: !this.state.showMenu })
-    console.log('toggled')
   }
 
   setEndCoords = (endCoords) => {
