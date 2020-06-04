@@ -30,10 +30,6 @@ class MapContainer extends Component {
         waypoints: context.waypoints,
         user_id: 1,
       }),
-      headers: {
-        "Content-Length": 61,
-        "Content-Type": "application/json; charset=utf-8"
-      },
       credentials: "same-origin"
     }).then((res) => {
       return res.json()
