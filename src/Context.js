@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TokenService from './services/token-service';
-import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+//import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 
 //user data (userInterests, and userTrip) has to get stored in the database
 //all the data in context clears whenever browser is refreshed!!

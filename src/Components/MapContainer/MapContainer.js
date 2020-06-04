@@ -7,11 +7,10 @@ import Map from "../Map/Map";
 class MapContainer extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      waypoints: []
+    } 
   }
-  state = {
-    waypoints: []
-  }
-
 
   static contextType = ContextProvider
   async componentDidMount() {
