@@ -11,16 +11,17 @@ class MapContainer extends Component {
   state = {
     waypoints: []
   }
+
+
   static contextType = ContextProvider
-
   async componentDidMount() {
-    this.setState({
-      waypoints: this.context.waypoints
-    })
+    this.handlePostTrips()
+  }
 
+  async handlePostTrips() {
     const token = TokenService.getAuthToken();
 
-    console.log(this.context)
+    const context = this.context
 
     const res = await fetch('http://localhost:8000/api/trips', {
       method: 'POST',
@@ -29,18 +30,19 @@ class MapContainer extends Component {
         'Authorization': `Bearer ${token}`,
       },
       body: JSON.stringify({
-        origin: this.context.originCoords,
-        destination: this.context.endCoords,
-        waypoints: this.context.waypoints,
+        origin: context.originCoords,
+        destination: context.endCoords,
+        waypoints: context.waypoints,
         user_id: 1,
-      })
-    }
-      ).catch(() => {
+      }),
+      credentials: "same-origin"
+    }).then((res) => {
+      return res.json()
+    })
+    .catch(() => {
       res.status(400).send();
     });
-    await res.json();
   }
-
 
   composeWaypointsString = () => {
     let waypointString = ""
@@ -48,9 +50,7 @@ class MapContainer extends Component {
       this.context.waypoints.forEach(waypoint => {
         waypointString += waypoint.name.replace(" ", "+")
         waypointString += "|"
-        console.log(waypointString)
       })
-      console.log(waypointString)
       return waypointString
     }
   }

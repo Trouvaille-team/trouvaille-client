@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TokenService from './services/token-service';
+import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 
 //user data (userInterests, and userTrip) has to get stored in the database
 //all the data in context clears whenever browser is refreshed!!
@@ -17,10 +18,11 @@ const Context = React.createContext({
   },
   addUserInterests: () => { },
   removeUserInterests: () => { },
+  clearUserInterests: () => { },
   setTrip: () => { },
-  setUser: () => {},
-  processLogin: () => {},
-  processLogout: () => {},
+  setUser: () => { },
+  processLogin: () => { },
+  processLogout: () => { },
 })
 export default Context
 
@@ -39,6 +41,7 @@ export class ContextProvider extends Component {
     },
     addUserInterests: () => { },
     removeUserInterests: () => { },
+    clearUserInterests: () => { },
     setTrip: () => { },
     waypoints: [],
     endCoords: {},
@@ -46,26 +49,22 @@ export class ContextProvider extends Component {
     setOriginCoords: () => { },
     setEndCoords: () => { },
     setWaypoints: () => { },
-    setUser: () => {},
-    processLogin: () => {},
+    setUser: () => { },
+    processLogin: () => { },
   }
 
   componentDidMount() {
-    console.log(JSON.parse(localStorage.getItem("trouvailleData")))
     this.checkStorage()
   }
 
   checkStorage = () => {
-    console.log(localStorage.getItem("trouvailleData"))
     if (localStorage.getItem("trouvailleData")) {
-      console.log("mark")
       this.setState({ ...JSON.parse(localStorage.getItem("trouvailleData")) })
     }
   }
 
   componentDidUpdate() {
     localStorage.setItem("trouvailleData", JSON.stringify(this.state))
-    console.log(JSON.parse(localStorage.getItem("trouvailleData")))
   }
 
   toggleMenu = () => {
@@ -79,22 +78,27 @@ export class ContextProvider extends Component {
   setOriginCoords = (originCoords) => {
     this.setState({ originCoords })
   }
-
   //Add items to interests array
-  addUserInterests = (checkedItem) => {
-    //first make sure newInterest isn't already in the array!
-    if (this.state.userInterests.length < 1) {
-      this.setState({ userInterests: [checkedItem] })
-      return
-    }
-    this.state.userInterests.map((i) => {
-      console.log(i, checkedItem)
-      if (i !== checkedItem) {
-        this.setState({ userInterests: [...this.state.userInterests, checkedItem] })
-        console.log(this.state.userInterests)
+    addUserInterests = (checkedItem) => {
+      if (this.state.userInterests.length === 0) {
+        return this.setState({ userInterests: [checkedItem] })
       }
-    })
-  }
+      else {
+        //make sure checkedItem isn't already in the array!
+        let bool = true
+        bool = this.state.userInterests.every(interest => {
+          if (interest === checkedItem) {
+            return false
+          }
+          return true
+        })
+        if (bool) {
+          console.log("%cBAD", "color:pink")
+          return this.setState({ userInterests: [...this.state.userInterests, checkedItem] })
+        }
+      }
+    }
+      
 
   //remove items when they're unchecked
   removeUserInterests = (unchekedItem) => {
@@ -104,6 +108,10 @@ export class ContextProvider extends Component {
         this.setState({ userInterests: this.state.userInterests })
       }
     }
+  }
+
+  clearUserInterests = () => {
+    this.setState({ userInterests: [] })
   }
 
   //Store all all the values passed into the PlanTrip form!
@@ -129,10 +137,8 @@ export class ContextProvider extends Component {
   }
   //save the auth token to the window local storage
   processLogin = authToken => {
-    console.log(authToken)
     TokenService.saveAuthToken(authToken)
     const jwtPayload = TokenService.parseAuthToken()
-    console.log(jwtPayload)
     this.setUser({
       id: jwtPayload.user_id,
       username: jwtPayload.username,
@@ -147,6 +153,7 @@ export class ContextProvider extends Component {
       toggleMenu: this.toggleMenu,
       addUserInterests: this.addUserInterests,
       removeUserInterests: this.removeUserInterests,
+      clearUserInterests: this.clearUserInterests,
       setTrip: this.setTrip,
       waypoints: this.state.waypoints,
       setWaypoints: this.setWaypoints,

@@ -1,10 +1,10 @@
 import React from 'react';
-import ContextProvider from '../../Context'
+import ContextProvider from '../../Context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
-import LoadingScreen from "../loading/loading"
+import LoadingScreen from "../loading/loading";
 import FadeIn from "react-fade-in";
-import HamburgerIcon from '../HamburberIcon/HamburgerIcon';
+import HamburgerIcon from '../HamburberIcon/HamburgerIcon'
 
 
 export default class WaypointSelect extends React.Component {
@@ -94,7 +94,7 @@ export default class WaypointSelect extends React.Component {
 
   render() {
     if(this.state.loading === true) {
-      return(<><HamburgerIcon/><LoadingScreen /></>)
+      return(<LoadingScreen></LoadingScreen>)
     } else {
     return (
       <>
