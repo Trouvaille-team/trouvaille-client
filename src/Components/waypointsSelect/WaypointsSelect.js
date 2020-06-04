@@ -95,7 +95,7 @@ export default class WaypointSelect extends React.Component {
 
   render() {
     if(this.state.loading === true) {
-      return(<LoadingScreen></LoadingScreen>)
+      return(<><HamburgerIcon /><LoadingScreen /></>)
     } else {
     return (
       <>
