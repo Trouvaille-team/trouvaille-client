@@ -20,28 +20,15 @@ class MapContainer extends Component {
 
   async handlePostTrips() {
     const token = TokenService.getAuthToken();
-<<<<<<< HEAD
     const context = this.context
     console.log(context.waypoints)
     fetch(`${process.env.REACT_APP_URL}/trips`, {
       method: "POST",
-=======
-
-    console.log(this.context)
-
-    const res = await fetch('http://localhost:8000/api/trips', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
-      },
->>>>>>> 6842f09eb05275c57462602b887fe017aa3fe61e
       body: JSON.stringify({
         origin: context.originCoords,
         destination: context.endCoords,
         waypoints: context.waypoints,
         user_id: 1,
-<<<<<<< HEAD
       }),
       headers: {
         "Content-Length": 61,
@@ -51,14 +38,6 @@ class MapContainer extends Component {
     }).then((res) => {
       return res.json()
     })
-=======
-      })
-    }
-      ).catch(() => {
-      res.status(400).send();
-    });
-    await res.json();
->>>>>>> 6842f09eb05275c57462602b887fe017aa3fe61e
   }
 
   composeWaypointsString = () => {
