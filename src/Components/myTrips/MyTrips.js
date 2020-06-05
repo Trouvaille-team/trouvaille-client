@@ -3,8 +3,10 @@ import ContextProvider from '../../Context';
 import config from "../../config"
 
 export default class MyTrips extends React.Component {
-
-  state = {
+  constructor(props) {
+    super(props)
+    
+    this.state = {
     trips: []
     } 
   }

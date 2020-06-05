@@ -4,11 +4,7 @@ import ContextProvider from '../Context'
 // import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
 import HamburgerIcon from './HamburberIcon/HamburgerIcon';
 import LoadingScreen from "./loading/loading";
-<<<<<<< HEAD
-//import FadeIn from "react-fade-in";
-=======
 // import FadeIn from "react-fade-in";
->>>>>>> 91ba6d7b4afb3059ad0f0c53b27dbe8b4e55aa5c
 //import {Link} from 'react-router-dom';
 //import PlanTrip from './Nav/PlanTrip';
 
@@ -72,20 +68,6 @@ class Dashboard extends React.Component {
           <HamburgerIcon />
           <LoadingScreen></LoadingScreen>
         </>
-<<<<<<< HEAD
-      )
-    } else {
-      return (
-        <div>
-          <HamburgerIcon />
-          <div className='dashboard-container'>
-            <h1>Welcome, User</h1>
-            <h2>Nearby Locations</h2>
-            <div className='new-places-container'>
-              <h1>What do you think of these places?</h1>
-              <div className='top-options'>
-                {this.state.data.points.map((location) => {
-=======
         )
       } else {
         return (
@@ -98,7 +80,6 @@ class Dashboard extends React.Component {
             <h1>What do you think of these places?</h1>
             <div className='top-options'>
               {this.state.data.points.map((location) => {
->>>>>>> 91ba6d7b4afb3059ad0f0c53b27dbe8b4e55aa5c
                   return (
                     <div className='option'>
                       <div className='title-button-container'>
@@ -110,10 +91,6 @@ class Dashboard extends React.Component {
             </div>
           </div>
         </div>
-<<<<<<< HEAD
-=======
-      </div >
->>>>>>> 91ba6d7b4afb3059ad0f0c53b27dbe8b4e55aa5c
       )
     }
   }
