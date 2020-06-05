@@ -1,5 +1,6 @@
 /*global google*/
 
+import mapStyles from "./mapstyles"
 import React from 'react';
 const { compose, withProps, lifecycle } = require("recompose");
 
@@ -72,6 +73,7 @@ const MapWithADirectionsRenderer = compose(
     <GoogleMap
       defaultZoom={7}
       defaultCenter={new google.maps.LatLng(41.85073, -87.65126)}
+      defaultOptions={{ styles: mapStyles }}
     >
       {props.directions && <DirectionsRenderer directions={props.directions} />}
     </GoogleMap>

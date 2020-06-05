@@ -29,7 +29,6 @@ class Dashboard extends React.Component {
       let longitude = position.coords.longitude;
       myVar.context.setOriginCoords({ lat: latitude, lng: longitude })
       myVar.setState({ lat: latitude, lng: longitude, loading: false })
-
     })
   }
   //This is a stupid solution change if possible
@@ -106,7 +105,7 @@ class Dashboard extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </div >
       )
     }
   }
