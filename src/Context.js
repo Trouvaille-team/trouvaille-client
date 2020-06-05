@@ -7,6 +7,7 @@ import TokenService from './services/token-service';
 
 const Context = React.createContext({
   userInterests: [],
+  user:{},
   showMenu: false,
   toggleMenu: () => { },
   userTrip: {
@@ -32,6 +33,7 @@ export class ContextProvider extends Component {
   state = {
     showMenu: false,
     userInterests: [],
+    user: {},
     toggleMenu: () => { },
     userTrip: {
       destination: '',
@@ -79,26 +81,25 @@ export class ContextProvider extends Component {
     this.setState({ originCoords })
   }
   //Add items to interests array
-    addUserInterests = (checkedItem) => {
-      if (this.state.userInterests.length === 0) {
-        return this.setState({ userInterests: [checkedItem] })
-      }
-      else {
-        //make sure checkedItem isn't already in the array!
-        let bool = true
-        bool = this.state.userInterests.every(interest => {
-          if (interest === checkedItem) {
-            return false
-          }
-          return true
-        })
-        if (bool) {
-          console.log("%cBAD", "color:pink")
-          return this.setState({ userInterests: [...this.state.userInterests, checkedItem] })
+  addUserInterests = (checkedItem) => {
+    if (this.state.userInterests.length === 0) {
+      return this.setState({ userInterests: [checkedItem] })
+    }
+    else {
+      //make sure checkedItem isn't already in the array!
+      let bool = true
+      bool = this.state.userInterests.every(interest => {
+        if (interest === checkedItem) {
+          return false
         }
+        return true
+      })
+      if (bool) {
+        return this.setState({ userInterests: [...this.state.userInterests, checkedItem] })
       }
     }
-      
+  }
+
 
   //remove items when they're unchecked
   removeUserInterests = (unchekedItem) => {
@@ -141,12 +142,18 @@ export class ContextProvider extends Component {
     const jwtPayload = TokenService.parseAuthToken()
     this.setUser({
       id: jwtPayload.user_id,
-      username: jwtPayload.username,
+      username: jwtPayload.sub,
     })
+  }
+
+  processLogout = () => {
+    TokenService.clearAuthToken()
+    this.setUser({})
   }
 
   render() {
     const value = {
+      user: this.state.user,
       showMenu: this.state.showMenu,
       userInterests: this.state.userInterests,
       userTrip: this.state.userTrip,
@@ -163,6 +170,7 @@ export class ContextProvider extends Component {
       originCoords: this.state.originCoords,
       processLogin: this.processLogin,
       setUser: this.setUser,
+      processLogout: this.processLogout,
     }
     return (
       <Context.Provider value={value}>
