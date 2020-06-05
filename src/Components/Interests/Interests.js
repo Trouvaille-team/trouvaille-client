@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ContextProvider from '../Context'
+import ContextProvider from '../../Context'
 
 export default class Interests extends Component {
 
