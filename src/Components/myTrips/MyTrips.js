@@ -5,10 +5,12 @@ import config from "../../config"
 export default class MyTrips extends React.Component {
   constructor(props) {
     super(props)
-  }
-  state = {
+    
+    this.state = {
     trips: []
+    } 
   }
+  
   static contextType = ContextProvider
 
   componentDidMount() {

@@ -2,19 +2,19 @@
 #menu{
   position: absolute;
   top: 1em;
-  left: 1em;
-  width: 40%;
-  height: 100%;
+  left: 5px;
+  width: auto;
+  height: 50%;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
+  /* justify-content: space-evenly; */
   cursor: pointer; 
+  /* background-color: #09014E; */
 }
 
 .menu-links {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   margin-top: 2em;
   /* border: solid; */
 }

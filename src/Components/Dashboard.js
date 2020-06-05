@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
 import HamburgerIcon from './HamburberIcon/HamburgerIcon';
 import LoadingScreen from "./loading/loading";
-import FadeIn from "react-fade-in";
+//import FadeIn from "react-fade-in";
 //import {Link} from 'react-router-dom';
 //import PlanTrip from './Nav/PlanTrip';
 
