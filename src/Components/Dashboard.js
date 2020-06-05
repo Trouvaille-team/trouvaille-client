@@ -75,7 +75,7 @@ class Dashboard extends React.Component {
             <h1>Welcome, User</h1>
             <h2>Nearby Locations</h2>
             <div className='new-places-container'>
-              <h1>What do you think of these places?</h1>
+              <h1>Heres some places nearby you might like</h1>
               <div className='top-options'>
                 {
                   this.state.data.points.map((location) => {
@@ -83,20 +83,10 @@ class Dashboard extends React.Component {
                       <div className='option'>
                         <img alt={location.name}></img>
                         <div className='title-button-container'>
-                          <button
-                            className='add-button'
-                          >
-                            <FontAwesomeIcon
-                              icon={faTimes}
-                            />
-                          </button>
                           <h2>{location.name}</h2>
                           <button
                             className='add-button'
                           >
-                            <FontAwesomeIcon
-                              icon={faPlus}
-                            />
                           </button>
                         </div>
                       </div>)
