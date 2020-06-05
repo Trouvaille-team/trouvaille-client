@@ -1,7 +1,7 @@
 import React from 'react';
 import ContextProvider from '../Context'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
 import HamburgerIcon from './HamburberIcon/HamburgerIcon';
 import LoadingScreen from "./loading/loading";
 import FadeIn from "react-fade-in";
@@ -82,23 +82,8 @@ class Dashboard extends React.Component {
               {this.state.data.points.map((location) => {
                   return (
                     <div className='option'>
-                      <img alt={location.name}></img>
                       <div className='title-button-container'>
-                        <button
-                          className='add-button'
-                        >
-                          <FontAwesomeIcon
-                            icon={faTimes}
-                          />
-                        </button>
                         <h2>{location.name}</h2>
-                        <button
-                          className='add-button'
-                        >
-                          <FontAwesomeIcon
-                            icon={faPlus}
-                          />
-                        </button>
                       </div>
                     </div>)
                 })}
