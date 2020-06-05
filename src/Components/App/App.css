@@ -6,20 +6,6 @@
   align-items: center;
 }
 
-.menu-toggler{
-  position: absolute;
-  top: 1em;
-  left: 1em;
-  width: 3em;
-  height: 1em;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-  z-index: 1500;
-  transition: transform 650ms ease-out;
-}
-
 /* Menu  */
 #menu{
   position: absolute;
@@ -40,14 +26,6 @@
 
 #menu ul{
   margin-top: 2em;
-}
-
-.bar{
-  /* background: linear-gradient(to right, #E3BAC6, #596475); */
-  background: black;
-  width: 50%;
-  height: 2px;
-  border-radius: .8rem;
 }
 
 /* Login View */

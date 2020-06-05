@@ -78,25 +78,27 @@ export class ContextProvider extends Component {
   setOriginCoords = (originCoords) => {
     this.setState({ originCoords })
   }
-
   //Add items to interests array
-  addUserInterests = (checkedItem) => {
-    if (this.state.userInterests.length === 0) {
-      return this.setState({ userInterests: [checkedItem] })     
-    } 
-    else {
-    //make sure checkedItem isn't already in the array!
-      this.state.userInterests.map(interest => {
-        if (checkedItem === interest) {
-          console.log('already checked')
-          return this.state.userInterests
-        } 
-        else {
+    addUserInterests = (checkedItem) => {
+      if (this.state.userInterests.length === 0) {
+        return this.setState({ userInterests: [checkedItem] })
+      }
+      else {
+        //make sure checkedItem isn't already in the array!
+        let bool = true
+        bool = this.state.userInterests.every(interest => {
+          if (interest === checkedItem) {
+            return false
+          }
+          return true
+        })
+        if (bool) {
+          console.log("%cBAD", "color:pink")
           return this.setState({ userInterests: [...this.state.userInterests, checkedItem] })
         }
-      })
+      }
     }
-  }
+      
 
   //remove items when they're unchecked
   removeUserInterests = (unchekedItem) => {

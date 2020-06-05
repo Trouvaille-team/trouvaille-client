@@ -37,12 +37,12 @@ class Header extends Component {
   render() {
     return (
       <header className='trouvaille_header'>
-          <div className='menu-toggler'
+          {/* <div className='menu-toggler'
                onClick={this.context.toggleMenu}>
             <div className="bar"></div>
             <div className="bar"></div>
             <div className="bar"></div>
-          </div>
+          </div> */}
         <h1 className="trouvaille-header">
           <Link to='/'>
             Trouvaille
