@@ -71,7 +71,7 @@ class Dashboard extends React.Component {
         </>
         )
       } else {
-        return(
+        return (
       <div>
         <HamburgerIcon />
         <div className='dashboard-container'>
@@ -80,8 +80,7 @@ class Dashboard extends React.Component {
           <div className='new-places-container'>
             <h1>What do you think of these places?</h1>
             <div className='top-options'>
-              {
-                this.state.data.points.map((location) => {
+              {this.state.data.points.map((location) => {
                   return (
                     <div className='option'>
                       <img alt={location.name}></img>
@@ -106,9 +105,10 @@ class Dashboard extends React.Component {
                 })}
             </div>
           </div>
-        </div>)
+        </div>
+      </div>
+      )
     }
-
   }
 }
 
