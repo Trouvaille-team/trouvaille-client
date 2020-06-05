@@ -5,20 +5,16 @@ import Register from '../Register';
 import Header from '../Header';
 import Dashboard from '../Dashboard';
 import NotFound from '../NotFound';
-import PlanTrip from '../Nav/PlanTrip';
+import PlanTrip from '../PlanTrip/PlanTrip';
 import LandingPage from '../LandingRoute/LandingPage';
 import MapContainer from '../MapContainer/MapContainer';
-import Interests from '../../Interests/Interests';
+import Interests from '../Interests/Interests';
 import { ContextProvider } from '../../Context';
 import WaypointsSelect from '../waypointsSelect/WaypointsSelect'
 import './App.css';
 import MyTrips from "../myTrips/MyTrips"
 
 class App extends React.Component {
-  // constructor(props) {
-  //   super(props);
-
-  // }
 
   render() {
 

@@ -10,14 +10,15 @@ import HamburgerIcon from '../HamburberIcon/HamburgerIcon'
 export default class WaypointSelect extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      points: [],
+      endCoords: {},
+      waypoints: [],
+      loading:true
+    }
   }
 
-  state = {
-    points: [],
-    endCoords: {},
-    waypoints: [],
-    loading:true
-  }
+  
 
   static contextType = ContextProvider
   componentDidMount() {
@@ -94,7 +95,7 @@ export default class WaypointSelect extends React.Component {
 
   render() {
     if(this.state.loading === true) {
-      return(<LoadingScreen></LoadingScreen>)
+      return(<><HamburgerIcon /><LoadingScreen /></>)
     } else {
     return (
       <>
