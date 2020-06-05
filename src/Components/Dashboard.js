@@ -1,7 +1,7 @@
 import React from 'react';
 import ContextProvider from '../Context'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
 import HamburgerIcon from './HamburberIcon/HamburgerIcon';
 import LoadingScreen from "./loading/loading";
 import FadeIn from "react-fade-in";
@@ -27,9 +27,9 @@ class Dashboard extends React.Component {
     navigator.geolocation.getCurrentPosition(function (position) {
       let latitude = position.coords.latitude;
       let longitude = position.coords.longitude;
-      myVar.context.setOriginCoords({ lat: myVar.state.lat, lng: myVar.state.lng })
+      myVar.context.setOriginCoords({ lat: latitude, lng: longitude })
       myVar.setState({ lat: latitude, lng: longitude, loading: false })
-
+      
     })
   }
   //This is a stupid solution change if possible

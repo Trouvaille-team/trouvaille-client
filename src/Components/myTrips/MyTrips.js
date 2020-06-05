@@ -31,6 +31,7 @@ export default class MyTrips extends React.Component {
 
 
   renderTrips(trips) {
+    console.log(trips)
     return trips.map((trip) => {
 
       return (
