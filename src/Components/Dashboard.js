@@ -2,6 +2,7 @@ import React from 'react';
 import ContextProvider from '../Context'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
+import HamburgerIcon from './HamburberIcon/HamburgerIcon';
 import LoadingScreen from "./loading/loading";
 import FadeIn from "react-fade-in";
 //import {Link} from 'react-router-dom';
@@ -63,47 +64,51 @@ class Dashboard extends React.Component {
 
   render() {
     if (this.state.loading === true) {
-      return (<LoadingScreen></LoadingScreen>)
+      return (
+        <>
+          <HamburgerIcon />
+          <LoadingScreen></LoadingScreen>
+        </>
+      )
     } else {
       return (
         <div>
-          <Menu />
+          <HamburgerIcon />
           <div className='dashboard-container'>
             <h1>Welcome, User</h1>
             <h2>Nearby Locations</h2>
             <div className='new-places-container'>
               <h1>What do you think of these places?</h1>
               <div className='top-options'>
-                {
-                  this.state.data.points.map((location) => {
-                    return (
-                      <div className='option'>
-                        <img alt={location.name}></img>
-                        <div className='title-button-container'>
-                          <button
-                            className='add-button'
-                          >
-                            <FontAwesomeIcon
-                              icon={faTimes}
-                            />
-                          </button>
-                          <h2>{location.name}</h2>
-                          <button
-                            className='add-button'
-                          >
-                            <FontAwesomeIcon
-                              icon={faPlus}
-                            />
-                          </button>
-                        </div>
-                      </div>)
-                  })}
+                {this.state.data.points.map((location) => {
+                  return (
+                    <div className='option'>
+                      <img alt={location.name}></img>
+                      <div className='title-button-container'>
+                        <button
+                          className='add-button'
+                        >
+                          <FontAwesomeIcon
+                            icon={faTimes}
+                          />
+                        </button>
+                        <h2>{location.name}</h2>
+                        <button
+                          className='add-button'
+                        >
+                          <FontAwesomeIcon
+                            icon={faPlus}
+                          />
+                        </button>
+                      </div>
+                    </div>)
+                })}
               </div>
             </div>
           </div>
-        </div>)
+        </div>
+      )
     }
-
   }
 }
 
