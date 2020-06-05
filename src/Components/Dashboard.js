@@ -3,6 +3,8 @@ import ContextProvider from '../Context'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
 import HamburgerIcon from './HamburberIcon/HamburgerIcon';
+import LoadingScreen from "./loading/loading";
+import FadeIn from "react-fade-in";
 //import {Link} from 'react-router-dom';
 //import PlanTrip from './Nav/PlanTrip';
 
@@ -25,8 +27,8 @@ class Dashboard extends React.Component {
     navigator.geolocation.getCurrentPosition(function (position) {
       let latitude = position.coords.latitude;
       let longitude = position.coords.longitude;
-      myVar.setState({ lat: latitude, lng: longitude, loading:false })
       myVar.context.setOriginCoords({ lat: myVar.state.lat, lng: myVar.state.lng })
+      myVar.setState({ lat: latitude, lng: longitude, loading: false })
 
     })
   }
@@ -65,16 +67,14 @@ class Dashboard extends React.Component {
         return(
         <>
           <HamburgerIcon />
-          <h3>wait up bitch I'm loading</h3>
+          <LoadingScreen></LoadingScreen>
         </>
         )
       } else {
         return(
       <div>
-        
         <HamburgerIcon />
         <div className='dashboard-container'>
-          
           <h1>Welcome, User</h1>
           <h2>Nearby Locations</h2>
           <div className='new-places-container'>
@@ -106,9 +106,9 @@ class Dashboard extends React.Component {
                 })}
             </div>
           </div>
-        </div>
-      </div>)}
-    
+        </div>)
+    }
+
   }
 }
 
