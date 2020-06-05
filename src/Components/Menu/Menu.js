@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import ContextProvider from '../../Context'
 import './Menu.css'
-import PastTrips from '../Nav/PastTrips';
+// import PastTrips from '../Nav/PastTrips';
 
 export default class Menu extends Component {
   static contextType = ContextProvider
@@ -13,7 +13,7 @@ export default class Menu extends Component {
           {this.context.showMenu && 
         <nav id='menu'>
           <ul className='menu-links'>
-            <li><Link to="/past-trips">See where I've been</Link></li>
+            {/* <li><Link to="/past-trips">See where I've been</Link></li> */}
             <li><Link to="/discover">Discover new places</Link></li>
             <li><Link to="/interests">Change my preferences</Link></li>           
           </ul>

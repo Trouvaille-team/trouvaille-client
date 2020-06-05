@@ -83,23 +83,8 @@ class Dashboard extends React.Component {
               {this.state.data.points.map((location) => {
                   return (
                     <div className='option'>
-                      <img alt={location.name}></img>
                       <div className='title-button-container'>
-                        <button
-                          className='add-button'
-                        >
-                          <FontAwesomeIcon
-                            icon={faTimes}
-                          />
-                        </button>
                         <h2>{location.name}</h2>
-                        <button
-                          className='add-button'
-                        >
-                          <FontAwesomeIcon
-                            icon={faPlus}
-                          />
-                        </button>
                       </div>
                     </div>)
                 })}

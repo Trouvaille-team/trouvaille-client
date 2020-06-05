@@ -5,24 +5,16 @@ import Register from '../Register';
 import Header from '../Header';
 import Dashboard from '../Dashboard';
 import NotFound from '../NotFound';
-import PlanTrip from '../Nav/PlanTrip';
+import PlanTrip from '../PlanTrip/PlanTrip';
 import LandingPage from '../LandingRoute/LandingPage';
 import MapContainer from '../MapContainer/MapContainer';
-import Interests from '../../Interests/Interests';
+import Interests from '../Interests/Interests';
 import { ContextProvider } from '../../Context';
 import WaypointsSelect from '../waypointsSelect/WaypointsSelect'
 import './App.css';
-<<<<<<< HEAD
-import PastTrips from '../Nav/PastTrips';
-=======
 import MyTrips from "../myTrips/MyTrips"
->>>>>>> 8ea63546537e6e4de4738d9c208c7792365bf874
 
 class App extends React.Component {
-  // constructor(props) {
-  //   super(props);
-
-  // }
 
   render() {
 
@@ -66,10 +58,10 @@ class App extends React.Component {
                 path={'/interests'}
                 component={Interests}>
               </Route>
-              <Route
+              {/* <Route
                 path={'/past-trips'}
                 component={PastTrips}>
-              </Route>
+              </Route> */}
               <Route
                 component={NotFound}>
               </Route>

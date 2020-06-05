@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ContextProvider from '../Context'
-//import PlanTrip from './Nav/PlanTrip';
+//import PlanTrip from './PlanTrip/PlanTrip';
 
 class Header extends Component {
   static contextType = ContextProvider
