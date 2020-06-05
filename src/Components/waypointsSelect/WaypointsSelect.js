@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
 import LoadingScreen from "../loading/loading";
 import FadeIn from "react-fade-in";
+import HamburgerIcon from '../HamburberIcon/HamburgerIcon'
 
 
 export default class WaypointSelect extends React.Component {
@@ -97,6 +98,7 @@ export default class WaypointSelect extends React.Component {
     } else {
     return (
       <>
+        <HamburgerIcon />
         {this.displayOption()}
         <h4>Your Waypoints</h4>
         <button
