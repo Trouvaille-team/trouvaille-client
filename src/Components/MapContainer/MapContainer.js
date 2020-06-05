@@ -7,11 +7,10 @@ import Map from "../Map/Map";
 class MapContainer extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      waypoints: []
+    } 
   }
-  state = {
-    waypoints: []
-  }
-
 
   static contextType = ContextProvider
   async componentDidMount() {
@@ -20,28 +19,23 @@ class MapContainer extends Component {
 
   async handlePostTrips() {
     const token = TokenService.getAuthToken();
-
     const context = this.context
-
-    const res = await fetch('http://localhost:8000/api/trips', {
-      method: 'POST',
+    fetch(`${process.env.REACT_APP_URL}/trips`, {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
+        "content-type": "application/json",
+
       },
       body: JSON.stringify({
         origin: context.originCoords,
         destination: context.endCoords,
         waypoints: context.waypoints,
-        user_id: 1,
+        user_id: sessionStorage.getItem("user_id"),
       }),
       credentials: "same-origin"
     }).then((res) => {
       return res.json()
     })
-    .catch(() => {
-      res.status(400).send();
-    });
   }
 
   composeWaypointsString = () => {

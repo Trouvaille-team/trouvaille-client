@@ -3,6 +3,7 @@ import Menu from '../Menu/Menu';
 import ContextProvider from '../../Context'
 
 import './PlanTrip.css'
+import HamburgerIcon from '../HamburberIcon/HamburgerIcon';
 
 class PlanTrip extends React.Component {
   static contextType = ContextProvider
@@ -31,6 +32,7 @@ class PlanTrip extends React.Component {
   render() {
     return (
       <>
+        <HamburgerIcon />
         <Menu />
         <form className='plan-trip' onSubmit={e => this.handleSubmit(e)}>
           <label htmlFor='destination'>Where are you going?</label>
