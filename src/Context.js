@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TokenService from './services/token-service';
-import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+//import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 
 //user data (userInterests, and userTrip) has to get stored in the database
 //all the data in context clears whenever browser is refreshed!!
@@ -79,7 +79,6 @@ export class ContextProvider extends Component {
     console.log(originCoords)
     this.setState({ originCoords })
   }
-
   //Add items to interests array
   addUserInterests = (checkedItem) => {
     if (this.state.userInterests.length === 0) {
@@ -87,17 +86,20 @@ export class ContextProvider extends Component {
     }
     else {
       //make sure checkedItem isn't already in the array!
-      this.state.userInterests.map(interest => {
-        if (checkedItem === interest) {
-          console.log('already checked')
-          return this.state.userInterests
+      let bool = true
+      bool = this.state.userInterests.every(interest => {
+        if (interest === checkedItem) {
+          return false
         }
-        else {
-          return this.setState({ userInterests: [...this.state.userInterests, checkedItem] })
-        }
+        return true
       })
+      if (bool) {
+        console.log("%cBAD", "color:pink")
+        return this.setState({ userInterests: [...this.state.userInterests, checkedItem] })
+      }
     }
   }
+
 
   //remove items when they're unchecked
   removeUserInterests = (unchekedItem) => {

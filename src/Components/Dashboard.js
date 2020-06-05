@@ -1,8 +1,8 @@
 import React from 'react';
-import Menu from './Menu/Menu'
 import ContextProvider from '../Context'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
+import HamburgerIcon from './HamburberIcon/HamburgerIcon';
 import LoadingScreen from "./loading/loading";
 import FadeIn from "react-fade-in";
 //import {Link} from 'react-router-dom';
@@ -61,8 +61,6 @@ class Dashboard extends React.Component {
   // }
 
 
-
-
   render() {
     if (this.state.loading === true) {
       return (<LoadingScreen></LoadingScreen>)
@@ -93,9 +91,10 @@ class Dashboard extends React.Component {
               </div>
             </div>
           </div>
-        </div>)
+        </div>
+      </div >
+      )
     }
-
   }
 }
 
