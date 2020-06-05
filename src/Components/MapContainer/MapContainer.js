@@ -17,7 +17,9 @@ class MapContainer extends Component {
 
   static contextType = ContextProvider
   async componentDidMount() {
-    this.handlePostTrips()
+    if (sessionStorage.getItem("user_id") && this.context.userTrip.destination) {
+      this.handlePostTrips()
+    }
   }
 
   async handlePostTrips() {
@@ -34,6 +36,7 @@ class MapContainer extends Component {
         destination: context.endCoords,
         waypoints: context.waypoints,
         user_id: sessionStorage.getItem("user_id"),
+        destination_name: context.userTrip.destination
       }),
       credentials: "same-origin"
     }).then((res) => {

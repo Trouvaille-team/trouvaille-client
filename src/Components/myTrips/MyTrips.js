@@ -26,6 +26,7 @@ export default class MyTrips extends React.Component {
     this.context.setEndCoords(trip.destination)
     this.context.setOriginCoords(trip.origin)
     this.context.setWaypoints(trip.waypoints)
+    this.context.setTrip(null, null, null, null)
     this.props.history.push("/map")
   }
 
@@ -36,8 +37,7 @@ export default class MyTrips extends React.Component {
 
       return (
         <li>
-          <h4>{trip.trip_id}</h4>
-          <p>{trip.origin.lat},{trip.origin.lng} -> {trip.destination.lat},{trip.destination.lng}</p>
+          <h4>your trip to {trip.destination_name}</h4>
           <button
             onClick={() => this.updateContext(trip)}
           // an onClick function to set the context to the value of this trip, and navigate to the map component
