@@ -27,9 +27,8 @@ class Dashboard extends React.Component {
     navigator.geolocation.getCurrentPosition(function (position) {
       let latitude = position.coords.latitude;
       let longitude = position.coords.longitude;
-      myVar.context.setOriginCoords({ lat: myVar.state.lat, lng: myVar.state.lng })
+      myVar.context.setOriginCoords({ lat: latitude, lng: longitude })
       myVar.setState({ lat: latitude, lng: longitude, loading: false })
-
     })
   }
   //This is a stupid solution change if possible
