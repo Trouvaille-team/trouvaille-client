@@ -1,31 +1,11 @@
+
+
 /* Header */
 .trouvaille_header{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-/* Menu  */
-#menu{
-  position: absolute;
-  top: 1em;
-  left: 1em;
-  width: 3em;
-  height: 1em;
-  display: flex;
-  flex-direction: column;
-  /* justify-content: space-between; */
-  cursor: pointer; 
-}
-
-#menu li{
-  list-style-type: none;
-  font-size: 12px;
-}
-
-#menu ul{
-  margin-top: 2em;
 }
 
 /* Login View */
