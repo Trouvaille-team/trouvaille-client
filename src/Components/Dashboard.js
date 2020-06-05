@@ -2,12 +2,8 @@ import React from 'react';
 import ContextProvider from '../Context'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
-<<<<<<< HEAD
-import HamburgerIcon from './HamburberIcon/HamburgerIcon';
-=======
 import LoadingScreen from "./loading/loading";
 import FadeIn from "react-fade-in";
->>>>>>> 112fc76945811d7143b8dea252d0c351e380bdef
 //import {Link} from 'react-router-dom';
 //import PlanTrip from './Nav/PlanTrip';
 
