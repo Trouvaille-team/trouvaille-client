@@ -5,6 +5,7 @@ import TokenService from '../services/token-service'
 //import PlanTrip from './PlanTrip/PlanTrip';
 
 class Header extends Component {
+ 
   static contextType = ContextProvider
   
   handleLogoutClick = () => {
@@ -42,25 +43,36 @@ class Header extends Component {
   }
 
   render() {
-    return (
-      <header className='trouvaille_header'>
-          {/* <div className='menu-toggler'
-               onClick={this.context.toggleMenu}>
-            <div className="bar"></div>
-            <div className="bar"></div>
-            <div className="bar"></div>
-          </div> */}
-        <h1 className="trouvaille-header">
-          <Link to='/'>
-            Trouvaille
+
+    if (window.location.pathname === '/') {
+      return (
+      <h1 className="trouvaille-header">
+      <Link to='/'>
+        Trouvaille
+      </Link>
+    </h1>
+      )
+    } else {
+      return (
+        <header className='trouvaille_header'>
+            {/* <div className='menu-toggler'
+                 onClick={this.context.toggleMenu}>
+              <div className="bar"></div>
+              <div className="bar"></div>
+              <div className="bar"></div>
+            </div> */}
+          <h1 className="trouvaille-header">
+            <Link to='/'>
+              Trouvaille
+            </Link>
+          </h1>
+          <Link to='/new-trip'>
+            <button>Plan a new Trip</button>
           </Link>
-        </h1>
-        <Link to='/new-trip'>
-          <button>Plan a new Trip</button>
-        </Link>
-        {TokenService.hasAuthToken() ? this.renderLogoutLink() : this.renderLoginLink()}
-      </header>
-    );
+          {TokenService.hasAuthToken() ? this.renderLogoutLink() : this.renderLoginLink()}
+        </header>
+      );
+    }
   }
 }
 

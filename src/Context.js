@@ -78,7 +78,6 @@ export class ContextProvider extends Component {
   }
 
   setOriginCoords = (originCoords) => {
-    console.log(originCoords)
     this.setState({ originCoords })
   }
   //Add items to interests array
@@ -96,7 +95,6 @@ export class ContextProvider extends Component {
         return true
       })
       if (bool) {
-        console.log("%cBAD", "color:pink")
         return this.setState({ userInterests: [...this.state.userInterests, checkedItem] })
       }
     }
