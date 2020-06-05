@@ -1,7 +1,7 @@
 import { Component } from "react";
 import React from 'react';
 import ContextProvider from '../../Context'
-import TokenService from "../../services/token-service"
+// import TokenService from "../../services/token-service"
 import Map from "../Map/Map";
 import { FacebookIcon, FacebookShareButton,
          TwitterIcon, TwitterShareButton,
@@ -23,7 +23,7 @@ class MapContainer extends Component {
   }
 
   async handlePostTrips() {
-    const token = TokenService.getAuthToken();
+    // const token = TokenService.getAuthToken();
     const context = this.context
     fetch(`${process.env.REACT_APP_URL}/trips`, {
       method: "POST",

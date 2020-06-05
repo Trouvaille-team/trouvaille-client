@@ -4,7 +4,7 @@ import ContextProvider from '../Context'
 // import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
 import HamburgerIcon from './HamburberIcon/HamburgerIcon';
 import LoadingScreen from "./loading/loading";
-import FadeIn from "react-fade-in";
+// import FadeIn from "react-fade-in";
 //import {Link} from 'react-router-dom';
 //import PlanTrip from './Nav/PlanTrip';
 
@@ -74,7 +74,7 @@ class Dashboard extends React.Component {
       <div>
         <HamburgerIcon />
         <div className='dashboard-container'>
-          <h1>Welcome, User</h1>
+          <h1>Welcome, {this.context.user.username}</h1>
           <h2>Nearby Locations</h2>
           <div className='new-places-container'>
             <h1>What do you think of these places?</h1>

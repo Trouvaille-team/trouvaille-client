@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ContextProvider from '../Context'
+import TokenService from '../services/token-service'
 //import PlanTrip from './PlanTrip/PlanTrip';
 
 class Header extends Component {
   static contextType = ContextProvider
   
+  handleLogoutClick = () => {
+    this.context.processLogout()
+  }
+
   renderLogoutLink() {
     return (
       <div className="dashboard-logout">
         <span className='trouvaille-nav-user'>
-          {/* username goes here */}
+          {/*Not sure if we want this here. Displays the username of the logged in user everywhere the logout link is rendered. */}
+          {this.context.user.username} 
         </span>
         <nav className="trouvaille-nav-dashboard">
           <Link
+            onClick={this.handleLogoutClick}
             to='/login'>
             Logout
           </Link>
@@ -51,7 +58,7 @@ class Header extends Component {
         <Link to='/new-trip'>
           <button>Plan a new Trip</button>
         </Link>
-        {this.renderLoginLink()}
+        {TokenService.hasAuthToken() ? this.renderLogoutLink() : this.renderLoginLink()}
       </header>
     );
   }
