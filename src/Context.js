@@ -7,6 +7,7 @@ import TokenService from './services/token-service';
 
 const Context = React.createContext({
   userInterests: [],
+  user:{},
   showMenu: false,
   toggleMenu: () => { },
   userTrip: {
@@ -32,6 +33,7 @@ export class ContextProvider extends Component {
   state = {
     showMenu: false,
     userInterests: [],
+    user: {},
     toggleMenu: () => { },
     userTrip: {
       destination: '',
@@ -94,7 +96,6 @@ export class ContextProvider extends Component {
         return true
       })
       if (bool) {
-        console.log("%cBAD", "color:pink")
         return this.setState({ userInterests: [...this.state.userInterests, checkedItem] })
       }
     }
@@ -142,12 +143,18 @@ export class ContextProvider extends Component {
     const jwtPayload = TokenService.parseAuthToken()
     this.setUser({
       id: jwtPayload.user_id,
-      username: jwtPayload.username,
+      username: jwtPayload.sub,
     })
+  }
+
+  processLogout = () => {
+    TokenService.clearAuthToken()
+    this.setUser({})
   }
 
   render() {
     const value = {
+      user: this.state.user,
       showMenu: this.state.showMenu,
       userInterests: this.state.userInterests,
       userTrip: this.state.userTrip,
@@ -164,6 +171,7 @@ export class ContextProvider extends Component {
       originCoords: this.state.originCoords,
       processLogin: this.processLogin,
       setUser: this.setUser,
+      processLogout: this.processLogout,
     }
     return (
       <Context.Provider value={value}>

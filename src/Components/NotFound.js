@@ -8,7 +8,7 @@ class NotFound extends Component {
         <HamburgerIcon />
         <h2>404 - Page not found</h2>
         <p>
-          I know we said that spontaneity and unplanned wandering are the best things in life, but nothing is here! Maybe you should head back to the previous page and try again.
+          I know we said that spontaneity and unplanned wandering are the best things in life, but there is nothing here! Maybe you should head back to the previous page and try again.
         </p>
       </section>
     );

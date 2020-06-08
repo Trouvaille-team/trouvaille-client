@@ -1,8 +1,11 @@
 import { Component } from "react";
 import React from 'react';
 import ContextProvider from '../../Context'
-import TokenService from "../../services/token-service"
+// import TokenService from "../../services/token-service"
 import Map from "../Map/Map";
+import { FacebookIcon, FacebookShareButton,
+         TwitterIcon, TwitterShareButton,
+         EmailIcon, EmailShareButton } from 'react-share';
 
 class MapContainer extends Component {
   constructor(props) {
@@ -20,7 +23,7 @@ class MapContainer extends Component {
   }
 
   async handlePostTrips() {
-    const token = TokenService.getAuthToken();
+    // const token = TokenService.getAuthToken();
     const context = this.context
     fetch(`${process.env.REACT_APP_URL}/trips`, {
       method: "POST",
@@ -73,7 +76,30 @@ class MapContainer extends Component {
           rel={"noopener noreferrer"}
         >
           see on google maps
-    </a>
+        </a>
+          <FacebookShareButton
+            url={`https://www.google.com/maps/dir/?api=1&origin=${this.context.originCoords.lat},${this.context.originCoords.lng}&destination=${this.context.endCoords.lat},${this.context.endCoords.lng}&travelmode=driving&waypoints=${this.composeWaypointsString()}`}
+            >
+              <FacebookIcon
+                size={30}
+                round />
+          </FacebookShareButton> 
+          <TwitterShareButton
+            url={`https://www.google.com/maps/dir/?api=1&origin=${this.context.originCoords.lat},${this.context.originCoords.lng}&destination=${this.context.endCoords.lat},${this.context.endCoords.lng}&travelmode=driving&waypoints=${this.composeWaypointsString()}`}
+            >
+              <TwitterIcon
+                size={30}
+                round />
+          </TwitterShareButton> 
+          <EmailShareButton
+            url={`https://www.google.com/maps/dir/?api=1&origin=${this.context.originCoords.lat},${this.context.originCoords.lng}&destination=${this.context.endCoords.lat},${this.context.endCoords.lng}&travelmode=driving&waypoints=${this.composeWaypointsString()}`}
+            subject={'Hey! Check out this trip!'}
+            body={'placeholder'}
+            >
+              <EmailIcon
+                size={30}
+                round />
+          </EmailShareButton> 
         <h3>your stops</h3>
         <ul>
           {this.context.waypoints.map((waypoint) => {

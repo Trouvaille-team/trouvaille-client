@@ -5,10 +5,12 @@ import config from "../../config"
 export default class MyTrips extends React.Component {
   constructor(props) {
     super(props)
-  }
-  state = {
+    
+    this.state = {
     trips: []
+    } 
   }
+  
   static contextType = ContextProvider
 
   componentDidMount() {
@@ -32,6 +34,7 @@ export default class MyTrips extends React.Component {
 
 
   renderTrips(trips) {
+    console.log(trips)
     return trips.map((trip) => {
 
       return (

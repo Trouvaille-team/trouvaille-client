@@ -21,6 +21,7 @@
     "react-lottie": "^1.2.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "react-share": "^4.1.0",
     "recompose": "^0.30.0"
   },
   "scripts": {

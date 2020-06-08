@@ -10,7 +10,7 @@ const defaultOptions = {
   animationData: loadingData.default,
 
 };
-console.log(loadingData.default)
+
 export default class Loading extends React.Component {
 
   render() {
@@ -18,7 +18,7 @@ export default class Loading extends React.Component {
       <div>
         <FadeIn>
           <div className="loading-icon">
-            <h1>Finding some dope spots for ya bruh</h1>
+            <h1>Finding exciting new stories takes time! Please be patient with us!</h1>
             <Lottie options={defaultOptions} />
           </div>
         </FadeIn>
