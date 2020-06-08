@@ -77,20 +77,18 @@ class Dashboard extends React.Component {
 
   }
 
-
   // getUserLocation = () => {
   // }
-
 
   render() {
 
 
     if (this.state.loading === true) {
-      return (<LoadingScreen></LoadingScreen>)
+      return (<><HamburgerIcon /><LoadingScreen /></>)
     } else {
       return (
         <div>
-          {/* <Menu /> */}
+          <HamburgerIcon />
           <div className='dashboard-container'>
             <h1>Welcome, User</h1>
             <h2>Nearby Locations</h2>

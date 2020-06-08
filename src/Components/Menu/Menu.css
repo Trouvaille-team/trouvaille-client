@@ -12,21 +12,35 @@
   /* background-color: #09014E; */
 }
 
-.menu-links {
+.menu-container {
+  /* position: fixed; */
+  width: auto;
+  z-index: 1;
+  padding-top: 1em;
   display: flex;
   flex-direction: column;
   margin-top: 2em;
-  /* border: solid; */
 }
 
-.menu-link{
+.link-container{
+  text-align: center;
+  background-color: #09014E;
   border: solid;
+  border-color: #F89330;
   padding: 20px;
   list-style-type: none;
   font-size: 20px;
 }
 
-/* .menu-link a {
-  
-} */
+.link-container a {
+  color: aliceblue;
+}
+
+@media only screen and (max-width: 500px) {
+  /* trying to center the menu for screens smaller that 500px wide!! */
+  .menu-container {
+    align-content: center;
+  }
+}
+
 

@@ -12,10 +12,10 @@ export default class Menu extends Component {
       <div>
           {this.context.showMenu && 
         <nav id='menu'>
-          <ul className='menu-links'>
+          <ul className='menu-container'>
             {/* <li><Link to="/past-trips">See where I've been</Link></li> */}
-            <li><Link to="/discover">Discover new places</Link></li>
-            <li><Link to="/interests">Change my preferences</Link></li>           
+            <li className='link-container'><Link to="/dashboard">Discover new places</Link></li>
+            <li className='link-container'><Link to="/interests">Change my preferences</Link></li>           
           </ul>
         </nav>  
           }      
