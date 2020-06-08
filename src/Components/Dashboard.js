@@ -16,7 +16,8 @@ class Dashboard extends React.Component {
       lat: 0,
       lng: 0,
       data: { points: [] },
-      loading: true
+      loading: true,
+      activeImage: ""
     };
   }
 
@@ -31,7 +32,7 @@ class Dashboard extends React.Component {
       myVar.setState({ lat: latitude, lng: longitude, loading: false })
     })
   }
-  //This is a stupid solution change if possible
+  // This is a stupid solution change if possible
   componentDidUpdate() {
     if (this.state.data.points.length === 0) {
       fetch(`${process.env.REACT_APP_URL}/waypoints/nearby`, {
@@ -55,6 +56,26 @@ class Dashboard extends React.Component {
       })
     }
   }
+  async getPhoto(photo_reference) {
+    console.log(photo_reference)
+    let result = await fetch(`${process.env.REACT_APP_URL}/waypoints/photo`, {
+      method: "POST",
+      body: JSON.stringify({
+        photo_reference: photo_reference
+      }),
+      headers: {
+        "Content-Length": 61,
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      credentials: "same-origin"
+    }).then(res => {
+      return res.json()
+    }).then(data => {
+      return data
+    })
+    return result
+
+  }
 
 
   // getUserLocation = () => {
@@ -62,12 +83,13 @@ class Dashboard extends React.Component {
 
 
   render() {
+
     if (this.state.loading === true) {
       return (<LoadingScreen></LoadingScreen>)
     } else {
       return (
         <div>
-          <Menu />
+          {/* <Menu /> */}
           <div className='dashboard-container'>
             <h1>Welcome, User</h1>
             <h2>Nearby Locations</h2>
@@ -76,15 +98,19 @@ class Dashboard extends React.Component {
               <div className='top-options'>
                 {
                   this.state.data.points.map((location) => {
+                    console.log(location)
                     return (
-                      <div className='option'>
-                        <img alt={location.name}></img>
+                      <div className='option' ref={`${location.name}`}>
                         <div className='title-button-container'>
                           <h2>{location.name}</h2>
-                          <button
-                            className='add-button'
-                          >
-                          </button>
+                          {location.photoInfo ?
+                            <> <button onClick={() => this.refs[location.name].lastChild.nodeName === "IMG" ? this.refs[location.name].removeChild(this.refs[location.name].lastChild) : this.getPhoto(location.photoInfo[0].photo_reference
+                            ).then(url => {
+                              let img = document.createElement('img')
+                              img.src = url
+                              img.alt = `an image on ${location.name}`
+                              this.refs[location.name].append(img)
+                            })}>I hate promises</button> </> : null}
                         </div>
                       </div>)
                   })}

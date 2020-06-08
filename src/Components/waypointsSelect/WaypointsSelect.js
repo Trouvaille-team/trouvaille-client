@@ -93,6 +93,11 @@ export default class WaypointSelect extends React.Component {
     this.props.history.push('/map');
   }
 
+getPhoto(placeId) {
+  console.log("googogogogogoo")
+  return fetch(`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CnRtAAAATLZNl354RwP_9UKbQ_5Psy40texXePv4oAlgP4qNEkdIrkyse7rPXYGd9D_Uj1rVsQdWT4oRz4QrYAJNpFX7rzqqMlZw2h2E2y5IKMUZ7ouD_SlcHxYq1yL4KbKUv3qtWgTK0A6QbGh87GB3sscrHRIQiG2RrmU_jF4tENr9wGS_YxoUSSDrYjWmrNfeEHSGSc3FyhNLlBU&key=${process.env.REACT_APP_API_KEY}`)
+}
+
   render() {
     if(this.state.loading === true) {
       return(<><HamburgerIcon /><LoadingScreen /></>)
@@ -111,6 +116,7 @@ export default class WaypointSelect extends React.Component {
               <img alt={location.name}></img>
               <div className='title-button-container'>
                 <h2>{location.name}</h2>
+                {this.getPhoto()}
               </div>
             </div>)
         })}
