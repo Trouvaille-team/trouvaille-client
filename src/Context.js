@@ -78,6 +78,7 @@ export class ContextProvider extends Component {
   }
 
   setOriginCoords = (originCoords) => {
+    console.log(originCoords)
     this.setState({ originCoords })
   }
   //Add items to interests array

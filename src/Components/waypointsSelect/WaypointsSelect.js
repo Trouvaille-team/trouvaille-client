@@ -44,10 +44,12 @@ export default class WaypointSelect extends React.Component {
   }
 
   displayOption = () => {
+    let location = this.state.points[0]
+    
     if (this.state.points.length > 0) {
       return (
       <FadeIn>
-      <div className='option'>
+          <div className='option' ref={`${location.name}`}>
         <img alt={this.state.points[0].name}></img>
         <div className='title-button-container'>
           <button
@@ -68,6 +70,14 @@ export default class WaypointSelect extends React.Component {
             />
           </button>
         </div>
+            {location.photoInfo ?
+              <> <button onClick={() => this.refs[location.name].lastChild.nodeName === "IMG" ? this.refs[location.name].removeChild(this.refs[location.name].lastChild) : this.getPhoto(location.photoInfo[0].photo_reference
+              ).then(url => {
+                let img = document.createElement('img')
+                img.src = url
+                img.alt = `an image on ${location.name}`
+                this.refs[location.name].append(img)
+              })}>I hate promises</button> </> : null}
       </div>
         </FadeIn>)
     } else {
@@ -93,6 +103,27 @@ export default class WaypointSelect extends React.Component {
     this.props.history.push('/map');
   }
 
+  async getPhoto(photo_reference) {
+    console.log(photo_reference)
+    let result = await fetch(`${process.env.REACT_APP_URL}/waypoints/photo`, {
+      method: "POST",
+      body: JSON.stringify({
+        photo_reference: photo_reference
+      }),
+      headers: {
+        "Content-Length": 61,
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      credentials: "same-origin"
+    }).then(res => {
+      return res.json()
+    }).then(data => {
+      return data
+    })
+    return result
+
+  }
+
   render() {
     if(this.state.loading === true) {
       return(<><HamburgerIcon /><LoadingScreen /></>)
@@ -106,12 +137,13 @@ export default class WaypointSelect extends React.Component {
         onClick = {e => this.handleDoneButton()}
         >done</button>
         {this.state.waypoints.map((location) => {
+          console.log(location)
           return (
-            <div className='option'>
-              <img alt={location.name}></img>
+            <div className='option' >
               <div className='title-button-container'>
                 <h2>{location.name}</h2>
               </div>
+          
             </div>)
         })}
       </>
