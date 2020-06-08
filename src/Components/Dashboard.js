@@ -62,8 +62,8 @@ class Dashboard extends React.Component {
 
 
   render() {
-      if (this.state.loading === true) {
-        return(
+    if (this.state.loading === true) {
+      return (
         <>
           <HamburgerIcon />
           <LoadingScreen></LoadingScreen>
@@ -87,10 +87,10 @@ class Dashboard extends React.Component {
                       </div>
                     </div>)
                 })}
+              </div>
             </div>
           </div>
         </div>
-      </div >
       )
     }
   }
