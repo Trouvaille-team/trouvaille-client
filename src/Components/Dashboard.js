@@ -7,6 +7,8 @@ import LoadingScreen from "./loading/loading";
 // import FadeIn from "react-fade-in";
 //import {Link} from 'react-router-dom';
 //import PlanTrip from './Nav/PlanTrip';
+import { Spring } from 'react-spring/renderprops'
+
 
 class Dashboard extends React.Component {
 
@@ -29,7 +31,7 @@ class Dashboard extends React.Component {
       let latitude = position.coords.latitude;
       let longitude = position.coords.longitude;
       myVar.context.setOriginCoords({ lat: latitude, lng: longitude })
-      myVar.setState({ lat: latitude, lng: longitude, loading: false })
+      myVar.setState({ lat: latitude, lng: longitude })
     })
   }
   // This is a stupid solution change if possible
@@ -50,7 +52,7 @@ class Dashboard extends React.Component {
       }).then((res) => {
         return res.json()
       }).then((data) => {
-        this.setState({ data })
+        this.setState({ data, loading: false })
       }).catch(function (error) {
         return error.message
       })
@@ -91,6 +93,9 @@ class Dashboard extends React.Component {
       return (
         <div>
           {/* <Menu /> */}
+
+
+
           <div className='dashboard-container'>
             <h1>Welcome, User</h1>
             <h2>Nearby Locations</h2>
@@ -102,17 +107,23 @@ class Dashboard extends React.Component {
                     console.log(location)
                     return (
                       <div className='option' ref={`${location.name}`}>
-                        <div className='title-button-container'>
-                          <h2>{location.name}</h2>
-                          {location.photoInfo ?
-                            <> <button onClick={() => this.refs[location.name].lastChild.nodeName === "IMG" ? this.refs[location.name].removeChild(this.refs[location.name].lastChild) : this.getPhoto(location.photoInfo[0].photo_reference
-                            ).then(url => {
-                              let img = document.createElement('img')
-                              img.src = url
-                              img.alt = `an image on ${location.name}`
-                              this.refs[location.name].append(img)
-                            })}>I hate promises</button> </> : null}
-                        </div>
+
+                        <Spring
+                          from={{ marginLeft: -500 }}
+                          to={{ marginLeft: 0 }}>
+                          {props => <div style={props}><div className='title-button-container'>
+                            <h2>{location.name}</h2>
+                            {location.photoInfo ?
+                              <> <button onClick={() => this.refs[location.name].lastChild.nodeName === "IMG" ? this.refs[location.name].removeChild(this.refs[location.name].lastChild) : this.getPhoto(location.photoInfo[0].photo_reference
+                              ).then(url => {
+                                let img = document.createElement('img')
+                                img.src = url
+                                img.alt = `an image on ${location.name}`
+                                this.refs[location.name].append(img)
+                              })}>I hate promises</button> </> : null}
+                          </div></div>}
+                        </Spring>
+
                       </div>)
                   })}
               </div>

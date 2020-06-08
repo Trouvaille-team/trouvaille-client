@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ContextProvider from '../../Context'
+import { Spring } from 'react-spring/renderprops'
 
 export default class Interests extends Component {
 
@@ -94,9 +95,13 @@ export default class Interests extends Component {
         <ul>
           {this.context.userInterests.map((interest, i) => {
             return (
-              <li key={i}>
-                {interest}
-              </li>
+              <Spring
+                from={{ opacity: 0, marginLeft: -500 }}
+                to={{ opacity: 1, marginLeft: 0 }}>
+                {props => <div style={props}> <li key={i}>
+                  {interest}
+                </li></div>}
+              </Spring>
             )
           })}
         </ul>
