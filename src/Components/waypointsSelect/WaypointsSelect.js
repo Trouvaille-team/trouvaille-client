@@ -5,7 +5,7 @@ import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
 import LoadingScreen from "../loading/loading";
 import FadeIn from "react-fade-in";
 import HamburgerIcon from '../HamburberIcon/HamburgerIcon'
-
+import { Spring } from 'react-spring/renderprops'
 
 export default class WaypointSelect extends React.Component {
   constructor(props) {
@@ -50,7 +50,6 @@ export default class WaypointSelect extends React.Component {
       return (
       <FadeIn>
           <div className='option' ref={`${location.name}`}>
-        <img alt={this.state.points[0].name}></img>
         <div className='title-button-container'>
           <button
             className='add-button'
@@ -139,12 +138,13 @@ export default class WaypointSelect extends React.Component {
         {this.state.waypoints.map((location) => {
           console.log(location)
           return (
-            <div className='option' >
-              <div className='title-button-container'>
+            <Spring
+              from={{ marginLeft: -500 }}
+              to={{ marginLeft: 0}}>
+              {props => <div style={props} className='option'>              <div className='title-button-container'>
                 <h2>{location.name}</h2>
-              </div>
-          
-            </div>)
+              </div></div>}
+            </Spring>)
         })}
       </>
     )}

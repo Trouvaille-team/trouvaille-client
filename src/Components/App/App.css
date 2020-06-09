@@ -1,96 +1,10 @@
+* {
+  background-color: #f4eee2; }
 
+h1,
+h2,
+h3,
+h4 {
+  color: #09014e; }
 
-/* Header */
-.trouvaille_header{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Login View */
-.login{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.login p{
-  display: flex;
-  align-items: center;
-}
-
-.login form{
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: center;
-}
-
-/* Register View */
-.interests-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.register{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.register form{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-/* Interests View */
-.interests-header{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.interests-form{
-  display: inline-block;
-}
-
-.column-one{
-  display: flex;
-  flex-direction: column;
-  float: left;
-  justify-content: center;
-  align-items: center;
-}
-
-.column-two{
-  display: flex;
-  flex-direction: column;
-  float: right;
-  justify-content: center;
-  align-items: center;
-}
-
-.submit-button{
-  text-align: center;
-}
-
-/* Dashboard View */
-.dashboard-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
+/*# sourceMappingURL=App.css.map */

@@ -1,6 +1,8 @@
 import React from 'react';
 import Menu from '../Menu/Menu';
 import ContextProvider from '../../Context'
+import { Spring } from 'react-spring/renderprops'
+
 
 import './PlanTrip.css'
 import HamburgerIcon from '../HamburberIcon/HamburgerIcon';
@@ -31,31 +33,33 @@ class PlanTrip extends React.Component {
 
   render() {
     return (
-      <>
-        <HamburgerIcon />
-        <Menu />
-        <form className='plan-trip' onSubmit={e => this.handleSubmit(e)}>
-          <label htmlFor='destination'>Where are you going?</label>
-          <input type='text' id='destination' placeholder='city, state, or zip' required />
+      <Spring
+        from={{ opacity: 0 }}
+        to={{ opacity: 1 }}>
+        {props => <div style={props}><HamburgerIcon />
+          <Menu />
+          <form className='plan-trip' onSubmit={e => this.handleSubmit(e)}>
+            <label htmlFor='destination'>Where are you going?</label>
+            <input type='text' id='destination' placeholder='city, state, or zip' required />
 
-          <label htmlFor='detours'>How many detours will you make en route?</label>
-          <input type='number' id='detours' min='1' max='25?' />
+            <label htmlFor='detours'>How many detours will you make en route?</label>
+            <input type='number' id='detours' min='1' max='25?' />
 
-          <label htmlFor='radius'>Choose your max detour radius</label>
-          <select name='radius' id='radius'>
-            <option>0-15 miles</option>
-            <option>15-30 miles</option>
-            <option>30-45 miles</option>
-            <option>45</option>
-          </select>
+            <label htmlFor='radius'>Choose your max detour radius</label>
+            <select name='radius' id='radius'>
+              <option>0-15 miles</option>
+              <option>15-30 miles</option>
+              <option>30-45 miles</option>
+              <option>45</option>
+            </select>
 
-          {/* assuming max time includes entire trip start to finish */}
-          <label htmlFor='time'>Choose your max trip time(hrs)</label>
-          <input type='number' id='time' min='1' max='100' />
-          <button type='submit'>Submit</button>
-        </form>
-        <button onClick={() => this.props.history.push('/dashboard')}>Back</button>
-      </>
+            {/* assuming max time includes entire trip start to finish */}
+            <label htmlFor='time'>Choose your max trip time(hrs)</label>
+            <input type='number' id='time' min='1' max='100' />
+            <button type='submit'>Submit</button>
+          </form>
+          <button onClick={() => this.props.history.push('/dashboard')}>Back</button></div>}
+      </Spring>
     )
   }
 }

@@ -1,14 +1,17 @@
 import React from 'react';
-import { EmailShareButton, 
-         TwitterShareButton, 
-         FacebookShareButton,
-         EmailIcon,
-         TwitterIcon,
-         FacebookIcon,
-         RedditShareButton,
-         RedditIcon } from 'react-share';
+import {
+  EmailShareButton,
+  TwitterShareButton,
+  FacebookShareButton,
+  EmailIcon,
+  TwitterIcon,
+  FacebookIcon,
+  RedditShareButton,
+  RedditIcon
+} from 'react-share';
 
-class PastTrips extends React.Component{
+
+class PastTrips extends React.Component {
   render() {
     return (
       <div>
@@ -16,31 +19,31 @@ class PastTrips extends React.Component{
           url='www.example.com'
           subject='Hard Coded title of shared page (trip)'
           body='message of shared trip'>
-           <EmailIcon
+          <EmailIcon
             size={40}
-            round/>
+            round />
         </EmailShareButton>
         <TwitterShareButton
           url='www.example.com'
           title='Hard Coded title of shared page (trip)'
           via='Trouvaille' >
-           <TwitterIcon
+          <TwitterIcon
             size={40}
-            round/>
+            round />
         </TwitterShareButton>
         <FacebookShareButton
           url='www.example.com'
           quote='hello'>
-           <FacebookIcon
+          <FacebookIcon
             size={40}
-            round/>
+            round />
         </FacebookShareButton>
         <RedditShareButton
           url='www.example.com'
           title='example title'>
-           <RedditIcon
+          <RedditIcon
             size={40}
-            round/>
+            round />
         </RedditShareButton>
       </div>
     )
