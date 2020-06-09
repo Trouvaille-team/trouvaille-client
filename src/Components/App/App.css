@@ -1,96 +1,24 @@
+/* SASS CONFIG
+* ! variables can be declared and used with '$'-- kinda like jQuery !!!
+* ! @import '../path/to/_config.scss' to import all the functions and vars mixins and whatever else is put in here !
+* ! @mixins are sass functions ! use @include statement to apply them to the elements you are styling, just as you would any normall CSS property !
+* ! EXAMPLE *
 
+* $my-color: black;
+* $my-display: flex;
 
-/* Header */
-.trouvaille_header{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+* @mixin set-display($display) {
+    
 }
 
-/* Login View */
-.login{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+*/
+* {
+  background-color: #fffaef; }
 
-.login p{
-  display: flex;
-  align-items: center;
-}
+h1,
+h2,
+h3,
+h4 {
+  color: #09014e; }
 
-.login form{
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: center;
-}
-
-/* Register View */
-.interests-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.register{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.register form{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-/* Interests View */
-.interests-header{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.interests-form{
-  display: inline-block;
-}
-
-.column-one{
-  display: flex;
-  flex-direction: column;
-  float: left;
-  justify-content: center;
-  align-items: center;
-}
-
-.column-two{
-  display: flex;
-  flex-direction: column;
-  float: right;
-  justify-content: center;
-  align-items: center;
-}
-
-.submit-button{
-  text-align: center;
-}
-
-/* Dashboard View */
-.dashboard-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
+/*# sourceMappingURL=App.css.map */
