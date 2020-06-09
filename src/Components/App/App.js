@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from '../Login';
 import Register from '../Register';
-import Header from '../Header';
-import Dashboard from '../Dashboard';
+import Header from '../Header/Header';
+import Dashboard from '../dashboard/Dashboard';
 import NotFound from '../NotFound';
 import PlanTrip from '../PlanTrip/PlanTrip';
 import LandingPage from '../LandingRoute/LandingPage';
@@ -21,7 +21,7 @@ class App extends React.Component {
     return (
       <ContextProvider>
         <main className='App'>
-          
+
           <Router>
             <Header />
             <Switch>

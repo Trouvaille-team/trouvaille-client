@@ -1,0 +1,22 @@
+@import "../config";
+
+.trouvaille_header {
+  background-color: $borderColor;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  * {
+    background-color: transparent;
+  }
+
+  h1 {
+    margin-top: 0;
+    text-align: center;
+  }
+  .trouvaille-nav-dashboard {
+    background-color: transparent;
+    display: flex;
+    justify-content: space-around;
+  }
+}
