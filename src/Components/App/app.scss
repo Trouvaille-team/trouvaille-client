@@ -1,0 +1,17 @@
+$textColor: #09014e;
+$shadeColor: #ead5e6;
+$backgroundColor: #f4eee2;
+$borderColor: #f89330;
+$accentColor: #b9d3c2;
+$emphasisCololr: #ca9ce1;
+
+* {
+  background-color: $backgroundColor;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: $textColor;
+}

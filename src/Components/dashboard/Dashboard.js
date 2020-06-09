@@ -1,14 +1,14 @@
 import React from 'react';
-import ContextProvider from '../Context'
+import ContextProvider from '../../Context'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
-import HamburgerIcon from './HamburberIcon/HamburgerIcon';
-import LoadingScreen from "./loading/loading";
+import HamburgerIcon from '../HamburberIcon/HamburgerIcon';
+import LoadingScreen from "../loading/loading";
 // import FadeIn from "react-fade-in";
 //import {Link} from 'react-router-dom';
 //import PlanTrip from './Nav/PlanTrip';
 import { Spring } from 'react-spring/renderprops'
-
+import './dasboard.css'
 
 class Dashboard extends React.Component {
 
