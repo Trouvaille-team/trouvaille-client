@@ -1,21 +1,32 @@
+/* SASS CONFIG
+* ! variables can be declared and used with '$'-- kinda like jQuery !!!
+* ! @import '../path/to/_config.scss' to import all the functions and vars mixins and whatever else is put in here !
+* ! @mixins are sass functions ! use @include statement to apply them to the elements you are styling, just as you would any normall CSS property !
+* ! EXAMPLE *
+
+* $my-color: black;
+* $my-display: flex;
+
+* @mixin set-display($display) {
+    
+}
+
+*/
 .landing-page {
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
+  align-items: center; }
 
 a {
   all: unset;
-}
+  color: black; }
 
 a:hover {
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 p {
   text-indent: 40px;
-  max-width: 75vw;
-}
+  max-width: 75vw; }
 
 .landing-page a {
   margin-top: 25px;
@@ -25,6 +36,7 @@ p {
   border-color: #430c05;
   background-color: #00353f;
   color: #fff;
-  font-family: 'Baloo 2', cursive;
-  padding: 5px 10px
-}
+  font-family: "Baloo 2", cursive;
+  padding: 5px 10px; }
+
+/*# sourceMappingURL=LandingPage.css.map */

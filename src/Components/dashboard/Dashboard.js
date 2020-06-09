@@ -90,8 +90,7 @@ class Dashboard extends React.Component {
     } else {
       return (
         <div>
-          <HamburgerIcon/>
-          
+          <HamburgerIcon />
           <div className='dashboard-container'>
             <h1>Welcome, User</h1>
             <h2>Nearby Locations</h2>

@@ -46,11 +46,15 @@ class Header extends Component {
         <Spring
           from={{ marginTop: -500 }}
           to={{ marginTop: 0 }}>
-          {props => <div style={props}> <h1 className="trouvaille-header">
-            <Link to='/'>
-              Trouvaille
+          {props => <div style={props}>
+            <header className='trouvaille_header'>
+              <h1 >
+                <Link to='/'>
+                  Trouvaille
       </Link>
-          </h1></div>}
+              </h1>
+            </header>
+          </div>}
         </Spring>
 
 
@@ -60,19 +64,20 @@ class Header extends Component {
         <Spring
           from={{ marginTop: -500 }}
           to={{ marginTop: 0 }}>
-          {props => <div style={props}><header className='trouvaille_header'>
+          {props => <div style={props}>
+            <header className='trouvaille_header'>
 
-            <nav className="trouvaille-nav-dashboard">
-              <Link to='/new-trip'>Plan a New Trip
+              <nav className="trouvaille-nav-dashboard">
+                <Link to='/new-trip'>Plan a New Trip
               </Link>
-              {TokenService.hasAuthToken() ? this.renderLogoutLink() : this.renderLoginLink()}
-            </nav>
-            <h1 className="trouvaille-header">
-              <Link to='/'>
-                Trouvaille
+                {TokenService.hasAuthToken() ? this.renderLogoutLink() : this.renderLoginLink()}
+              </nav>
+              <h1 className="trouvaille-header">
+                <Link to='/'>
+                  Trouvaille
             </Link>
-            </h1>
-          </header></div>}
+              </h1>
+            </header></div>}
         </Spring>
       );
     }
