@@ -22,7 +22,7 @@ class Login extends Component {
         username.value = ''
         password.value = ''
         this.context.processLogin(res.authToken)
-        sessionStorage.setItem("user_id", res.user_id)
+        localStorage.setItem("user_id", res.user_id)
       })
       .then(() => {
         if (!this.state.error) {
