@@ -8,7 +8,7 @@ import LoadingScreen from "../loading/loading";
 //import {Link} from 'react-router-dom';
 //import PlanTrip from './Nav/PlanTrip';
 import { Spring } from 'react-spring/renderprops'
-import './dasboard.css'
+import './dashboard.css'
 
 class Dashboard extends React.Component {
 

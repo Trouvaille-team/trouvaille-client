@@ -1,0 +1,24 @@
+.trouvaille-header {
+  text-align: center;
+  padding: 5px;
+}
+.trouvaille-header h1 {
+  margin: auto;
+  width: 30%;
+}
+.trouvaille-header a button {
+  width: auto;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.trouvaille-nav {
+  float: right;
+  text-align: right;
+}
+.trouvaille-nav p {
+  margin: 2px;
+}
+
+/*# sourceMappingURL=Header.css.map */
