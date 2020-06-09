@@ -1,0 +1,40 @@
+@import "../config.scss";
+
+$textColor: #09014e;
+$shadeColor: #ead5e6;
+$backgroundColor: #f4eee2;
+$borderColor: #f89330;
+$accentColor: #a5bbad;
+$emphasisColor: #ca9ce1;
+
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+a {
+  all: unset;
+  color: black;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+p {
+  text-indent: 40px;
+  max-width: 75vw;
+}
+
+.landing-page a {
+  margin-top: 25px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  border-color: #430c05;
+  background-color: #00353f;
+  color: #fff;
+  font-family: "Baloo 2", cursive;
+  padding: 5px 10px;
+}
