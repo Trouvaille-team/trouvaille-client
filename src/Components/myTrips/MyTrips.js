@@ -5,16 +5,16 @@ import config from "../../config"
 export default class MyTrips extends React.Component {
   constructor(props) {
     super(props)
-    
+
     this.state = {
-    trips: []
-    } 
+      trips: []
+    }
   }
-  
+
   static contextType = ContextProvider
 
   componentDidMount() {
-    if (sessionStorage.getItem("user_id")) {
+    if (localStorage.getItem("user_id")) {
       fetch(`${config.API_ENDPOINT}/trips/${sessionStorage.getItem("user_id")}`).then((res) => {
         return res.json()
       }).then((data) => {
