@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import ContextProvider from '../../Context'
-// import { Spring } from 'react-spring/renderprops'
+import { Spring } from 'react-spring/renderprops'
 
 
 import './LandingPage.css'
@@ -25,11 +25,10 @@ class LandingPage extends Component {
 
   render() {
     return (
-      // <Spring
-      //   from={{ opacity: 0, marginTop: -500 }}
-      //   to={{ opacity: 1, marginTop: 0 }}>
-      //   {props =>
-         <div className="landing-page">          <p>
+      <Spring
+        from={{ opacity: 0, marginTop: -500 }}
+        to={{ opacity: 1, marginTop: 0 }}>
+        {props => <div style={props} className="landing-page">          <p>
           Here at Trouvaille, we believe that the best experiences are unplanned. Your most memorable moments are spontaneous.
           However, life doesn't always allow for that. For the times that you want great experiences that you are able to tell
           your friends and family about for years to come, but are on a schedule and need to plan things out, we are here for you!
@@ -53,8 +52,8 @@ class LandingPage extends Component {
             We hope you enjoy your road trip!
           </span>
 
-          <Link to='/interests'>Let's Get Started!</Link></div>
-      // {/* </Spring> */}
+          <Link to='/interests'>Let's Get Started!</Link></div>}
+      </Spring>
     )
   }
 }
