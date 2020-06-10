@@ -7,10 +7,13 @@ $borderColor: #f89330;
 $accentColor: #a5bbad; 
 $emphasisColor: #ca9ce1;
 
+background-image: url('./landing-page-idea.jpg');
+
 .landing-page {
   display: flex;
   flex-direction: column;
   align-items: center;
+  // background-image: url('./landing-page-idea.jpg');
 }
 
 a {

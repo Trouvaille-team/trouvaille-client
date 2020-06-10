@@ -1,47 +1,17 @@
-/* SASS CONFIG
-* ! variables can be declared and used with '$'-- kinda like jQuery !!!
-* ! @import '../path/to/_config.scss' to import all the functions and vars mixins and whatever else is put in here !
-* ! @mixins are sass functions ! use @include statement to apply them to the elements you are styling, just as you would any normall CSS property !
-* ! EXAMPLE *
+/* Error: expected "{".
+ *    ,
+ * 10 | background-image: url('./landing-page-idea.jpg');
+ *    |                                                 ^
+ *    '
+ *   landingpage.scss 10:49  root stylesheet */
 
-* $my-color: black;
-* $my-display: flex;
-
-* @mixin set-display($display) {
-
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: expected \"{\".\a    \2577 \a 10 \2502  background-image: url('./landing-page-idea.jpg');\d\a    \2502                                                  ^\a    \2575 \a   landingpage.scss 10:49  root stylesheet";
 }
-
-*/
-.landing-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-a {
-  all: unset;
-  color: black;
-}
-
-a:hover {
-  cursor: pointer;
-}
-
-p {
-  text-indent: 40px;
-  max-width: 75vw;
-}
-
-.landing-page a {
-  margin-top: 25px;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 5px;
-  border-color: #430c05;
-  background-color: #00353f;
-  color: #fff;
-  font-family: "Baloo 2", cursive;
-  padding: 5px 10px;
-}
-
-/*# sourceMappingURL=LandingPage.css.map */
