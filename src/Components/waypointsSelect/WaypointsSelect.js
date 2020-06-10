@@ -135,13 +135,13 @@ export default class WaypointSelect extends React.Component {
         <button
         onClick = {e => this.handleDoneButton()}
         >done</button>
-        {this.state.waypoints.map((location) => {
+        {this.state.waypoints.map((location, i) => {
           console.log(location)
           return (
             <Spring
               from={{ marginLeft: -500 }}
               to={{ marginLeft: 0}}>
-              {props => <div style={props} className='option'>              <div className='title-button-container'>
+              {props => <div style={props} className='option' key={i}>              <div className='title-button-container'>
                 <h2>{location.name}</h2>
               </div></div>}
             </Spring>)
