@@ -20,7 +20,6 @@ class LandingPage extends Component {
     if (localStorage.getItem("user_id")) {
       this.props.history.push("/dashboard")
     }
-
   }
 
   render() {
@@ -28,7 +27,8 @@ class LandingPage extends Component {
       <Spring
         from={{ opacity: 0, marginTop: -500 }}
         to={{ opacity: 1, marginTop: 0 }}>
-        {props => <div style={props} className="landing-page">          <p>
+        {props => <div style={props} className="landing-page">
+          <p>
           Here at Trouvaille, we believe that the best experiences are unplanned. Your most memorable moments are spontaneous.
           However, life doesn't always allow for that. For the times that you want great experiences that you are able to tell
           your friends and family about for years to come, but are on a schedule and need to plan things out, we are here for you!

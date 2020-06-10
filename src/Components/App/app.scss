@@ -1,13 +1,19 @@
 @import "../config.scss";
 
+<<<<<<< HEAD
 
 main {
   background-color: $backgroundColor;
 }
 
+=======
+>>>>>>> c9cec63b747526f5b49dad852e9efa0e1f92196c
 h1,
 h2,
 h3,
 h4 {
   color: $textColor;
+}
+body {
+  background-color: $backgroundColor;
 }
