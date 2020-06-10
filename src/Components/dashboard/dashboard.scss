@@ -1,3 +1,5 @@
+@import "../config.scss";
+
 $textColor: #09014e;
 $shadeColor: #ead5e6;
 $backgroundColor: #f4eee2;
@@ -36,5 +38,16 @@ $emphasisCololr: #ca9ce1;
 
   h2 {
     background-color: $accentColor;
+  }
+
+  button {
+    @include button;
+  }
+  button:focus,
+  button:hover {
+    @include focusButton;
+  }
+  button:active {
+    @include activeButton;
   }
 }
