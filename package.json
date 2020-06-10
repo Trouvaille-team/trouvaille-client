@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "jest": {
-    "transformIgnorePatterns": [ "<rootDir>/(node_modules)/" ]
+    "transformIgnorePatterns": [ "<rootDir>/node_modules/" ]
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
