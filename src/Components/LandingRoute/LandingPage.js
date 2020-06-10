@@ -17,6 +17,9 @@ class LandingPage extends Component {
       myVar.context.setOriginCoords({ lat: latitude, lng: longitude })
 
     })
+    if (localStorage.getItem("user_id")) {
+      this.props.history.push("/dashboard")
+    }
 
   }
 

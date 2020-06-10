@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ContextProvider from '../../Context'
 import { Spring } from 'react-spring/renderprops'
+import './interests.css'
 
 export default class Interests extends Component {
 
@@ -84,20 +85,20 @@ export default class Interests extends Component {
                 </li>
               )
             })}
-            <div className='submit-button'>
-              <button onClick={() => this.props.history.push('/dashboard')}>
-                Submit
-                            </button>
-            </div>
           </form>
+          <div className='clear-button'>
+            <button onClick={this.handleClear}>
+              Clear Selections
+                  </button>
+          </div>
         </div>
         <h3>Current Selections:</h3>
         <ul>
           {this.context.userInterests.map((interest, i) => {
             return (
               <Spring
-                from={{ opacity: 0, marginLeft: -500 }}
-                to={{ opacity: 1, marginLeft: 0 }}>
+                from={{ marginLeft: -500 }}
+                to={{ marginLeft: 0 }}>
                 {props => <div style={props}> <li key={i}>
                   {interest}
                 </li></div>}
@@ -105,10 +106,10 @@ export default class Interests extends Component {
             )
           })}
         </ul>
-        <div className='clear-button'>
-          <button onClick={this.handleClear}>
-            Clear Selections
-                  </button>
+        <div className='submit-button'>
+          <button onClick={() => this.props.history.push('/dashboard')}>
+            Submit
+                            </button>
         </div>
       </div>
     )
