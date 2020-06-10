@@ -52,7 +52,7 @@ export default class MenuContainer extends React.Component {
       display: 'inline-block'
     },
     bmOverlay: {
-      background: 'rgba(0, 0, 0, 0.3)'
+      background: 'rgba(0, 0, 0, 0)'
     }
   }
 
