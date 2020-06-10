@@ -41,7 +41,9 @@
   background-color: #b9d3c2;
   border: solid #f89330;
   border-radius: 20px;
-  padding: 4px;
+  padding-bottom: 6px;
+  margin-bottom: 3px;
+  margin-top: 3px;
 }
 .option div {
   border-radius: 20px;
