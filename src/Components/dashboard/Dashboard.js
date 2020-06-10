@@ -115,7 +115,7 @@ class Dashboard extends React.Component {
                                 img.src = url
                                 img.alt = `an image on ${location.name}`
                                 this.refs[location.name].append(img)
-                              })}>I hate promises</button> </> : null}
+                              })}>See Image</button> </> : null}
                           </div></div>}
                         </Spring>
 
