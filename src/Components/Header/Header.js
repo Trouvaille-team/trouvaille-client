@@ -23,7 +23,7 @@ class Header extends Component {
           onClick={this.handleLogoutClick}
           to='/login'>
           Logout
-          </Link>
+        </Link>
       </div>
     )
   }
@@ -41,7 +41,6 @@ class Header extends Component {
   }
 
   render() {
-
     if (window.location.pathname === '/') {
       return (
         <>
@@ -69,12 +68,6 @@ class Header extends Component {
             to={{ marginTop: 0 }}>
             {props => <div style={props}>
               <header className='trouvaille_header'>
-                {/* <div className='menu-toggler'
-                 onClick={this.context.toggleMenu}>
-              <div className="bar"></div>
-              <div className="bar"></div>
-              <div className="bar"></div>
-            </div> */}
 
 
                 {TokenService.hasAuthToken() ? this.renderLogoutLink() : this.renderLoginLink()}
