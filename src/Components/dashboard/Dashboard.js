@@ -98,10 +98,9 @@ class Dashboard extends React.Component {
               <h1>Heres some places nearby you might like</h1>
               <div className='top-options'>
                 {
-                  this.state.data.points.map((location) => {
-                    console.log(location)
+                  this.state.data.points.map((location, i) => {
                     return (
-                      <div className='option' ref={`${location.name}`}>
+                      <div className='option' ref={`${location.name}`} key={i}>
 
                         <Spring
                           from={{ marginLeft: -500 }}
