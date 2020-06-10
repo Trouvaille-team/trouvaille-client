@@ -109,7 +109,7 @@ export default class Interests extends Component {
         <div className='submit-button'>
           <button onClick={() => this.props.history.push('/dashboard')}>
             Submit
-                            </button>
+          </button>
         </div>
       </div>
     )

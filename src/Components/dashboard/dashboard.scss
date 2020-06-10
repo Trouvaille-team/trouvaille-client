@@ -22,7 +22,19 @@ $emphasisCololr: #ca9ce1;
 }
 
 .option {
-  border: solid 4px;
+  background-color: $accentColor;
+  border: solid 8px;
   padding: 5px;
   margin: 5px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+
+  .title-button-container {
+    background-color: $accentColor;
+  }
+
+  h2 {
+    background-color: $accentColor;
+  }
 }

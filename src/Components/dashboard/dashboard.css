@@ -13,9 +13,19 @@
 }
 
 .option {
-  border: solid 4px;
+  background-color: #b9d3c2;
+  border: solid 8px;
   padding: 5px;
   margin: 5px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.option .title-button-container {
+  background-color: #b9d3c2;
+}
+.option h2 {
+  background-color: #b9d3c2;
 }
 
 /*# sourceMappingURL=dashboard.css.map */
