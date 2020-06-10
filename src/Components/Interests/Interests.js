@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ContextProvider from '../../Context'
-import { Spring } from 'react-spring/renderprops'
+import { Spring, config } from 'react-spring/renderprops'
 import './interests.css'
 
 export default class Interests extends Component {
@@ -97,6 +97,7 @@ export default class Interests extends Component {
           {this.context.userInterests.map((interest, i) => {
             return (
               <Spring
+                config={config.slow}
                 from={{ marginLeft: -500 }}
                 to={{ marginLeft: 0 }}>
                 {props => <div style={props}> <li key={i}>

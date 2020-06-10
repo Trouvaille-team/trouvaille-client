@@ -2,16 +2,22 @@ import { slide as Menu } from 'react-burger-menu'
 import React from 'react';
 import { Link } from 'react-router-dom'
 export default class MenuContainer extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      menuOpen: false
+    }
+  }
   showSettings(event) {
     event.preventDefault();
   }
   styles = {
     bmBurgerButton: {
-      position: 'fixed',
+      position: 'absolute',
       width: '36px',
       height: '30px',
-      left: '36px',
-      top: '36px'
+      left: '16px',
+      top: '16px'
     },
     bmBurgerBars: {
       background: '#373a47'
@@ -49,12 +55,30 @@ export default class MenuContainer extends React.Component {
       background: 'rgba(0, 0, 0, 0.3)'
     }
   }
+
+  handleStateChange(state) {
+    this.setState({ menuOpen: state.isOpen })
+  }
+
+  closeMenu() {
+    this.setState({ menuOpen: false })
+  }
+
+  toggleMenu() {
+    this.setState(state => ({ menuOpen: !state.menuOpen }))
+  }
+
+
   render() {
     // NOTE: You also need to provide styles, see https://github.com/negomi/react-burger-menu#styling
     return (
-      <Menu styles={this.styles}>
-        <li className='link-container'><Link to="/dashboard">Discover new places</Link></li>
-        <li className='link-container'><Link to="/interests">Change my preferences</Link></li>
+      <Menu styles={this.styles} isOpen={this.state.menuOpen}
+        onStateChange={(state) => this.handleStateChange(state)}>
+        <div className="link-container" onClick={() => this.closeMenu()}><Link to="/MyTrips">Past Trips</Link></div>
+        <div className="link-container" onClick={() => this.closeMenu()}><Link to='/new-trip'>Plan a New Trip
+              </Link></div>
+        <div className='link-container' onClick={() => this.closeMenu()}><Link to="/dashboard">Near Me</Link></div>
+        <div className='link-container' onClick={() => this.closeMenu()}><Link to="/interests">Preferences</Link></div>
       </Menu>
     );
   }
