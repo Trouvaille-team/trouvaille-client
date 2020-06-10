@@ -20,7 +20,6 @@ class LandingPage extends Component {
     if (localStorage.getItem("user_id")) {
       this.props.history.push("/dashboard")
     }
-
   }
 
   render() {

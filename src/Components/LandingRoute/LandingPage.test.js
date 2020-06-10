@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
 import { BrowserRouter, Link } from 'react-router-dom'
 import LandingPage from './LandingPage'
 import { shallow, mount } from 'enzyme';
