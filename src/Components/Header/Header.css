@@ -25,7 +25,19 @@
     text-align: center; }
   .trouvaille_header .trouvaille-nav-dashboard {
     background-color: transparent;
-    display: flex;
-    justify-content: space-around; }
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px; }
+    .trouvaille_header .trouvaille-nav-dashboard a {
+      margin: 0 10px; }
+  .trouvaille_header .dashboard-logout {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 10px; }
+
+.landing-title {
+  text-align: center; }
 
 /*# sourceMappingURL=Header.css.map */
