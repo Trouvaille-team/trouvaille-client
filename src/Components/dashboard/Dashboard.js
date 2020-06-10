@@ -95,7 +95,7 @@ class Dashboard extends React.Component {
             <h1>Welcome, User</h1>
             <h2>Nearby Locations</h2>
             <div className='new-places-container'>
-              <h1>Heres some places nearby you might like</h1>
+              <h1>Here are some places nearby you might like</h1>
               <div className='top-options'>
                 {
                   this.state.data.points.map((location) => {

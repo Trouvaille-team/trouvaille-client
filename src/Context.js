@@ -7,7 +7,7 @@ import TokenService from './services/token-service';
 
 const Context = React.createContext({
   userInterests: [],
-  user:{},
+  user: {},
   showMenu: false,
   toggleMenu: () => { },
   userTrip: {
@@ -149,6 +149,7 @@ export class ContextProvider extends Component {
 
   processLogout = () => {
     TokenService.clearAuthToken()
+    localStorage.removeItem('user_id')
     this.setUser({})
   }
 

@@ -1,5 +1,19 @@
 .dashboard-container {
   text-align: center;
+  color: #09014e;
+}
+
+.new-places-container h1 {
+  width: auto;
+}
+
+.top-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-option {
+  border: solid 2px;
 }
 
 /*# sourceMappingURL=dashboard.css.map */

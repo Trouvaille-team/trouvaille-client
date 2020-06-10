@@ -7,4 +7,20 @@ $emphasisCololr: #ca9ce1;
 
 .dashboard-container {
   text-align: center;
+  color: $textColor;
+}
+
+.new-places-container {
+  h1 {
+    width: auto;
+  }
+}
+
+.top-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-option {
+  border: solid 2px;
 }

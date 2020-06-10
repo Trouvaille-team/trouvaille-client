@@ -3,21 +3,23 @@ import React from 'react';
 import ContextProvider from '../../Context'
 // import TokenService from "../../services/token-service"
 import Map from "../Map/Map";
-import { FacebookIcon, FacebookShareButton,
-         TwitterIcon, TwitterShareButton,
-         EmailIcon, EmailShareButton } from 'react-share';
+import {
+  FacebookIcon, FacebookShareButton,
+  TwitterIcon, TwitterShareButton,
+  EmailIcon, EmailShareButton
+} from 'react-share';
 
 class MapContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       waypoints: []
-    } 
+    }
   }
 
   static contextType = ContextProvider
   async componentDidMount() {
-    if (sessionStorage.getItem("user_id") && this.context.userTrip.destination) {
+    if (localStorage.getItem("user_id") && this.context.userTrip.destination) {
       this.handlePostTrips()
     }
   }
@@ -35,7 +37,7 @@ class MapContainer extends Component {
         origin: context.originCoords,
         destination: context.endCoords,
         waypoints: context.waypoints,
-        user_id: sessionStorage.getItem("user_id"),
+        user_id: localStorage.getItem("user_id"),
         destination_name: context.userTrip.destination
       }),
       credentials: "same-origin"
@@ -77,29 +79,29 @@ class MapContainer extends Component {
         >
           see on google maps
         </a>
-          <FacebookShareButton
-            url={`https://www.google.com/maps/dir/?api=1&origin=${this.context.originCoords.lat},${this.context.originCoords.lng}&destination=${this.context.endCoords.lat},${this.context.endCoords.lng}&travelmode=driving&waypoints=${this.composeWaypointsString()}`}
-            >
-              <FacebookIcon
-                size={30}
-                round />
-          </FacebookShareButton> 
-          <TwitterShareButton
-            url={`https://www.google.com/maps/dir/?api=1&origin=${this.context.originCoords.lat},${this.context.originCoords.lng}&destination=${this.context.endCoords.lat},${this.context.endCoords.lng}&travelmode=driving&waypoints=${this.composeWaypointsString()}`}
-            >
-              <TwitterIcon
-                size={30}
-                round />
-          </TwitterShareButton> 
-          <EmailShareButton
-            url={`https://www.google.com/maps/dir/?api=1&origin=${this.context.originCoords.lat},${this.context.originCoords.lng}&destination=${this.context.endCoords.lat},${this.context.endCoords.lng}&travelmode=driving&waypoints=${this.composeWaypointsString()}`}
-            subject={'Hey! Check out this trip!'}
-            body={'placeholder'}
-            >
-              <EmailIcon
-                size={30}
-                round />
-          </EmailShareButton> 
+        <FacebookShareButton
+          url={`https://www.google.com/maps/dir/?api=1&origin=${this.context.originCoords.lat},${this.context.originCoords.lng}&destination=${this.context.endCoords.lat},${this.context.endCoords.lng}&travelmode=driving&waypoints=${this.composeWaypointsString()}`}
+        >
+          <FacebookIcon
+            size={30}
+            round />
+        </FacebookShareButton>
+        <TwitterShareButton
+          url={`https://www.google.com/maps/dir/?api=1&origin=${this.context.originCoords.lat},${this.context.originCoords.lng}&destination=${this.context.endCoords.lat},${this.context.endCoords.lng}&travelmode=driving&waypoints=${this.composeWaypointsString()}`}
+        >
+          <TwitterIcon
+            size={30}
+            round />
+        </TwitterShareButton>
+        <EmailShareButton
+          url={`https://www.google.com/maps/dir/?api=1&origin=${this.context.originCoords.lat},${this.context.originCoords.lng}&destination=${this.context.endCoords.lat},${this.context.endCoords.lng}&travelmode=driving&waypoints=${this.composeWaypointsString()}`}
+          subject={'Hey! Check out this trip!'}
+          body={'placeholder'}
+        >
+          <EmailIcon
+            size={30}
+            round />
+        </EmailShareButton>
         <h3>your stops</h3>
         <ul>
           {this.context.waypoints.map((waypoint) => {
