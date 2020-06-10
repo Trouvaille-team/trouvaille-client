@@ -8,6 +8,8 @@ import {
   TwitterIcon, TwitterShareButton,
   EmailIcon, EmailShareButton
 } from 'react-share';
+import './MapContainer.css'
+
 
 class MapContainer extends Component {
   constructor(props) {
@@ -58,7 +60,7 @@ class MapContainer extends Component {
   }
   render() {
     return (
-      <>
+      <section className="map-container">
         <Map
           isMarkerShown
           originLat={this.context.originCoords.lat}
@@ -72,44 +74,47 @@ class MapContainer extends Component {
           mapElement={<div style={{ height: `100%` }} />}
 
         />
-        <a
-          href={`https://www.google.com/maps/dir/?api=1&origin=${this.context.originCoords.lat},${this.context.originCoords.lng}&destination=${this.context.endCoords.lat},${this.context.endCoords.lng}&travelmode=driving&waypoints=${this.composeWaypointsString()}`}
-          target={"_blank"}
-          rel={"noopener noreferrer"}
-        >
-          see on google maps
+        <div className="link-bar">
+          <a
+            href={`https://www.google.com/maps/dir/?api=1&origin=${this.context.originCoords.lat},${this.context.originCoords.lng}&destination=${this.context.endCoords.lat},${this.context.endCoords.lng}&travelmode=driving&waypoints=${this.composeWaypointsString()}`}
+            target={"_blank"}
+            rel={"noopener noreferrer"}
+          >
+            see on google maps
         </a>
-        <FacebookShareButton
-          url={`https://www.google.com/maps/dir/?api=1&origin=${this.context.originCoords.lat},${this.context.originCoords.lng}&destination=${this.context.endCoords.lat},${this.context.endCoords.lng}&travelmode=driving&waypoints=${this.composeWaypointsString()}`}
-        >
-          <FacebookIcon
-            size={30}
-            round />
-        </FacebookShareButton>
-        <TwitterShareButton
-          url={`https://www.google.com/maps/dir/?api=1&origin=${this.context.originCoords.lat},${this.context.originCoords.lng}&destination=${this.context.endCoords.lat},${this.context.endCoords.lng}&travelmode=driving&waypoints=${this.composeWaypointsString()}`}
-        >
-          <TwitterIcon
-            size={30}
-            round />
-        </TwitterShareButton>
-        <EmailShareButton
-          url={`https://www.google.com/maps/dir/?api=1&origin=${this.context.originCoords.lat},${this.context.originCoords.lng}&destination=${this.context.endCoords.lat},${this.context.endCoords.lng}&travelmode=driving&waypoints=${this.composeWaypointsString()}`}
-          subject={'Hey! Check out this trip!'}
-          body={'placeholder'}
-        >
-          <EmailIcon
-            size={30}
-            round />
-        </EmailShareButton>
+          <div className="social-media-buttons">
+            <FacebookShareButton
+              url={`https://www.google.com/maps/dir/?api=1&origin=${this.context.originCoords.lat},${this.context.originCoords.lng}&destination=${this.context.endCoords.lat},${this.context.endCoords.lng}&travelmode=driving&waypoints=${this.composeWaypointsString()}`}
+            >
+              <FacebookIcon
+                size={30}
+                round />
+            </FacebookShareButton>
+            <TwitterShareButton
+              url={`https://www.google.com/maps/dir/?api=1&origin=${this.context.originCoords.lat},${this.context.originCoords.lng}&destination=${this.context.endCoords.lat},${this.context.endCoords.lng}&travelmode=driving&waypoints=${this.composeWaypointsString()}`}
+            >
+              <TwitterIcon
+                size={30}
+                round />
+            </TwitterShareButton>
+            <EmailShareButton
+              url={`https://www.google.com/maps/dir/?api=1&origin=${this.context.originCoords.lat},${this.context.originCoords.lng}&destination=${this.context.endCoords.lat},${this.context.endCoords.lng}&travelmode=driving&waypoints=${this.composeWaypointsString()}`}
+              subject={'Hey! Check out this trip!'}
+              body={'placeholder'}
+            >
+              <EmailIcon
+                size={30}
+                round />
+            </EmailShareButton>
+          </div>
+        </div>
         <h3>your stops</h3>
         <ul>
           {this.context.waypoints.map((waypoint) => {
             return <li>{waypoint.name}</li>;
           })}
         </ul>
-        <button onClick={() => this.props.history.push('/dashboard')}>Back to dashboard</button>
-      </>
+      </section>
     );
   }
 }
