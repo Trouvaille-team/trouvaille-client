@@ -17,7 +17,7 @@ const MapWithADirectionsRenderer = compose(
   withProps({
     googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_API_KEY}&v=3.exp&libraries=geometry,drawing,places`,
     loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: `400px` }} />,
+    containerElement: <div style={{ height: `400px`, margin: "50px 0px 0 0" }} className='google-map' />,
     mapElement: <div style={{ height: `100%` }} />,
   }),
   withScriptjs,
@@ -69,16 +69,16 @@ const MapWithADirectionsRenderer = compose(
     },
   })
 )((props) => (
-  <>
-    <GoogleMap
-      defaultZoom={7}
-      defaultCenter={new google.maps.LatLng(41.85073, -87.65126)}
-      defaultOptions={{ styles: mapStyles }}
-    >
-      {props.directions && <DirectionsRenderer directions={props.directions} />}
-    </GoogleMap>
 
-  </>
+  <GoogleMap
+    defaultZoom={7}
+    defaultCenter={new google.maps.LatLng(41.85073, -87.65126)}
+    defaultOptions={{ styles: mapStyles }}
+  >
+    {props.directions && <DirectionsRenderer directions={props.directions} />}
+  </GoogleMap>
+
+
 ));
 
 export default MapWithADirectionsRenderer

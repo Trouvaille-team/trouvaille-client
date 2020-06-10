@@ -34,19 +34,24 @@ export default class MyTrips extends React.Component {
 
 
   renderTrips(trips) {
-    console.log(trips)
-    return trips.map((trip) => {
+    if (typeof (trips) === "array") {
+      return trips.map((trip) => {
 
-      return (
-        <li>
-          <h4>your trip to {trip.destination_name}</h4>
-          <button
-            onClick={() => this.updateContext(trip)}
-          // an onClick function to set the context to the value of this trip, and navigate to the map component
-          >Go To</button>
-        </li>
-      )
-    })
+        return (
+          <li>
+            <h4>your trip to {trip.destination_name}</h4>
+            <button
+              onClick={() => this.updateContext(trip)}
+            // an onClick function to set the context to the value of this trip, and navigate to the map component
+            >Go To</button>
+          </li>
+        )
+      })
+    } else { console.log(trips) 
+    return (
+      <h2>Looks like we couldn't find any of your trips. Either Something went wrong on out end or you havent made any yet.</h2>
+    ) }
+
   }
 
   render() {

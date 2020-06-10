@@ -12,13 +12,13 @@
 }
 
 */
-* {
-  background-color: #fffaef; }
-
 h1,
 h2,
 h3,
 h4 {
   color: #09014e; }
+
+body {
+  background-color: #fffaef; }
 
 /*# sourceMappingURL=App.css.map */

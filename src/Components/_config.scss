@@ -52,3 +52,14 @@ $emphasisColor: #ca9ce1;
   transform: scale(0.99);
   background: #0d0366;
 }
+
+@mixin bubble {
+  padding: 1rem 2rem;
+  font-weight: bold;
+  list-style-type: none;
+  border: 1px solid $borderColor;
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin: 3px;
+  cursor: pointer;
+}

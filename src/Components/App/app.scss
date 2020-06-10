@@ -1,12 +1,11 @@
 @import "../config.scss";
 
-* {
-  background-color: $backgroundColor;
-}
-
 h1,
 h2,
 h3,
 h4 {
   color: $textColor;
+}
+body {
+  background-color: $backgroundColor;
 }
