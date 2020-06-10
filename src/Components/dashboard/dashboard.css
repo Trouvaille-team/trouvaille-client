@@ -12,8 +12,10 @@
   flex-direction: column;
 }
 
-.top-option {
-  border: solid 2px;
+.option {
+  border: solid 4px;
+  padding: 5px;
+  margin: 5px;
 }
 
 /*# sourceMappingURL=dashboard.css.map */
