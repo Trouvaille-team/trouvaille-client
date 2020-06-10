@@ -25,15 +25,24 @@ $emphasisCololr: #ca9ce1;
 
 .option {
   background-color: $accentColor;
-  border: solid 8px;
-  padding: 5px;
+  border: solid 6px $textColor;
+  border-radius: 20px;
+  padding: 3px;
   margin: 5px;
   width: 60%;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
 
   .title-button-container {
     background-color: $accentColor;
+    border: solid $borderColor;
+    border-radius: 20px;
+    padding: 4px;
+  }
+
+  div {
+    border-radius: 20px;
   }
 
   h2 {
@@ -42,6 +51,7 @@ $emphasisCololr: #ca9ce1;
 
   button {
     @include button;
+    width: auto;
   }
   button:focus,
   button:hover {

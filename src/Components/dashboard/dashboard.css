@@ -28,15 +28,23 @@
 
 .option {
   background-color: #b9d3c2;
-  border: solid 8px;
-  padding: 5px;
+  border: solid 6px #09014e;
+  border-radius: 20px;
+  padding: 3px;
   margin: 5px;
   width: 60%;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
 }
 .option .title-button-container {
   background-color: #b9d3c2;
+  border: solid #f89330;
+  border-radius: 20px;
+  padding: 4px;
+}
+.option div {
+  border-radius: 20px;
 }
 .option h2 {
   background-color: #b9d3c2;
@@ -57,6 +65,7 @@
   transition: background 250ms ease-in-out, transform 150ms ease;
   -webkit-appearance: none;
   -moz-appearance: none;
+  width: auto;
 }
 .option button:focus,
 .option button:hover {
