@@ -52,7 +52,7 @@ export default class MenuContainer extends React.Component {
       display: 'inline-block'
     },
     bmOverlay: {
-      background: 'rgba(0, 0, 0, 0.3)'
+      background: 'rgba(0, 0, 0, 0)'
     }
   }
 
@@ -74,7 +74,7 @@ export default class MenuContainer extends React.Component {
     return (
       <Menu styles={this.styles} isOpen={this.state.menuOpen}
         onStateChange={(state) => this.handleStateChange(state)}>
-        <div className="link-container" onClick={() => this.closeMenu()}><Link to="/MyTrips">Past Trips</Link></div>
+        {localStorage.getItem("user_id") ? <div className="link-container" onClick={() => this.closeMenu()}><Link to="/MyTrips">Past Trips</Link></div> : <div className="link-container" onClick={() => this.closeMenu()}><Link to="/register">Sign Up</Link></div>}
         <div className="link-container" onClick={() => this.closeMenu()}><Link to='/new-trip'>Plan a New Trip
               </Link></div>
         <div className='link-container' onClick={() => this.closeMenu()}><Link to="/dashboard">Near Me</Link></div>

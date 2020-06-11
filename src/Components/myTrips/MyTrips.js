@@ -15,7 +15,7 @@ export default class MyTrips extends React.Component {
 
   componentDidMount() {
     if (localStorage.getItem("user_id")) {
-      fetch(`${config.API_ENDPOINT}/trips/${sessionStorage.getItem("user_id")}`).then((res) => {
+      fetch(`${config.API_ENDPOINT}/trips/${localStorage.getItem("user_id")}`).then((res) => {
         return res.json()
       }).then((data) => {
         this.setState({ trips: data })
@@ -34,7 +34,7 @@ export default class MyTrips extends React.Component {
 
 
   renderTrips(trips) {
-    if (typeof (trips) === []) {
+    if (Array.isArray(trips) && trips.length > 1) {
       return trips.map((trip) => {
 
         return (
@@ -47,10 +47,17 @@ export default class MyTrips extends React.Component {
           </li>
         )
       })
-    } else { console.log(trips) 
-    return (
-      <h2>Looks like we couldn't find any of your trips. Either Something went wrong on out end or you havent made any yet.</h2>
-    ) }
+    } else if (Array.isArray(trips)) {
+      return (
+        <h2>Looks like you havent made any trips yet</h2>)
+    }
+
+    else {
+      console.log(trips)
+      return (
+        <h2>Looks like something went wrong on our end sorry about that.</h2>
+      )
+    }
 
   }
 
