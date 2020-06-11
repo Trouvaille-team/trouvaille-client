@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ContextProvider from '../../Context'
 import { Spring, config } from 'react-spring/renderprops'
 import './interests.css'
+import Header from '../Header/Header';
 
 export default class Interests extends Component {
 
@@ -66,53 +67,56 @@ export default class Interests extends Component {
 
   render() {
     return (
-      <div className='interests-container'>
-        <header className="interests-header">
-          { /* have the heading display the users name */}
-          <h1>What does the user like to do when travelling?</h1>
-          <section>
-            <p>Help us get an idea of what you like to partake in when travelling! Check those that apply to you.</p>
-          </section>
-        </header>
-        <div>
-          <form className="interests-form">
-            {this.options.map((option, i) => {
+      <>
+        <Header />
+        <div className='interests-container'>
+          <header className="interests-header">
+            { /* have the heading display the users name */}
+            <h1>What does the user like to do when travelling?</h1>
+            <section>
+              <p>Help us get an idea of what you like to partake in when travelling! Check those that apply to you.</p>
+            </section>
+          </header>
+          <div>
+            <form className="interests-form">
+              {this.options.map((option, i) => {
+                return (
+                  <>
+                    {/* {this.renderCheckBoxes(option)} */}
+                    <label key={i} htmlFor={option}>{option}</label>
+                    <input id={option} type="checkbox" onChange={e => this.handleCheck(e)} />
+                  </>
+                )
+              })}
+            </form>
+            <div className='clear-button'>
+              <button onClick={this.handleClear}>
+                Clear Selections
+                  </button>
+            </div>
+          </div>
+          <h3>Current Selections:</h3>
+          <ul>
+            {this.context.userInterests.map((interest, i) => {
               return (
-                <>
-                  {/* {this.renderCheckBoxes(option)} */}
-                  <label key={i} htmlFor={option}>{option}</label>
-                  <input id={option} type="checkbox" onChange={e => this.handleCheck(e)} />
-                </>
+                <Spring
+                  config={config.slow}
+                  from={{ marginLeft: -500 }}
+                  to={{ marginLeft: 0 }}>
+                  {props => <div style={props}> <li key={i}>
+                    {interest}
+                  </li></div>}
+                </Spring>
               )
             })}
-          </form>
-          <div className='clear-button'>
-            <button onClick={this.handleClear}>
-              Clear Selections
-                  </button>
+          </ul>
+          <div className='submit-button'>
+            <button onClick={() => this.props.history.push('/dashboard')}>
+              Submit
+          </button>
           </div>
         </div>
-        <h3>Current Selections:</h3>
-        <ul>
-          {this.context.userInterests.map((interest, i) => {
-            return (
-              <Spring
-                config={config.slow}
-                from={{ marginLeft: -500 }}
-                to={{ marginLeft: 0 }}>
-                {props => <div style={props}> <li key={i}>
-                  {interest}
-                </li></div>}
-              </Spring>
-            )
-          })}
-        </ul>
-        <div className='submit-button'>
-          <button onClick={() => this.props.history.push('/dashboard')}>
-            Submit
-          </button>
-        </div>
-      </div>
+      </>
     )
   }
 }
