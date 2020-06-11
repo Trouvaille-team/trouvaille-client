@@ -1,16 +1,5 @@
 @import "../config.scss";
 
-@mixin bubble {
-  padding: 1rem 2rem;
-  font-weight: bold;
-  list-style-type: none;
-  border: 1px solid $borderColor;
-  border-radius: 4px;
-  padding: 4px 8px;
-  margin: 3px;
-  cursor: pointer;
-}
-
 .interests-container {
   text-align: center;
   .interests-header {

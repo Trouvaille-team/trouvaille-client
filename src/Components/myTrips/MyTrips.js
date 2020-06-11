@@ -15,7 +15,7 @@ export default class MyTrips extends React.Component {
 
   componentDidMount() {
     if (localStorage.getItem("user_id")) {
-      fetch(`${config.API_ENDPOINT}/trips/${sessionStorage.getItem("user_id")}`).then((res) => {
+      fetch(`${config.API_ENDPOINT}/trips/${localStorage.getItem("user_id")}`).then((res) => {
         return res.json()
       }).then((data) => {
         this.setState({ trips: data })
@@ -34,19 +34,31 @@ export default class MyTrips extends React.Component {
 
 
   renderTrips(trips) {
-    console.log(trips)
-    return trips.map((trip) => {
+    if (Array.isArray(trips) && trips.length > 1) {
+      return trips.map((trip) => {
 
+        return (
+          <li>
+            <h4>your trip to {trip.destination_name}</h4>
+            <button
+              onClick={() => this.updateContext(trip)}
+            // an onClick function to set the context to the value of this trip, and navigate to the map component
+            >Go To</button>
+          </li>
+        )
+      })
+    } else if (Array.isArray(trips)) {
       return (
-        <li>
-          <h4>your trip to {trip.destination_name}</h4>
-          <button
-            onClick={() => this.updateContext(trip)}
-          // an onClick function to set the context to the value of this trip, and navigate to the map component
-          >Go To</button>
-        </li>
+        <h2>Looks like you havent made any trips yet</h2>)
+    }
+
+    else {
+      console.log(trips)
+      return (
+        <h2>Looks like something went wrong on our end sorry about that.</h2>
       )
-    })
+    }
+
   }
 
   render() {
