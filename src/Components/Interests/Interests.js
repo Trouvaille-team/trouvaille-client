@@ -78,11 +78,11 @@ export default class Interests extends Component {
           <form className="interests-form">
             {this.options.map((option, i) => {
               return (
-                <li key={i}>
+                <>
                   {/* {this.renderCheckBoxes(option)} */}
-                  <label htmlFor={option}>{option}</label>
+                  <label key={i} htmlFor={option}>{option}</label>
                   <input id={option} type="checkbox" onChange={e => this.handleCheck(e)} />
-                </li>
+                </>
               )
             })}
           </form>
