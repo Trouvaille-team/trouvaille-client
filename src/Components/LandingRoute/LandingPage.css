@@ -36,6 +36,7 @@ p {
   max-width: 75vw;
   border-radius: 25px;
   padding: 1em;
+  background-color: rgba(244, 238, 226, 0.9);
 }
 
 .landing-page a {
@@ -43,9 +44,8 @@ p {
   border-style: solid;
   border-width: 1px;
   border-radius: 5px;
-  border-color: #430c05;
-  background-color: #00353f;
-  color: #fff;
+  background-color: #a5bbad;
+  color: #f4eee2;
   font-family: "Baloo 2", cursive;
   padding: 5px 10px;
 }

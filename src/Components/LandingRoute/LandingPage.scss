@@ -16,6 +16,7 @@ $emphasisColor: #ca9ce1;
   background-image: url(./landing-page-idea.jpg);
   background-size: 300px;
   font-size: 1rem;
+
 }
 
 a {
@@ -32,6 +33,7 @@ p {
   max-width: 75vw;
   border-radius: 25px;
   padding: 1em;
+  background-color: rgb(244,238,226,.9)
 
 }
 
@@ -40,9 +42,9 @@ p {
   border-style: solid;
   border-width: 1px;
   border-radius: 5px;
-  border-color: #430c05;
-  background-color: #00353f;
-  color: #fff;
+  // border-color: #430c05;
+  background-color: #a5bbad;
+  color: #f4eee2;
   font-family: 'Baloo 2', cursive;
   padding: 5px 10px;
 
@@ -57,3 +59,4 @@ p {
   padding: .5em;
   border-radius: 25px;
 }
+
