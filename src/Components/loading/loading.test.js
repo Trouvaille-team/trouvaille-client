@@ -3,6 +3,7 @@ import { BrowserRouter, Link } from 'react-router-dom'
 import Loading from './loading'
 import { shallow, mount } from 'enzyme';
 
+
 it('renders without crashing', () => {
   shallow(<Loading />);
 });
