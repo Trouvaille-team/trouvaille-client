@@ -52,9 +52,14 @@ class PlanTrip extends React.Component {
           {/* assuming max time includes entire trip start to finish */}
           <label htmlFor='time'>Choose your max trip time(hrs)</label>
           <input type='number' id='time' min='1' max='100' />
-          <button type='submit'>Submit</button>
+          
+          <div className='buttons'>
+            <button onClick={() => this.props.history.push('/dashboard')}>Back</button>
+            <button type='submit'>Submit</button> 
+          </div>
+          
         </form>
-        <button onClick={() => this.props.history.push('/dashboard')}>Back</button>
+        
       </>
     )
   }
