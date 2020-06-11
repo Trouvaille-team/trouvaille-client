@@ -16,7 +16,44 @@
   }
   .trouvaille-nav-dashboard {
     background-color: transparent;
-    display: flex;
-    justify-content: space-around;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    a {
+      margin: 0 10px;
+    }
+  }
+  .dashboard-logout {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 10px;
+  }
+}
+.landing-title {
+  text-align: center;
+}
+
+
+//AAAAAAHGHGGGHDDMSKDJS KDJSKLDJSK
+  h1 {
+     margin: auto;
+     width: 30%;
+  }
+   
+  a button {
+    width: auto;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.trouvaille-nav {
+  float: right;
+  text-align: right;
+  p {
+    margin: 2px;
+
   }
 }

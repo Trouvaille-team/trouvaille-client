@@ -8,30 +8,57 @@
 * $my-display: flex;
 
 * @mixin set-display($display) {
-    
+
 }
 
 */
+.dashboard-container {
+  text-align: center;
+  color: #09014e;
+}
 
-$color1: #da8036;
-$color2: #0baa18;
-$color3: black;
+.new-places-container h1 {
+  width: auto;
+}
 
-$textColor: #09014e;
-$shadeColor: #ead5e6;
-$backgroundColor: #fffaef;
-$borderColor: #f89330;
-$accentColor: #b9d3c2;
-$emphasisColor: #ca9ce1;
+.top-options {
+  display: flex;
+  flex-direction: column;
+}
 
-@mixin button {
+.option {
+  background-color: #b9d3c2;
+  border: solid 6px #09014e;
+  border-radius: 20px;
+  padding: 3px;
+  margin: 5px;
+  width: 60%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+.option .title-button-container {
+  background-color: #b9d3c2;
+  border: solid #f89330;
+  border-radius: 20px;
+  padding-bottom: 6px;
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+.option div {
+  border-radius: 20px;
+}
+.option h2 {
+  background-color: #b9d3c2;
+}
+.option button {
   display: inline-block;
   border: none;
   padding: 1rem 2rem;
   border-radius: 4px;
   margin: 0;
   text-decoration: none;
-  background: $textColor;
+  background: #09014e;
   color: #ffffff;
   font-family: sans-serif;
   font-size: 1rem;
@@ -40,26 +67,17 @@ $emphasisColor: #ca9ce1;
   transition: background 250ms ease-in-out, transform 150ms ease;
   -webkit-appearance: none;
   -moz-appearance: none;
+  width: auto;
 }
-
-@mixin focusButton {
+.option button:focus,
+.option button:hover {
   outline: 1px solid #fff;
   outline-offset: -4px;
   background: #0d0366;
 }
-
-@mixin activeButton {
+.option button:active {
   transform: scale(0.99);
   background: #0d0366;
 }
 
-@mixin bubble {
-  padding: 1rem 2rem;
-  font-weight: bold;
-  list-style-type: none;
-  border: 1px solid $borderColor;
-  border-radius: 4px;
-  padding: 4px 8px;
-  margin: 3px;
-  cursor: pointer;
-}
+/*# sourceMappingURL=dashboard.css.map */

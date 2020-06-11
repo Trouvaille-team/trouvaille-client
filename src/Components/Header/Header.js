@@ -19,32 +19,28 @@ class Header extends Component {
   renderLogoutLink() {
     return (
       <div className="dashboard-logout">
-        <span className='trouvaille-nav-user'>
-          {/*Not sure if we want this here. Displays the username of the logged in user everywhere the logout link is rendered. */}
-          {this.context.user.username}
-        </span>
         <Link
           onClick={this.handleLogoutClick}
           to='/login'>
           Logout
-          </Link>
+        </Link>
       </div>
     )
   }
 
   renderLoginLink() {
     return (<>
-      <Link to='/login'>Login</Link>
-      <Link to='/register'>Sign up</Link>
-      {window.location.pathname !== '/interests' ? <div>
-        <Link to='/interests'>Continue without logging in</Link>
-      </div> : null}
+      <nav className="trouvaille-nav-dashboard">
+        <Link to='/login'>Login</Link>
+        <Link to='/register'>Sign up</Link>
+        {window.location.pathname !== '/interests' ? <div>
+        </div> : null}
+      </nav>
     </>
     )
   }
 
   render() {
-
     if (window.location.pathname === '/') {
       return (
         <>
@@ -53,13 +49,11 @@ class Header extends Component {
             from={{ marginTop: -500 }}
             to={{ marginTop: 0 }}>
             {props => <div style={props}>
-              <header className='trouvaille_header'>
-                <h1 >
-                  <Link to='/'>
-                    Trouvaille
+              <h1 className="landing-title">
+                <Link to='/'>
+                  Trouvaille
       </Link>
-                </h1>
-              </header>
+              </h1>
             </div>}
           </Spring>
         </>
@@ -74,18 +68,9 @@ class Header extends Component {
             to={{ marginTop: 0 }}>
             {props => <div style={props}>
               <header className='trouvaille_header'>
-                {/* <div className='menu-toggler'
-                 onClick={this.context.toggleMenu}>
-              <div className="bar"></div>
-              <div className="bar"></div>
-              <div className="bar"></div>
-            </div> */}
 
-                <nav className="trouvaille-nav-dashboard">
-                  <Link to='/new-trip'>Plan a New Trip
-              </Link>
-                  {TokenService.hasAuthToken() ? this.renderLogoutLink() : this.renderLoginLink()}
-                </nav>
+
+                {TokenService.hasAuthToken() ? this.renderLogoutLink() : this.renderLoginLink()}
                 <h1 className="trouvaille-header">
                   <Link to='/'>
                     Trouvaille

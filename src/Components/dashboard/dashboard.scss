@@ -1,6 +1,65 @@
+@import "../config.scss";
+
 $textColor: #09014e;
 $shadeColor: #ead5e6;
 $backgroundColor: #f4eee2;
 $borderColor: #f89330;
 $accentColor: #b9d3c2;
 $emphasisCololr: #ca9ce1;
+
+.dashboard-container {
+  text-align: center;
+  color: $textColor;
+}
+
+.new-places-container {
+  h1 {
+    width: auto;
+  }
+}
+
+.top-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.option {
+  background-color: $accentColor;
+  border: solid 6px $textColor;
+  border-radius: 20px;
+  padding: 3px;
+  margin: 5px;
+  width: 60%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+
+  .title-button-container {
+    background-color: $accentColor;
+    border: solid $borderColor;
+    border-radius: 20px;
+    padding-bottom: 6px;
+    margin-bottom: 3px;
+    margin-top: 3px;
+  }
+
+  div {
+    border-radius: 20px;
+  }
+
+  h2 {
+    background-color: $accentColor;
+  }
+
+  button {
+    @include button;
+    width: auto;
+  }
+  button:focus,
+  button:hover {
+    @include focusButton;
+  }
+  button:active {
+    @include activeButton;
+  }
+}

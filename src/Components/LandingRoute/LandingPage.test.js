@@ -1,14 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
+import { BrowserRouter, Link } from 'react-router-dom'
 import LandingPage from './LandingPage'
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 it('renders without crashing', () => {
   shallow(<LandingPage />);
 });
 
 it('displays welcome', () => {
-  const wrapper = shallow(<LandingPage />);
+  const wrapper = mount(
+  <BrowserRouter>
+    <LandingPage />
+  </BrowserRouter>)
+  
   const welcome =
     <p>
       Here at Trouvaille, we believe that the best experiences are unplanned. Your most memorable moments are spontaneous.
@@ -20,14 +24,27 @@ it('displays welcome', () => {
       we will map out a route for you to follow that lets you make those unforgettable memories, without all the worry of
       making it to your destination on time.
     </p>;
-  expect(wrapper.contains(welcome)).toEqual(true);
+
+expect(wrapper.contains(welcome)).toEqual(true)
 });
 
 it('displays onboarding', () => {
-  const wrapper = shallow(<LandingPage />);
+  const wrapper = mount(
+  <BrowserRouter>
+    <LandingPage />
+  </BrowserRouter>);
   const onboarding =
     <span>
       We hope you enjoy your road trip!
     </span>;
   expect(wrapper.contains(onboarding)).toEqual(true);
 });
+
+it('displays the get started button', () => {
+  const wrapper = mount(
+    <BrowserRouter>
+      <LandingPage />
+    </BrowserRouter>);
+  const cta = <Link to='/interests'>Let's Get Started!</Link>
+  expect(wrapper.contains(cta)).toEqual(true)
+})
