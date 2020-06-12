@@ -19,7 +19,7 @@ class Register extends React.Component {
         username.value = ''
         password.value = ''
         email.value = ''
-        this.props.history.push('/interests')
+        this.props.history.push('/login')
       })
       .catch(res => {
         this.setState({ error: res.error })

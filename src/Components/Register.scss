@@ -1,21 +1,19 @@
 @import "./config";
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
-
-.register{
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2&display=swap");
+.register {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
   align-items: center;
-  font-family: 'Baloo 2', cursive;
+  font-family: "Baloo 2", cursive;
   text-align: center;
 }
-
-.register h1{
+.register h1 {
   margin-bottom: 0;
 }
 
-.register p{
+.register p {
   text-indent: 0;
   text-align: center;
   background-color: transparent;
@@ -23,31 +21,49 @@
   margin: 0;
   float: left;
 }
-
-.register form{
+.register form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
-.registration-field{
+.registration-field {
   background-color: transparent;
   height: 30px;
   border-top: black;
   border-left: black;
   border-right: black;
 }
-
-.sign-up{
+.sign-up {
   margin-top: 1em;
   background-color: #a5bbad;
   color: #f4eee2;
   border: none;
-  padding: .5em;
+  padding: 0.5em;
   border-radius: 20px;
   cursor: pointer;
 }
-
 //login
-
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  font-family: "Baloo 2", cursive;
+  text-align: center;
+  p {
+    text-align: center;
+    text-indent: 0;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  button {
+    margin-top: 10px !important;
+    @include button;
+  }
+}

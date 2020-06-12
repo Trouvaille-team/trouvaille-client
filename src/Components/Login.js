@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AuthApiService from '../services/auth-api-service';
 import Context from '../Context'
-import './Register.scss'
+import './Register.css'
 import Header from './Header/Header'
 class Login extends Component {
 
@@ -20,7 +20,6 @@ class Login extends Component {
       password: password.value,
     })
       .then(res => {
-        console.log()
         username.value = ''
         password.value = ''
         this.context.processLogin(res.authToken)

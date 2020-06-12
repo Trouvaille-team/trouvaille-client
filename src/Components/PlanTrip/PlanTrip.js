@@ -20,12 +20,10 @@ class PlanTrip extends React.Component {
     const detours = e.target.detours.value
     const radius = e.target.radius.value * 1000
     const time = e.target.time.value
-    console.log(e.target.radius.value)
     this.context.setRadius(radius)
     //Set the state witin context (userTrip obj)
     this.context.setTrip(destination, detours, radius, time)
     //Did it work????
-    console.log('form submitted')
     //Need to submit twice to see values in console
     //But looks like they're set after first submit!! -- see Components tab in devTools
     //api post request in here...

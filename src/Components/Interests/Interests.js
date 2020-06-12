@@ -35,7 +35,6 @@ export default class Interests extends Component {
   //map through userInterests array (in context), if a value matches value in options, render the checkbox as checked
   renderCheckBoxes = (option) => {
     const interestArr = this.context.userInterests
-    console.log('interestArr:', interestArr)
     //ifElseCEPTION!
     if (interestArr.length === 0) {
       return (

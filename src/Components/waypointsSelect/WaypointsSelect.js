@@ -78,7 +78,7 @@ export default class WaypointSelect extends React.Component {
                 img.src = url
                 img.alt = `an image on ${location.name}`
                 this.refs[location.name].append(img)
-              })}>I hate promises</button> </> : null}
+              })}>See Image</button> </> : null}
       </div>
         </FadeIn>)
     } else {
@@ -105,7 +105,6 @@ export default class WaypointSelect extends React.Component {
   }
 
   async getPhoto(photo_reference) {
-    console.log(photo_reference)
     let result = await fetch(`${process.env.REACT_APP_URL}/waypoints/photo`, {
       method: "POST",
       body: JSON.stringify({
