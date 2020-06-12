@@ -45,7 +45,7 @@ class LandingPage extends Component {
             <span>
               We hope you enjoy your road trip!
           </span>
-            <Link to="/interests">Lets get started</Link>
+            <Link to="/interests">Let's Get Started!</Link>
           </div>}
         </Spring>
       </>

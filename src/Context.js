@@ -79,7 +79,8 @@ export class ContextProvider extends Component {
     this.setState({ endCoords })
   }
   setRadius = (radius) => {
-    this.setState({ radius })
+    console.log(radius)
+    this.setState({ radius: radius })
     console.log(this.state.radius)
   }
   setOriginCoords = (originCoords) => {

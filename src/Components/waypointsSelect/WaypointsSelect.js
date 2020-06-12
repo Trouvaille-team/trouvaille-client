@@ -141,7 +141,6 @@ export default class WaypointSelect extends React.Component {
         onClick = {e => this.handleDoneButton()}
         >done</button>
         {this.state.waypoints.map((location, i) => {
-          console.log(location)
           return (
             <Spring
               from={{ marginLeft: -500 }}
