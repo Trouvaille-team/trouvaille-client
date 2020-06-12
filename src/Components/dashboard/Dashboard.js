@@ -9,6 +9,7 @@ import LoadingScreen from "../loading/loading";
 //import PlanTrip from './Nav/PlanTrip';
 import { Spring } from 'react-spring/renderprops'
 import './dashboard.css'
+import Header from '../Header/Header';
 
 class Dashboard extends React.Component {
 
@@ -90,6 +91,8 @@ class Dashboard extends React.Component {
     } else {
       return (
         <div>
+          <Header />
+
           <HamburgerIcon />
           <div className='dashboard-container'>
             <h1>Welcome, User</h1>
