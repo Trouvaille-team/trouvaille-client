@@ -14,6 +14,7 @@
 */
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2&display=swap");
 .landing-page {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;

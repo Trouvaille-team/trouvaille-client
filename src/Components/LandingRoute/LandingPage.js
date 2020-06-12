@@ -42,9 +42,9 @@ class LandingPage extends Component {
               we will map out a route for you to follow that lets you make those unforgettable memories, without all the worry of
               making it to your destination on time.
           </p>
-            <span>
-              We hope you enjoy your road trip!
-          </span>
+          <p>
+            We hope you enjoy your road trip!
+          </p>
             <Link to="/interests">Let's Get Started!</Link>
           </div>}
         </Spring>
