@@ -73,6 +73,7 @@
   background: #0d0366;
 }
 .option img {
+  padding-top: 10px;
   height: auto;
   width: auto;
 }
