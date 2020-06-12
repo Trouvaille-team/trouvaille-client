@@ -53,6 +53,8 @@ export class ContextProvider extends Component {
     setWaypoints: () => { },
     setUser: () => { },
     processLogin: () => { },
+    radius: null,
+    setRadius: () => { }
   }
 
   componentDidMount() {
@@ -76,7 +78,10 @@ export class ContextProvider extends Component {
   setEndCoords = (endCoords) => {
     this.setState({ endCoords })
   }
-
+  setRadius = (radius) => {
+    this.setState({ radius })
+    console.log(this.state.radius)
+  }
   setOriginCoords = (originCoords) => {
     console.log(originCoords)
     this.setState({ originCoords })
@@ -173,6 +178,8 @@ export class ContextProvider extends Component {
       processLogin: this.processLogin,
       setUser: this.setUser,
       processLogout: this.processLogout,
+      setRadius: this.setRadius,
+      radius: this.state.radius
     }
     return (
       <Context.Provider value={value}>

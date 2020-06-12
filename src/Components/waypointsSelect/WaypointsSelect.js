@@ -6,6 +6,7 @@ import LoadingScreen from "../loading/loading";
 import FadeIn from "react-fade-in";
 import HamburgerIcon from '../HamburberIcon/HamburgerIcon'
 import { Spring } from 'react-spring/renderprops'
+import Header from '../Header/Header';
 
 export default class WaypointSelect extends React.Component {
   constructor(props) {
@@ -27,7 +28,8 @@ export default class WaypointSelect extends React.Component {
       body: JSON.stringify({
         "origin": `${this.context.originCoords.lat},${this.context.originCoords.lng}`,
         "dest": this.context.userTrip.destination,
-        "query": this.context.userInterests
+        "query": this.context.userInterests,
+        "radius": this.context.radius
       }),
       headers: {
         "Content-Length": 61,
@@ -125,10 +127,13 @@ export default class WaypointSelect extends React.Component {
 
   render() {
     if(this.state.loading === true) {
-      return(<><HamburgerIcon /><LoadingScreen /></>)
+      return(<><HamburgerIcon />
+        <Header />
+      <LoadingScreen /></>)
     } else {
     return (
       <>
+      <Header/>
         <HamburgerIcon />
         {this.displayOption()}
         <h4>Your Waypoints</h4>
