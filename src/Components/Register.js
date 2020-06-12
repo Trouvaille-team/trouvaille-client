@@ -1,6 +1,7 @@
 import React from 'react'
 import AuthApiService from '../services/auth-api-service';
 import Header from './Header/Header';
+import './Register.scss'
 
 class Register extends React.Component {
 

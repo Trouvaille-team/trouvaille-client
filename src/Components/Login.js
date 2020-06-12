@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import AuthApiService from '../services/auth-api-service';
 import Context from '../Context'
-import Header from './Header/Header';
-
+import './Register.scss'
 class Login extends Component {
 
   state = { error: null }

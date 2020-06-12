@@ -42,16 +42,6 @@ class LandingPage extends Component {
               we will map out a route for you to follow that lets you make those unforgettable memories, without all the worry of
               making it to your destination on time.
           </p>
-            {/* <p>
-            When you get started, we will ask you to tell us some of your preferences, then, if you want to save your information you can
-            sign up for an account or login if you already have one. If you choose to continue without signing up, you will be taken to a
-            page to create a new trip.  We will ask for how many stops you want to make, how far out of the way you are willing to go and
-            how long you have to get to your destination. After that we will present you with a few location options for your detours,
-            then we will provide you with the map of your route based on your selections! If you signed up with us, all this information will
-            be saved for you so you can see it again. It will also streamline the process so that next time, you can jump straight into
-            building a new route.  Didn't like our options for detours? Going with a new person who has different tastes? No worries! When
-            you have an accout, we offer you the option to change your preferences so you can tailor each trip to suit your needs.
-          </p> */}
             <span>
               We hope you enjoy your road trip!
           </span>
