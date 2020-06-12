@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-content: center;
   align-items: center;
   font-family: 'Baloo 2', cursive;
   text-align: center;
@@ -15,6 +16,8 @@
 }
 
 .register p{
+  text-indent: 0;
+  text-align: center;
   background-color: transparent;
   line-height: 2em;
   margin: 0;

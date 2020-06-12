@@ -5,7 +5,7 @@ import ContextProvider from '../../Context'
 import HamburgerIcon from '../HamburberIcon/HamburgerIcon';
 import LoadingScreen from "../loading/loading";
 // import FadeIn from "react-fade-in";
-//import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 //import PlanTrip from './Nav/PlanTrip';
 import { Spring } from 'react-spring/renderprops'
 import './dashboard.css'
@@ -93,6 +93,7 @@ class Dashboard extends React.Component {
           <HamburgerIcon />
           <div className='dashboard-container'>
             <h1>Welcome, User</h1>
+            <Link to="/new-trip" className>Start a Trip</Link>
             <h2>Nearby Locations</h2>
             <div className='new-places-container'>
               <h1>Here are some places nearby you might like</h1>
@@ -100,6 +101,7 @@ class Dashboard extends React.Component {
                 {
                   this.state.data.points.map((location, i) => {
                     return (
+                      <div className='whole-option'>
                       <div className='option' ref={`${location.name}`} key={i}>
 
                         <Spring
@@ -118,7 +120,9 @@ class Dashboard extends React.Component {
                           </div></div>}
                         </Spring>
 
-                      </div>)
+                      </div>
+                      </div>
+                      )
                   })}
               </div>
             </div>
