@@ -24,6 +24,7 @@ $emphasisCololr: #ca9ce1;
 }
 
 .option {
+  position: relative;
   background-color: $accentColor;
   border: solid 6px $textColor;
   border-radius: 20px;
@@ -32,16 +33,18 @@ $emphasisCololr: #ca9ce1;
   width: 60%;
   height: auto;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto; 
 
-  .title-button-container {
-    background-color: $accentColor;
-    border: solid $borderColor;
-    border-radius: 20px;
-    padding-bottom: 6px;
-    margin-bottom: 3px;
-    margin-top: 3px;
-  }
+  //orange inner border - doesn't contain image
+  // .title-button-container {
+  //   background-color: $accentColor;
+  //   border: solid $borderColor;
+  //   border-radius: 20px;
+  //   padding-bottom: 6px;
+  //   margin-bottom: 3px;
+  //   margin-top: 3px;
+  //   height: inherit;
+  // }
 
   div {
     border-radius: 20px;
@@ -61,5 +64,10 @@ $emphasisCololr: #ca9ce1;
   }
   button:active {
     @include activeButton;
+  }   
+
+  img {
+    height: auto;
+    width: auto;
   }
 }

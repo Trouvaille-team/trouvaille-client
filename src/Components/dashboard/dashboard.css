@@ -27,6 +27,7 @@
 }
 
 .option {
+  position: relative;
   background-color: #b9d3c2;
   border: solid 6px #09014e;
   border-radius: 20px;
@@ -36,14 +37,6 @@
   height: auto;
   margin-left: auto;
   margin-right: auto;
-}
-.option .title-button-container {
-  background-color: #b9d3c2;
-  border: solid #f89330;
-  border-radius: 20px;
-  padding-bottom: 6px;
-  margin-bottom: 3px;
-  margin-top: 3px;
 }
 .option div {
   border-radius: 20px;
@@ -78,6 +71,10 @@
 .option button:active {
   transform: scale(0.99);
   background: #0d0366;
+}
+.option img {
+  height: auto;
+  width: auto;
 }
 
 /*# sourceMappingURL=dashboard.css.map */
