@@ -74,11 +74,10 @@ export default class MenuContainer extends React.Component {
     return (
       <Menu styles={this.styles} isOpen={this.state.menuOpen}
         onStateChange={(state) => this.handleStateChange(state)}>
-        {localStorage.getItem("user_id") ? <div className="link-container" onClick={() => this.closeMenu()}><Link to="/MyTrips">Past Trips</Link></div> : <div className="link-container" onClick={() => this.closeMenu()}><Link to="/register">Sign Up</Link></div>}
-        <div className="link-container" onClick={() => this.closeMenu()}><Link to='/new-trip'>Plan a New Trip
-              </Link></div>
-        <div className='link-container' onClick={() => this.closeMenu()}><Link to="/dashboard">Near Me</Link></div>
-        <div className='link-container' onClick={() => this.closeMenu()}><Link to="/interests">Preferences</Link></div>
+        {localStorage.getItem('user_id') ? <Link onClick={() => this.closeMenu()} className='link-container' to='/myTrips'>Past Trips</Link> : <Link onClick={() => this.closeMenu()} className='link-container' to='/register'>Sign Up</Link>}
+        <Link onClick={() => this.closeMenu()} className='link-container' to='/new-trip'>Plan a New Trip </Link>
+        <Link onClick={() => this.closeMenu()} className='link-container' to="/dashboard">Near Me</Link>
+        <Link onClick={() => this.closeMenu()} className='link-container' to="interests" >Preferences</Link>
       </Menu>
     );
   }

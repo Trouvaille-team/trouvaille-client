@@ -21,9 +21,7 @@ class App extends React.Component {
     return (
       <ContextProvider>
         <main className='App'>
-
           <Router>
-            <Header />
             <Switch>
               <Route
                 path={"/waypoints"}
