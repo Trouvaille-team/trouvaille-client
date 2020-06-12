@@ -5,7 +5,7 @@ import ContextProvider from '../../Context'
 import HamburgerIcon from '../HamburberIcon/HamburgerIcon';
 import LoadingScreen from "../loading/loading";
 // import FadeIn from "react-fade-in";
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 //import PlanTrip from './Nav/PlanTrip';
 import { Spring } from 'react-spring/renderprops'
 import './dashboard.css'
@@ -60,7 +60,6 @@ class Dashboard extends React.Component {
     }
   }
   async getPhoto(photo_reference) {
-    console.log(photo_reference)
     let result = await fetch(`${process.env.REACT_APP_URL}/waypoints/photo`, {
       method: "POST",
       body: JSON.stringify({
@@ -105,27 +104,27 @@ class Dashboard extends React.Component {
                   this.state.data.points.map((location, i) => {
                     return (
                       <div className='whole-option'>
-                      <div className='option' ref={`${location.name}`} key={i}>
+                        <div className='option' ref={`${location.name}`} key={i}>
 
-                        <Spring
-                          from={{ marginLeft: -500 }}
-                          to={{ marginLeft: 0 }}>
-                          {props => <div style={props}><div className='title-button-container'>
-                            <h2>{location.name}</h2>
-                            {location.photoInfo ?
-                              <> <button onClick={() => this.refs[location.name].lastChild.nodeName === "IMG" ? this.refs[location.name].removeChild(this.refs[location.name].lastChild) : this.getPhoto(location.photoInfo[0].photo_reference
-                              ).then(url => {
-                                let img = document.createElement('img')
-                                img.src = url
-                                img.alt = `an image on ${location.name}`
-                                this.refs[location.name].append(img)
-                              })}>See Image</button> </> : null}
-                          </div></div>}
-                        </Spring>
+                          <Spring
+                            from={{ marginLeft: -500 }}
+                            to={{ marginLeft: 0 }}>
+                            {props => <div style={props}><div className='title-button-container'>
+                              <h2>{location.name}</h2>
+                              {location.photoInfo ?
+                                <> <button onClick={() => this.refs[location.name].lastChild.nodeName === "IMG" ? this.refs[location.name].removeChild(this.refs[location.name].lastChild) : this.getPhoto(location.photoInfo[0].photo_reference
+                                ).then(url => {
+                                  let img = document.createElement('img')
+                                  img.src = url
+                                  img.alt = `an image on ${location.name}`
+                                  this.refs[location.name].append(img)
+                                })}>See Image</button> </> : null}
+                            </div></div>}
+                          </Spring>
 
+                        </div>
                       </div>
-                      </div>
-                      )
+                    )
                   })}
               </div>
             </div>

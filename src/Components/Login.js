@@ -20,7 +20,6 @@ class Login extends Component {
       password: password.value,
     })
       .then(res => {
-        console.log()
         username.value = ''
         password.value = ''
         this.context.processLogin(res.authToken)
