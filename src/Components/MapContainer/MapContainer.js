@@ -9,6 +9,7 @@ import {
   EmailIcon, EmailShareButton
 } from 'react-share';
 import './MapContainer.css'
+import Header from '../Header/Header';
 
 
 class MapContainer extends Component {
@@ -60,61 +61,65 @@ class MapContainer extends Component {
   }
   render() {
     return (
-      <section className="map-container">
-        <Map
-          isMarkerShown
-          originLat={this.context.originCoords.lat}
-          originLng={this.context.originCoords.lng}
-          destLat={this.context.endCoords.lat}
-          destLng={this.context.endCoords.lng}
-          waypoints={this.context.waypoints}
-          googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_API_KEY}&v=3.exp&libraries=geometry,drawing,places`}
-          loadingElement={<div style={{ height: `100%` }} />}
-          containerElement={<div style={{ height: `400px` }} />}
-          mapElement={<div style={{ height: `100%` }} />}
+      <>
+        <Header />
 
-        />
-        <div className="link-bar">
-          <a
-            href={`https://www.google.com/maps/dir/?api=1&origin=${this.context.originCoords.lat},${this.context.originCoords.lng}&destination=${this.context.endCoords.lat},${this.context.endCoords.lng}&travelmode=driving&waypoints=${this.composeWaypointsString()}`}
-            target={"_blank"}
-            rel={"noopener noreferrer"}
-          >
-            see on google maps
+        <section className="map-container">
+          <Map
+            isMarkerShown
+            originLat={this.context.originCoords.lat}
+            originLng={this.context.originCoords.lng}
+            destLat={this.context.endCoords.lat}
+            destLng={this.context.endCoords.lng}
+            waypoints={this.context.waypoints}
+            googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_API_KEY}&v=3.exp&libraries=geometry,drawing,places`}
+            loadingElement={<div style={{ height: `100%` }} />}
+            containerElement={<div style={{ height: `400px` }} />}
+            mapElement={<div style={{ height: `100%` }} />}
+
+          />
+          <div className="link-bar">
+            <a
+              href={`https://www.google.com/maps/dir/?api=1&origin=${this.context.originCoords.lat},${this.context.originCoords.lng}&destination=${this.context.endCoords.lat},${this.context.endCoords.lng}&travelmode=driving&waypoints=${this.composeWaypointsString()}`}
+              target={"_blank"}
+              rel={"noopener noreferrer"}
+            >
+              see on google maps
         </a>
-          <div className="social-media-buttons">
-            <FacebookShareButton
-              url={`https://www.google.com/maps/dir/?api=1&origin=${this.context.originCoords.lat},${this.context.originCoords.lng}&destination=${this.context.endCoords.lat},${this.context.endCoords.lng}&travelmode=driving&waypoints=${this.composeWaypointsString()}`}
-            >
-              <FacebookIcon
-                size={30}
-                round />
-            </FacebookShareButton>
-            <TwitterShareButton
-              url={`https://www.google.com/maps/dir/?api=1&origin=${this.context.originCoords.lat},${this.context.originCoords.lng}&destination=${this.context.endCoords.lat},${this.context.endCoords.lng}&travelmode=driving&waypoints=${this.composeWaypointsString()}`}
-            >
-              <TwitterIcon
-                size={30}
-                round />
-            </TwitterShareButton>
-            <EmailShareButton
-              url={`https://www.google.com/maps/dir/?api=1&origin=${this.context.originCoords.lat},${this.context.originCoords.lng}&destination=${this.context.endCoords.lat},${this.context.endCoords.lng}&travelmode=driving&waypoints=${this.composeWaypointsString()}`}
-              subject={'Hey! Check out this trip!'}
-              body={'placeholder'}
-            >
-              <EmailIcon
-                size={30}
-                round />
-            </EmailShareButton>
+            <div className="social-media-buttons">
+              <FacebookShareButton
+                url={`https://www.google.com/maps/dir/?api=1&origin=${this.context.originCoords.lat},${this.context.originCoords.lng}&destination=${this.context.endCoords.lat},${this.context.endCoords.lng}&travelmode=driving&waypoints=${this.composeWaypointsString()}`}
+              >
+                <FacebookIcon
+                  size={30}
+                  round />
+              </FacebookShareButton>
+              <TwitterShareButton
+                url={`https://www.google.com/maps/dir/?api=1&origin=${this.context.originCoords.lat},${this.context.originCoords.lng}&destination=${this.context.endCoords.lat},${this.context.endCoords.lng}&travelmode=driving&waypoints=${this.composeWaypointsString()}`}
+              >
+                <TwitterIcon
+                  size={30}
+                  round />
+              </TwitterShareButton>
+              <EmailShareButton
+                url={`https://www.google.com/maps/dir/?api=1&origin=${this.context.originCoords.lat},${this.context.originCoords.lng}&destination=${this.context.endCoords.lat},${this.context.endCoords.lng}&travelmode=driving&waypoints=${this.composeWaypointsString()}`}
+                subject={'Hey! Check out this trip!'}
+                body={'placeholder'}
+              >
+                <EmailIcon
+                  size={30}
+                  round />
+              </EmailShareButton>
+            </div>
           </div>
-        </div>
-        <h3>your stops</h3>
-        <ul>
-          {this.context.waypoints.map((waypoint) => {
-            return <li>{waypoint.name}</li>;
-          })}
-        </ul>
-      </section>
+          <h3>your stops</h3>
+          <ul>
+            {this.context.waypoints.map((waypoint) => {
+              return <li>{waypoint.name}</li>;
+            })}
+          </ul>
+        </section>
+      </>
     );
   }
 }

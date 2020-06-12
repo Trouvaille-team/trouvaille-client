@@ -1,6 +1,7 @@
 import React from 'react';
 import ContextProvider from '../../Context';
 import config from "../../config"
+import Header from '../Header/Header';
 
 export default class MyTrips extends React.Component {
   constructor(props) {
@@ -64,6 +65,7 @@ export default class MyTrips extends React.Component {
   render() {
     return (
       <>
+        <Header />
         <h1>trips</h1>
         <ul>
           {this.renderTrips(this.state.trips)}

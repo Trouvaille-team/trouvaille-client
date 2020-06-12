@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AuthApiService from '../services/auth-api-service';
 import Context from '../Context'
 import './Register.scss'
+import Header from './Header/Header'
 class Login extends Component {
 
   state = { error: null }
@@ -40,20 +41,23 @@ class Login extends Component {
   render() {
     const { error } = this.state
     return (
-      <div className='register'>
-        <h1>Log In</h1>
-        <p>Welcome back!</p>
-        <form onSubmit={e => this.onLoginSubmit(e)}>
-          <div>
-            {error && <p>{error}</p>}
-          </div>
-          <label htmlFor="login-username">Username: </label>
-          <input className='registration-field' type="text" id="login-username" name='username' placeholder="Username" />
-          <label htmlFor="login-password">Password: </label>
-          <input className='registration-field' type="password" id="login-password" name='password' placeholder="Password" />
-          <button className='sign-up'>Log In</button>
-        </form>
-      </div>
+      <>
+        <Header />
+        <div className='login'>
+          <h1>Log In</h1>
+          <p>Welcome back!</p>
+          <form onSubmit={e => this.onLoginSubmit(e)}>
+            <div>
+              {error && <p>{error}</p>}
+            </div>
+            <label htmlFor="login-username">Username: </label>
+            <input type="text" id="login-username" name='username' placeholder="Username" />
+            <label htmlFor="login-password">Password: </label>
+            <input type="password" id="login-password" name='password' placeholder="Password" />
+            <button>Log In</button>
+          </form>
+        </div>
+      </>
     )
   }
 }
