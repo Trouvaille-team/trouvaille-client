@@ -1,6 +1,7 @@
 import React from 'react';
 import ContextProvider from '../../Context';
 import config from "../../config"
+import Header from '../Header/Header';
 
 export default class MyTrips extends React.Component {
   constructor(props) {
@@ -24,7 +25,6 @@ export default class MyTrips extends React.Component {
   }
 
   updateContext = (trip) => {
-    console.log("clicked")
     this.context.setEndCoords(trip.destination)
     this.context.setOriginCoords(trip.origin)
     this.context.setWaypoints(trip.waypoints)
@@ -53,7 +53,6 @@ export default class MyTrips extends React.Component {
     }
 
     else {
-      console.log(trips)
       return (
         <h2>Looks like something went wrong on our end sorry about that.</h2>
       )
@@ -64,6 +63,7 @@ export default class MyTrips extends React.Component {
   render() {
     return (
       <>
+        <Header />
         <h1>trips</h1>
         <ul>
           {this.renderTrips(this.state.trips)}

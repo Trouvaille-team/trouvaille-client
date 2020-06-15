@@ -8,36 +8,33 @@
 * $my-display: flex;
 
 * @mixin set-display($display) {
-
+    
 }
 
 */
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2&display=swap");
 .landing-page {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-image: url(./landing-page-idea.jpg);
   background-size: 300px;
-  font-size: 1rem;
-}
+  font-size: 1rem; }
 
 a {
   all: unset;
-  color: black;
-}
+  color: black; }
 
 a:hover {
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 p {
   text-indent: 40px;
   max-width: 75vw;
   border-radius: 25px;
   padding: 1em;
-  background-color: rgba(244, 238, 226, 0.9);
-}
+  background-color: rgba(244, 238, 226, 0.9); }
 
 .landing-page a {
   margin-top: 25px;
@@ -47,17 +44,18 @@ p {
   background-color: #a5bbad;
   color: #f4eee2;
   font-family: "Baloo 2", cursive;
-  padding: 5px 10px;
-}
+  padding: 5px 10px; }
 
 .landing-page p {
   line-height: 2em;
-  text-align: center;
-}
+  text-align: center; }
 
 .landing-page span {
   padding: 0.5em;
-  border-radius: 25px;
+  border-radius: 25px; }
+
+.landing-2 {
+  text-indent:0;
 }
 
 /*# sourceMappingURL=LandingPage.css.map */

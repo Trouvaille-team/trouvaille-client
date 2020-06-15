@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import TokenService from './services/token-service';
-//import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 
 //user data (userInterests, and userTrip) has to get stored in the database
 //all the data in context clears whenever browser is refreshed!!
@@ -53,6 +52,8 @@ export class ContextProvider extends Component {
     setWaypoints: () => { },
     setUser: () => { },
     processLogin: () => { },
+    radius: null,
+    setRadius: () => { }
   }
 
   componentDidMount() {
@@ -76,9 +77,10 @@ export class ContextProvider extends Component {
   setEndCoords = (endCoords) => {
     this.setState({ endCoords })
   }
-
+  setRadius = (radius) => {
+    this.setState({ radius: radius })
+  }
   setOriginCoords = (originCoords) => {
-    console.log(originCoords)
     this.setState({ originCoords })
   }
   //Add items to interests array
@@ -100,7 +102,6 @@ export class ContextProvider extends Component {
       }
     }
   }
-
 
   //remove items when they're unchecked
   removeUserInterests = (unchekedItem) => {
@@ -133,10 +134,12 @@ export class ContextProvider extends Component {
       waypoints: waypoints
     })
   }
+
   // set user object in state
   setUser = user => {
     this.setState({ user })
   }
+
   //save the auth token to the window local storage
   processLogin = authToken => {
     TokenService.saveAuthToken(authToken)
@@ -173,6 +176,8 @@ export class ContextProvider extends Component {
       processLogin: this.processLogin,
       setUser: this.setUser,
       processLogout: this.processLogout,
+      setRadius: this.setRadius,
+      radius: this.state.radius
     }
     return (
       <Context.Provider value={value}>
