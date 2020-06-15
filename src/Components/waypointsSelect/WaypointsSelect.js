@@ -7,6 +7,7 @@ import FadeIn from "react-fade-in";
 import HamburgerIcon from '../HamburberIcon/HamburgerIcon'
 import { Spring } from 'react-spring/renderprops'
 import Header from '../Header/Header';
+import {Link} from 'react-router-dom'
 
 export default class WaypointSelect extends React.Component {
   constructor(props) {
@@ -15,7 +16,8 @@ export default class WaypointSelect extends React.Component {
       points: [],
       endCoords: {},
       waypoints: [],
-      loading:true
+      loading:true,
+      error:false
     }
   }
 
@@ -37,6 +39,9 @@ export default class WaypointSelect extends React.Component {
       },
       credentials: "same-origin"
     }).then((res) => {
+      if (res.status !== 200) {
+        this.setState({ error: true })
+      }
       return res.json()
     }).then((data) => {
       this.setState({ endCoords: data.endCoords, points: data.points, loading: false })
@@ -125,7 +130,14 @@ export default class WaypointSelect extends React.Component {
   }
 
   render() {
-    if(this.state.loading === true) {
+    if (this.state.error === true) {
+      return (
+        <>
+          <h2>sorry something went wrong could you try again with the link below?</h2>
+          <Link to="/interests">Try again</Link>
+        </>
+      )
+    } else if(this.state.loading === true) {
       return(<><HamburgerIcon />
                <Header />
                <LoadingScreen /></>)
