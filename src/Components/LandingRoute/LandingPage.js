@@ -43,8 +43,12 @@ class LandingPage extends Component {
               making it to your destination on time.
           </p>
           <p className="landing-2">
-            We hope you enjoy your road trip! Please feel free to use our demo credentials to log in! Demo: Username = demouser, Password = 11AAaa!!
+            We hope you enjoy your road trip! Please feel free to use our demo credentials to log in!
           </p>
+          <p className="landing-2">
+            Demo: Username = demouser, Password = 11AAaa!!
+          </p>
+          
             <Link to="/interests">Let's Get Started!</Link>
           </div>}
         </Spring>
