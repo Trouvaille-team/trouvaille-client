@@ -20,7 +20,8 @@ class Dashboard extends React.Component {
       lng: 0,
       data: { points: [] },
       loading: true,
-      activeImage: ""
+      activeImage: "",
+      error: false
     };
   }
 
@@ -37,7 +38,7 @@ class Dashboard extends React.Component {
   }
   // This is a stupid solution change if possible
   componentDidUpdate() {
-    if (this.state.data.points.length === 0) {
+    if (this.state.data.points.length === 0 && this.state.lat) {
       fetch(`${process.env.REACT_APP_URL}/waypoints/nearby`, {
         method: "POST",
         body: JSON.stringify({
@@ -51,6 +52,9 @@ class Dashboard extends React.Component {
         },
         credentials: "same-origin"
       }).then((res) => {
+        if (res.status !== 200) {
+          this.setState({ error: true })
+        }
         return res.json()
       }).then((data) => {
         this.setState({ data, loading: false })
@@ -83,12 +87,17 @@ class Dashboard extends React.Component {
   // }
 
   render() {
-
-
-    if (this.state.loading === true) {
+    if (this.state.error === true) {
+      return (
+        <>
+          <h2>sorry something went wrong could you try again with the link below?</h2>
+          <Link to="/interests"></Link>
+        </>
+      )
+    } else if (this.state.loading === true) {
       return (<><HamburgerIcon />
-                <Header />
-                <LoadingScreen /></>)
+        <Header />
+        <LoadingScreen /></>)
     } else {
       return (
         <div>
