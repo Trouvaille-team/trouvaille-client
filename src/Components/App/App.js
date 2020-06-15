@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Login from '../Login';
 import Register from '../Register';
 import Header from '../Header/Header';
@@ -15,9 +15,24 @@ import './App.css';
 import MyTrips from "../myTrips/MyTrips"
 
 class App extends React.Component {
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      hasError: false
+    };
+  }
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
   render() {
-
+    if (this.state.hasError) {
+      return (
+        <>
+          <h2>sorry it looks like something went wrong. Would you mind trying again?</h2>
+          <Link to="/interests"></Link>
+        </>
+      );
+    }
     return (
       <ContextProvider>
         <main className='App'>

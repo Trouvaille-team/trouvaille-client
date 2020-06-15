@@ -7,6 +7,7 @@ import FadeIn from "react-fade-in";
 import HamburgerIcon from '../HamburberIcon/HamburgerIcon'
 import { Spring } from 'react-spring/renderprops'
 import Header from '../Header/Header';
+import {Link} from 'react-router-dom'
 
 export default class WaypointSelect extends React.Component {
   constructor(props) {
@@ -15,7 +16,8 @@ export default class WaypointSelect extends React.Component {
       points: [],
       endCoords: {},
       waypoints: [],
-      loading:true
+      loading:true,
+      error: false
     }
   }
 
@@ -23,6 +25,7 @@ export default class WaypointSelect extends React.Component {
 
   static contextType = ContextProvider
   componentDidMount() {
+    let nThis = this
     fetch(`${process.env.REACT_APP_URL}/waypoints/`, {
       method: "POST",
       body: JSON.stringify({
@@ -37,11 +40,15 @@ export default class WaypointSelect extends React.Component {
       },
       credentials: "same-origin"
     }).then((res) => {
+      if (res.status !== 200) {
+        this.setState({ error: true })
+        console.log(this.state)
+      }
       return res.json()
     }).then((data) => {
       this.setState({ endCoords: data.endCoords, points: data.points, loading: false })
     }).catch(function (error) {
-      return error.message
+      nThis.setState({error:true})
     })
   }
 
@@ -125,11 +132,21 @@ export default class WaypointSelect extends React.Component {
   }
 
   render() {
-    if(this.state.loading === true) {
-      return(<><HamburgerIcon />
+    
+    if (this.state.error === true ) {
+         return (
+           <>
+             <h2>sorry it looks like something went wrong. Would you mind trying again?</h2>
+             <Link to="/interests">try again here</Link>
+           </>
+         )
+       }
+ else if (this.state.loading === true) {
+      return (<><HamburgerIcon />
         <Header />
-      <LoadingScreen /></>)
-    } else {
+        <LoadingScreen /></>)
+    }
+     {
     return (
       <>
       <Header/>

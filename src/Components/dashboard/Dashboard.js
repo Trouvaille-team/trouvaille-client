@@ -71,6 +71,10 @@ class Dashboard extends React.Component {
       },
       credentials: "same-origin"
     }).then(res => {
+      if (res.status !== 200) {
+        this.setState({ error: true })
+        console.log(this.state)
+      }
       return res.json()
     }).then(data => {
       return data
@@ -83,9 +87,14 @@ class Dashboard extends React.Component {
   // }
 
   render() {
-
-
-    if (this.state.loading === true) {
+    if (this.state.error === true) {
+      return (
+        <>
+          <h2>sorry it looks like something went wrong. Would you mind trying again?</h2>
+          <Link to="/interests">try again here</Link>
+        </>
+      )
+    } else if (this.state.loading === true) {
       return (<><HamburgerIcon /><LoadingScreen /></>)
     } else {
       return (

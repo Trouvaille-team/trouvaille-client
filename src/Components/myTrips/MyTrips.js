@@ -2,6 +2,7 @@ import React from 'react';
 import ContextProvider from '../../Context';
 import config from "../../config"
 import Header from '../Header/Header';
+import { Link } from 'react-router-dom'
 
 export default class MyTrips extends React.Component {
   constructor(props) {
@@ -17,6 +18,10 @@ export default class MyTrips extends React.Component {
   componentDidMount() {
     if (localStorage.getItem("user_id")) {
       fetch(`${config.API_ENDPOINT}/trips/${localStorage.getItem("user_id")}`).then((res) => {
+        if (res.status !== 200) {
+          this.setState({ error: true })
+          console.log(this.state)
+        }
         return res.json()
       }).then((data) => {
         this.setState({ trips: data })
@@ -61,14 +66,23 @@ export default class MyTrips extends React.Component {
   }
 
   render() {
-    return (
-      <>
-        <Header />
-        <h1>trips</h1>
-        <ul>
-          {this.renderTrips(this.state.trips)}
-        </ul>
-      </>
-    )
+    if (this.state.error === true) {
+      return (
+        <>
+          <h2>sorry it looks like something went wrong. Would you mind trying again?</h2>
+          <Link to="/interests">try again here</Link>
+        </>
+      )
+    } else {
+      return (
+        <>
+          <Header />
+          <h1>trips</h1>
+          <ul>
+            {this.renderTrips(this.state.trips)}
+          </ul>
+        </>
+      )
+    }
   }
 }
