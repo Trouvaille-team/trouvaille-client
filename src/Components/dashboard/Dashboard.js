@@ -86,7 +86,9 @@ class Dashboard extends React.Component {
 
 
     if (this.state.loading === true) {
-      return (<><HamburgerIcon /><LoadingScreen /></>)
+      return (<><HamburgerIcon />
+                <Header />
+                <LoadingScreen /></>)
     } else {
       return (
         <div>
