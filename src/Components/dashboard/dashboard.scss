@@ -7,6 +7,9 @@ $borderColor: #f89330;
 $accentColor: #b9d3c2;
 $emphasisCololr: #ca9ce1;
 
+.add-button {
+  margin-bottom: 5px !important;
+}
 .dashboard-container {
   text-align: center;
   color: $textColor;
@@ -22,22 +25,14 @@ $emphasisCololr: #ca9ce1;
   display: flex;
   flex-direction: column;
 }
-
-.option {
-  background-color: $accentColor;
-  border: solid 6px $textColor;
-  border-radius: 20px;
-  padding: 3px;
-  margin: 5px;
+.whole-option {
+  border: 3px solid $borderColor;
+  margin: 5px auto;
   width: 60%;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
+  border-radius: 20px;
 
   .title-button-container {
     background-color: $accentColor;
-    border: solid $borderColor;
-    border-radius: 20px;
     padding-bottom: 6px;
     margin-bottom: 3px;
     margin-top: 3px;
@@ -51,6 +46,33 @@ $emphasisCololr: #ca9ce1;
     background-color: $accentColor;
   }
 
+  button {
+    @include button;
+    width: auto;
+  }
+  button:focus,
+  button:hover {
+    @include focusButton;
+  }
+  button:active {
+    @include activeButton;
+  }
+  .title-button-container {
+  }
+}
+
+.option {
+  background-color: $accentColor;
+  border: solid 6px $textColor;
+  border-radius: 20px;
+  padding: 4px;
+  margin: 1px;
+  height: auto;
+  img {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 20px;
+  }
   button {
     @include button;
     width: auto;

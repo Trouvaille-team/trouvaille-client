@@ -1,12 +1,5 @@
 @import "../config.scss";
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
-
-$textColor: #09014e; 
-$shadeColor: #ead5e6; 
-$backgroundColor: #f4eee2; 
-$borderColor: #f89330; 
-$accentColor: #a5bbad; 
-$emphasisColor: #ca9ce1;
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2&display=swap");
 
 //mobile-first
 .landing-page {
@@ -16,7 +9,6 @@ $emphasisColor: #ca9ce1;
   background-image: url(./landing-page-idea.jpg);
   background-size: 300px;
   font-size: 1rem;
-
 }
 
 a {
@@ -33,8 +25,7 @@ p {
   max-width: 75vw;
   border-radius: 25px;
   padding: 1em;
-  background-color: rgb(244,238,226,.9)
-
+  background-color: rgba(244, 238, 226, 0.9);
 }
 
 .landing-page a {
@@ -45,18 +36,16 @@ p {
   // border-color: #430c05;
   background-color: #a5bbad;
   color: #f4eee2;
-  font-family: 'Baloo 2', cursive;
+  font-family: "Baloo 2", cursive;
   padding: 5px 10px;
-
 }
 
-.landing-page p{
+.landing-page p {
   line-height: 2em;
   text-align: center;
 }
 
-.landing-page span{
-  padding: .5em;
+.landing-page span {
+  padding: 0.5em;
   border-radius: 25px;
 }
-
