@@ -7,6 +7,16 @@ $borderColor: #f89330;
 $accentColor: #b9d3c2;
 $emphasisCololr: #ca9ce1;
 
+.start-trip-link{
+  margin-top: 1em;
+  background-color: #a5bbad;
+  color: #f4eee2;
+  border: none;
+  padding: 0.5em;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
 .add-button {
   margin-bottom: 5px !important;
 }

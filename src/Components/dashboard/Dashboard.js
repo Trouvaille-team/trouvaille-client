@@ -97,7 +97,7 @@ class Dashboard extends React.Component {
           <HamburgerIcon />
           <div className='dashboard-container'>
             <h1>Welcome, User</h1>
-            <Link to="/new-trip" className>Start a Trip</Link>
+            <Link to="/new-trip" className='start-trip-link'>Start a Trip</Link>
             <h2>Nearby Locations</h2>
             <div className='new-places-container'>
               <h1>Here are some places nearby you might like</h1>

@@ -49,12 +49,12 @@ class Register extends React.Component {
               {error && <p>{error}</p>}
             </div>
             <label htmlFor="registration-username">Username: </label>
-            <input type="text" id="registration-username" name="username" placeholder='Username' required />
-            <label htmlFor="registration-email">Email: </label>
-            <input type="email" id="registration-email" name="email" placeholder='Email' />
-            <label htmlFor="registration-password">Password:</label>
-            <input type="password" id="registration-password" name="password" placeholder="Password" required />
-            <button type='submit'>Sign Up</button>
+          <input className='registration-field' type="text" id="registration-username" name="username" placeholder='Username' required/>
+          <label htmlFor="registration-email">Email: </label>
+          <input className='registration-field' type="email" id="registration-email" name="email" placeholder='Email' />
+          <label htmlFor="registration-password">Password:</label>
+          <input className='registration-field' type="password" id="registration-password" name="password" placeholder="Password" required/>
+          <button className='sign-up' type='submit'>Sign Up</button>
           </form>
         </div>
       </>
