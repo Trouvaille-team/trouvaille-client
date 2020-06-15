@@ -54,8 +54,8 @@ class PlanTrip extends React.Component {
           <input type='number' id='time' min='1' max='100' />
 
           <div className='buttons'>
-            <button onClick={() => this.props.history.push('/dashboard')}>Back</button>
             <button type='submit'>Submit</button>
+            <button onClick={() => this.props.history.push('/dashboard')}>Back</button>
           </div>
 
         </form>
