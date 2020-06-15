@@ -8,7 +8,7 @@
 * $my-display: flex;
 
 * @mixin set-display($display) {
-    
+
 }
 
 */
@@ -17,34 +17,36 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
   align-items: center;
   font-family: "Baloo 2", cursive;
-  text-align: center; }
+  text-align: center;
+}
 
 .register h1 {
-  margin-bottom: 0; }
+  margin-bottom: 0;
+}
 
 .register p {
-  text-indent: 0;
-  text-align: center;
   background-color: transparent;
   line-height: 2em;
   margin: 0;
-  float: left; }
+  text-indent: 0;
+}
 
 .register form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+}
 
 .registration-field {
   background-color: transparent;
   height: 30px;
   border-top: black;
   border-left: black;
-  border-right: black; }
+  border-right: black;
+}
 
 .sign-up {
   margin-top: 1em;
@@ -53,40 +55,7 @@
   border: none;
   padding: 0.5em;
   border-radius: 20px;
-  cursor: pointer; }
-
-.login {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  font-family: "Baloo 2", cursive;
-  text-align: center; }
-  .login p {
-    text-align: center;
-    text-indent: 0; }
-  .login form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; }
-  .login button {
-    margin-top: 10px !important;
-    display: inline-block;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 4px;
-    margin: 0;
-    text-decoration: none;
-    background: #09014e;
-    color: #ffffff;
-    font-family: sans-serif;
-    font-size: 1rem;
-    cursor: pointer;
-    text-align: center;
-    transition: background 250ms ease-in-out, transform 150ms ease;
-    -webkit-appearance: none;
-    -moz-appearance: none; }
+  cursor: pointer;
+}
 
 /*# sourceMappingURL=Register.css.map */

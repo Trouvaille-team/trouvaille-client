@@ -83,10 +83,8 @@ class Dashboard extends React.Component {
 
   }
 
-  // getUserLocation = () => {
-  // }
-
   render() {
+<<<<<<< HEAD
     if (this.state.error === true) {
       return (
         <>
@@ -96,6 +94,13 @@ class Dashboard extends React.Component {
       )
     } else if (this.state.loading === true) {
       return (<><HamburgerIcon /><LoadingScreen /></>)
+=======
+
+    if (this.state.loading === true) {
+      return (<><HamburgerIcon />
+                <Header />
+                <LoadingScreen /></>)
+>>>>>>> 02d2930e5589f654989d1aaffbbf6ac022f6434e
     } else {
       return (
         <div>
@@ -104,7 +109,7 @@ class Dashboard extends React.Component {
           <HamburgerIcon />
           <div className='dashboard-container'>
             <h1>Welcome, User</h1>
-            <Link to="/new-trip" className>Start a Trip</Link>
+            <Link to="/new-trip" className='start-trip-link'>Start a Trip</Link>
             <h2>Nearby Locations</h2>
             <div className='new-places-container'>
               <h1>Here are some places nearby you might like</h1>
@@ -130,7 +135,6 @@ class Dashboard extends React.Component {
                                 })}>See Image</button> </> : null}
                             </div></div>}
                           </Spring>
-
                         </div>
                       </div>
                     )

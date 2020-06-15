@@ -42,7 +42,7 @@ class Login extends Component {
     return (
       <>
         <Header />
-        <div className='login'>
+        <div className='register'>
           <h1>Log In</h1>
           <p>Welcome back!</p>
           <form onSubmit={e => this.onLoginSubmit(e)}>
@@ -50,10 +50,10 @@ class Login extends Component {
               {error && <p>{error}</p>}
             </div>
             <label htmlFor="login-username">Username: </label>
-            <input type="text" id="login-username" name='username' placeholder="Username" />
-            <label htmlFor="login-password">Password: </label>
-            <input type="password" id="login-password" name='password' placeholder="Password" />
-            <button>Log In</button>
+          <input className='registration-field' type="text" id="login-username" name='username' placeholder="Username" />
+          <label htmlFor="login-password">Password: </label>
+          <input className='registration-field' type="password" id="login-password" name='password' placeholder="Password" />
+          <button className='sign-up'>Log In</button>
           </form>
         </div>
       </>

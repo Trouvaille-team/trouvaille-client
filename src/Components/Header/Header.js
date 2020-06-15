@@ -32,7 +32,7 @@ class Header extends Component {
     return (<>
       <nav className="trouvaille-nav-dashboard">
         <Link to='/login'>Login</Link>
-        <Link to='/register'>Sign up</Link>
+        <Link to='/register'>Register</Link>
         {window.location.pathname !== '/interests' ? <div>
         </div> : null}
       </nav>

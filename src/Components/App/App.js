@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Login from '../Login';
 import Register from '../Register';
-import Header from '../Header/Header';
 import Dashboard from '../dashboard/Dashboard';
 import NotFound from '../NotFound';
 import PlanTrip from '../PlanTrip/PlanTrip';

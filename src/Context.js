@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import TokenService from './services/token-service';
-//import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 
 //user data (userInterests, and userTrip) has to get stored in the database
 //all the data in context clears whenever browser is refreshed!!
@@ -104,7 +103,6 @@ export class ContextProvider extends Component {
     }
   }
 
-
   //remove items when they're unchecked
   removeUserInterests = (unchekedItem) => {
     for (let i = 0; i < this.state.userInterests.length; i++) {
@@ -136,10 +134,12 @@ export class ContextProvider extends Component {
       waypoints: waypoints
     })
   }
+
   // set user object in state
   setUser = user => {
     this.setState({ user })
   }
+
   //save the auth token to the window local storage
   processLogin = authToken => {
     TokenService.saveAuthToken(authToken)
