@@ -87,6 +87,7 @@
   background: #0d0366;
 }
 .option {
+  position: relative;
   background-color: #b9d3c2;
   border: solid 6px #09014e;
   border-radius: 20px;
