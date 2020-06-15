@@ -11,4 +11,5 @@ require('jest-canvas-mock')
 configure({ adapter: new Adapter() });
 const mockGeolocation = { getCurrentPosition: jest.fn(), watchPosition: jest.fn() };
 
+
 global.navigator.geolocation = mockGeolocation;

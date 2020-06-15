@@ -22,7 +22,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center; }
-    .interests-container .interests-form li {
+    .interests-container .interests-form input {
+      position: absolute;
+      left: -9999px; }
+    .interests-container .interests-form label {
       padding: 1rem 2rem;
       font-weight: bold;
       list-style-type: none;
@@ -33,13 +36,11 @@
       cursor: pointer;
       background-color: #b9d3c2;
       text-shadow: 0px 1px 0px #7cacde;
-      background: linear-gradient(to bottom, #ca9ce1 5%, #b38ac7 100%); }
-      .interests-container .interests-form li input {
-        position: absolute;
-        left: -9999px; }
-      .interests-container .interests-form li label {
-        background-color: inherit;
-        color: #09014e; }
+      background: linear-gradient(to bottom, #ca9ce1 5%, #b38ac7 100%);
+      background-color: inherit;
+      color: #09014e; }
+    .interests-container .interests-form label:hover {
+      border: 1px solid white; }
   .interests-container button {
     display: inline-block;
     border: none;
@@ -83,6 +84,7 @@
       border: 1px solid #f89330;
       background-color: #b9d3c2;
       text-shadow: 0px 1px 0px #ca9ce1;
-      background: linear-gradient(to bottom, #ead5e6 5%, #dbc7d8 100%); }
+      background: linear-gradient(to bottom, #ead5e6 5%, #dbc7d8 100%);
+      cursor: default; }
 
 /*# sourceMappingURL=interests.css.map */

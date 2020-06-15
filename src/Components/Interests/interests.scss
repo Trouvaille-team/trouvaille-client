@@ -13,20 +13,22 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    li {
+
+    input {
+      position: absolute;
+      left: -9999px;
+      // this is to completely get rid of the actual checkbox since the label also works to click on and this looks better.
+    }
+    label {
       @include bubble();
       background-color: $accentColor;
       text-shadow: 0px 1px 0px #7cacde;
       background: linear-gradient(to bottom, $emphasisColor 5%, #b38ac7 100%);
-      input {
-        position: absolute;
-        left: -9999px;
-        // this is to completely get rid of the actual checkbox since the label also works to click on and this looks better.
-      }
-      label {
-        background-color: inherit;
-        color: $textColor;
-      }
+      background-color: inherit;
+      color: $textColor;
+    }
+    label:hover {
+      border: 1px solid white;
     }
   }
   button {
@@ -52,6 +54,7 @@
       background-color: $accentColor;
       text-shadow: 0px 1px 0px $emphasisColor;
       background: linear-gradient(to bottom, $shadeColor 5%, #dbc7d8 100%);
+      cursor: default;
     }
   }
 }

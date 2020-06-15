@@ -24,14 +24,6 @@ const MapWithADirectionsRenderer = compose(
   withGoogleMap,
   lifecycle({
     componentDidMount() {
-
-      fetch(
-        `https://maps.googleapis.com/maps/api/directions/json?
-        origin=Toronto&destination=Montreal
-        &key=AIzaSyACWIZRgcXsFJv3UbH8MQw_-hqqiao2MS8`
-      ).then((res) => {
-        res.json()
-      }).then(data => console.log(data))
       const DirectionsService = new google.maps.DirectionsService();
 
       DirectionsService.route(
