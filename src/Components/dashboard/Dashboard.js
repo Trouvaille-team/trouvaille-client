@@ -79,11 +79,7 @@ class Dashboard extends React.Component {
 
   }
 
-  // getUserLocation = () => {
-  // }
-
   render() {
-
 
     if (this.state.loading === true) {
       return (<><HamburgerIcon />
@@ -123,7 +119,6 @@ class Dashboard extends React.Component {
                                 })}>See Image</button> </> : null}
                             </div></div>}
                           </Spring>
-
                         </div>
                       </div>
                     )

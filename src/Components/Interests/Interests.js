@@ -44,7 +44,7 @@ export default class Interests extends Component {
         </>
       )
     } else {
-      return interestArr.map(interest => {
+      return interestArr.map((interest, idx) => {
         if (interest === option) {
           return (
             <div>
