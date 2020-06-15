@@ -12,61 +12,81 @@ import { ContextProvider } from '../../Context';
 import WaypointsSelect from '../waypointsSelect/WaypointsSelect'
 import './App.css';
 import MyTrips from "../myTrips/MyTrips"
+import { Link } from 'react-router-dom'
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hasError: false
+    };
+  }
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
 
   render() {
 
-    return (
-      <ContextProvider>
-        <main className='App'>
-          <Router>
-            <Switch>
-              <Route
-                path={"/waypoints"}
-                component={WaypointsSelect}>
-              </Route>
-              <Route exact path={'/'} component={LandingPage} />
-              <Route
-                path={'/register'}
-                component={Register}>
-              </Route>
-              <Route
-                path={'/login'}
-                component={Login}>
-              </Route>
-              <Route
-                path={'/dashboard'}
-                component={() => <Dashboard />}>
-              </Route>
-              <Route
-                path={'/new-trip'}
-                component={PlanTrip}>
-              </Route>
-              <Route
-                path={'/map'}
-                component={MapContainer}>
-              </Route>
-              <Route
-                path={'/MyTrips'}
-                component={MyTrips}>
-              </Route>
-              <Route
-                path={'/interests'}
-                component={Interests}>
-              </Route>
-              {/* <Route
+    if (this.state.hasError) {
+      return (
+        <>
+          <h2>sorry something went wrong could you try again with the link below?</h2>
+          <Link to="/interests">Try again</Link>
+        </>
+      );
+    }
+    else {
+      return (
+        <ContextProvider>
+          <main className='App'>
+            <Router>
+              <Switch>
+                <Route
+                  path={"/waypoints"}
+                  component={WaypointsSelect}>
+                </Route>
+                <Route exact path={'/'} component={LandingPage} />
+                <Route
+                  path={'/register'}
+                  component={Register}>
+                </Route>
+                <Route
+                  path={'/login'}
+                  component={Login}>
+                </Route>
+                <Route
+                  path={'/dashboard'}
+                  component={() => <Dashboard />}>
+                </Route>
+                <Route
+                  path={'/new-trip'}
+                  component={PlanTrip}>
+                </Route>
+                <Route
+                  path={'/map'}
+                  component={MapContainer}>
+                </Route>
+                <Route
+                  path={'/MyTrips'}
+                  component={MyTrips}>
+                </Route>
+                <Route
+                  path={'/interests'}
+                  component={Interests}>
+                </Route>
+                {/* <Route
                 path={'/past-trips'}
                 component={PastTrips}>
               </Route> */}
-              <Route
-                component={NotFound}>
-              </Route>
-            </Switch>
-          </Router>
-        </main>
-      </ContextProvider>
-    );
+                <Route
+                  component={NotFound}>
+                </Route>
+              </Switch>
+            </Router>
+          </main>
+        </ContextProvider>
+      );
+    }
   }
 }
 
