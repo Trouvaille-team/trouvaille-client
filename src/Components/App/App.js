@@ -74,10 +74,6 @@ class App extends React.Component {
                   path={'/interests'}
                   component={Interests}>
                 </Route>
-                {/* <Route
-                path={'/past-trips'}
-                component={PastTrips}>
-              </Route> */}
                 <Route
                   component={NotFound}>
                 </Route>
