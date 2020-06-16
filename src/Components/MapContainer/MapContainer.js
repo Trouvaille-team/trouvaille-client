@@ -112,7 +112,7 @@ class MapContainer extends Component {
               </EmailShareButton>
             </div>
           </div>
-          <h3>your stops</h3>
+          <h2>your stops</h2>
           <ul>
             {this.context.waypoints.map((waypoint) => {
               return <li>{waypoint.name}</li>;
