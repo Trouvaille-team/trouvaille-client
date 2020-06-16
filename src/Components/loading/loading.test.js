@@ -15,7 +15,7 @@ it('displays the loading message', () => {
         </BrowserRouter>
     );
 
-    const message = <h1>Finding exciting new stories takes time! Please be patient with us!</h1>;
+    const message = <h2>Finding exciting new stories takes time! Please be patient with us!</h2>;
     
     expect(wrapper.contains(message)).toEqual(true);
 });
