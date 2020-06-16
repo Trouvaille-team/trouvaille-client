@@ -43,7 +43,7 @@ class Login extends Component {
       <>
         <Header />
         <div className='register'>
-          <h1>Log In</h1>
+          <h2>Log In</h2>
           <p>Welcome back!</p>
           <form onSubmit={e => this.onLoginSubmit(e)}>
             <div>

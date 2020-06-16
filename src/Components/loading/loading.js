@@ -18,7 +18,7 @@ export default class Loading extends React.Component {
       <div>
         <FadeIn>
           <div className="loading-icon">
-            <h1>Finding exciting new stories takes time! Please be patient with us!</h1>
+            <h2>Finding exciting new stories takes time! Please be patient with us!</h2>
             <Lottie options={defaultOptions} />
           </div>
         </FadeIn>

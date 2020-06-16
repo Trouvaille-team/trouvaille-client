@@ -32,7 +32,7 @@ class Register extends React.Component {
       <>
         <Header />
         <div className='register'>
-          <h1>Register</h1>
+          <h2>Register</h2>
           <p>“I may not have gone where I intended to go,
           but I think I have ended up where I intended to be.”
         </p>
