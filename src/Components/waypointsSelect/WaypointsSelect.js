@@ -72,7 +72,7 @@ export default class WaypointSelect extends React.Component {
           >
             <FontAwesomeIcon
           icon={faPlus}
-            />
+            /> Add
           </button>
           <h2>{this.state.points[0].name}</h2>
           <button
@@ -81,7 +81,7 @@ export default class WaypointSelect extends React.Component {
           >
             <FontAwesomeIcon
           icon={faTimes}
-            />
+            /> Skip
           </button>
         </div>
             {location.photoInfo ?
