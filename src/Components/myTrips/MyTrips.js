@@ -40,7 +40,7 @@ export default class MyTrips extends React.Component {
 
   renderTrips(trips) {
     
-    if (Array.isArray(trips) && trips.length > 1) {
+    if (Array.isArray(trips) && trips.length >= 1) {
       return trips.map((trip) => {
 
         return (
