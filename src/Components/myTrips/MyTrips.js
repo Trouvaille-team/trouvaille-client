@@ -8,7 +8,8 @@ export default class MyTrips extends React.Component {
     super(props)
 
     this.state = {
-      trips: []
+      trips: [],
+      error: null
     }
   }
 
@@ -20,7 +21,11 @@ export default class MyTrips extends React.Component {
         return res.json()
       }).then((data) => {
         this.setState({ trips: data })
-      })
+      }).catch(err =>
+        this.setState({
+         error: err.error
+        })
+      )
     }
   }
 
@@ -34,6 +39,7 @@ export default class MyTrips extends React.Component {
 
 
   renderTrips(trips) {
+    
     if (Array.isArray(trips) && trips.length > 1) {
       return trips.map((trip) => {
 
