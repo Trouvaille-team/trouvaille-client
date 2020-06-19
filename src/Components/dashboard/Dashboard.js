@@ -91,7 +91,7 @@ class Dashboard extends React.Component {
       return (
         <>
           <h2>sorry something went wrong could you try again with the link below?</h2>
-          <Link to="/interests"></Link>
+          <Link to="/interests">Try again</Link>
         </>
       )
     } else if (this.state.loading === true) {

@@ -1,6 +1,8 @@
 @import "../config.scss";
 
 .map-container {
+  margin-left: 5px;
+  margin-right: 5px;
   .link-bar {
     overflow: auto;
     a {
