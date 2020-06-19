@@ -18,4 +18,4 @@ Creators:
   -Trina McLeary
 
 
-Tech: React, Javascript, Html, Sass, Css, Babbel
+Tech: React, Javascript, Html, Sass, Css, Babel

@@ -25,29 +25,37 @@ export default class WaypointSelect extends React.Component {
 
   static contextType = ContextProvider
   componentDidMount() {
-    fetch(`${process.env.REACT_APP_URL}/waypoints/`, {
-      method: "POST",
-      body: JSON.stringify({
-        "origin": `${this.context.originCoords.lat},${this.context.originCoords.lng}`,
-        "dest": this.context.userTrip.destination,
-        "query": this.context.userInterests,
-        "radius": this.context.radius
-      }),
-      headers: {
-        "Content-Length": 61,
-        "Content-Type": "application/json; charset=utf-8"
-      },
-      credentials: "same-origin"
-    }).then((res) => {
-      if (res.status !== 200) {
-        this.setState({ error: true })
-      }
-      return res.json()
-    }).then((data) => {
-      this.setState({ endCoords: data.endCoords, points: data.points, loading: false })
-    }).catch(function (error) {
-      return error.message
-    })
+    let something = this;
+    try {
+      fetch(`${process.env.REACT_APP_URL}/waypoints/`, {
+            method: "POST",
+            body: JSON.stringify({
+              "origin": `${this.context.originCoords.lat},${this.context.originCoords.lng}`,
+              "dest": this.context.userTrip.destination,
+              "query": this.context.userInterests,
+              "radius": this.context.radius
+            }),
+            headers: {
+              "Content-Length": 61,
+              "Content-Type": "application/json; charset=utf-8"
+            },
+            credentials: "same-origin"
+          }).then((res) => {
+            if (res.status !== 200) {
+              this.setState({ error: true })
+            }
+            return res.json()
+          }).then((data) => {
+            this.setState({ endCoords: data.endCoords, points: data.points, loading: false })
+          }).catch(function (error) {
+            something.setState({ error: true })
+            return error.message
+          })
+    }
+    catch(err) {
+      this.setState({ error: true })
+    }
+    
   }
 
   displayOption = () => {
@@ -64,7 +72,7 @@ export default class WaypointSelect extends React.Component {
           >
             <FontAwesomeIcon
           icon={faPlus}
-            /> Add to My Trip
+            /> Add
           </button>
           <h2>{this.state.points[0].name}</h2>
           <button
@@ -73,7 +81,7 @@ export default class WaypointSelect extends React.Component {
           >
             <FontAwesomeIcon
           icon={faTimes}
-            /> Next Option
+            /> Skip
           </button>
         </div>
             {location.photoInfo ?

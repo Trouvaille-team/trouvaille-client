@@ -71,7 +71,7 @@ export default class Interests extends Component {
         <div className='interests-container'>
           <header className="interests-header">
             { /* have the heading display the users name */}
-            <h1>What does the user like to do when travelling?</h1>
+            <h2>What does the user like to do when travelling?</h2>
             <section>
               <p>Help us get an idea of what you like to partake in when travelling! Check those that apply to you.</p>
             </section>
