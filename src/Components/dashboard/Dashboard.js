@@ -83,8 +83,17 @@ class Dashboard extends React.Component {
 
   }
 
-  // getUserLocation = () => {
-  // }
+  renderUsername() {
+    return(
+      <h2>Welcome, {this.context.user.username}!</h2>
+    )
+  }
+
+  renderNoUsername() {
+    return(
+      <h2>Welcome!</h2>
+    )
+  }
 
   render() {
     if (this.state.error === true) {
@@ -105,7 +114,7 @@ class Dashboard extends React.Component {
 
           <HamburgerIcon />
           <div className='dashboard-container'>
-            <h1>Welcome, User</h1>
+            {this.context.user.username ? this.renderUsername() : this.renderNoUsername()}
             <Link to="/new-trip" className='start-trip-link'>Start a Trip</Link>
             <div className='new-places-container'>
               <h2>Here are some places nearby you might like to visit.</h2>
