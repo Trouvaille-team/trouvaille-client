@@ -23,11 +23,6 @@ class PlanTrip extends React.Component {
     this.context.setRadius(radius)
     //Set the state witin context (userTrip obj)
     this.context.setTrip(destination, detours, radius, time)
-    //Did it work????
-    //Need to submit twice to see values in console
-    //But looks like they're set after first submit!! -- see Components tab in devTools
-    //api post request in here...
-    //to what endpoint?
     this.props.history.push('/waypoints');
   }
 
